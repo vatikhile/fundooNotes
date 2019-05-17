@@ -1,0 +1,97 @@
+.card-rechange{
+
+display: flex;
+height: 8vh;
+border-radius: 10px;
+box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+
+}
+.search{
+
+    width:37vw; 
+    border-color: transparent;  
+    outline: none;
+}
+.search::-webkit-input-placeholder {
+    color: #81878c;
+    font-weight: lighter;
+    font-size: 18px;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height: 40px;
+   
+}
+.mat-icon-button{
+    display: flex;
+    outline: none;
+}
+.card{
+
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    
+    }
+    .search2{
+
+        width:40vw; 
+        border-color: transparent;  
+        outline: none;
+    }
+    .search2::-webkit-input-placeholder {
+        color: #81878c;
+        font-weight: lighter;
+        font-size: 21px;
+        font-family:Arial, Helvetica, sans-serif;
+       
+       
+    }
+    .textArea{
+        width:44vw; 
+        border-color: transparent;  
+        outline: none;
+        overflow: hidden;
+    }
+    .textArea::-webkit-input-placeholder {
+        color: #81878c;
+        font-weight: lighter;
+        font-size: 14px;
+        font-family:Arial, Helvetica, sans-serif;
+       
+       
+    }
+   
+   
+.card-center{
+  
+    display: flex;
+   padding-top: 20px;
+   height: 100%;
+
+}
+.form-control {
+    border: 0;
+  }
+  .search-bar {
+    border-radius:5px; 
+    padding-left:40px; 
+     width:86%;
+      height:30px ;
+      border:none;
+      
+  }
+  .icon-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.card-fix{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.row-card{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+}

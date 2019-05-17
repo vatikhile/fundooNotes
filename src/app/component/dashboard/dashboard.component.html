@@ -1,0 +1,112 @@
+<div fxLayout="column" fxLayoutAlign="end" >
+  <div  fxLayoutAlign="center start" fxFlex="100" class="toolbar">
+
+    <mat-toolbar class="mat-toolbar">
+      <mat-toolbar-row>
+        <div fxLayout="row" fxLayouutGap="2%" fxFlex="7">
+          <div>
+            <button mat-button (click)="sidenav.toggle()" class="mat-icon-button">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
+          <div>
+            <img mat-img src="https://ssl.gstatic.com/keep/keep.ico" />
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="73" fxLayoutGap="5%">
+          <div>
+            <span class="title">Fundoo Notes</span>
+          </div>
+          <div>
+            <mat-card fxLayoutAlign="center center" class="searchInput">
+              <button mat-icon-button class="searchButton">
+                <mat-icon>search</mat-icon>
+              </button>
+              <input mat-input class="searchInput" placeholder="Search">
+            </mat-card>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="20" fxLayoutGap="5%">
+          <div>
+            <button mat-icon-button>
+              <mat-icon>refresh</mat-icon>
+            </button>
+          </div>
+          <!-- <button mat-icon-button (click)="changeView(show)"><mat-icon *ngIf="show">view_stream</mat-icon><mat-icon *ngIf="show">view_module</mat-icon></button> -->
+          <div> <button mat-icon-button>
+              <mat-icon>settings</mat-icon>
+            </button>
+          </div>
+
+          <div>
+            <button mat-icon-button>
+              <mat-icon>notifications</mat-icon>
+            </button>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="end end" fxFlex>
+            <button mat-icon-button>
+              <mat-icon>logout</mat-icon>
+            </button>
+          </div>
+
+          <!-- <mat-drawer #drawer mode="side" opened="true" [position]="nav_position">
+            Drawer content
+          </mat-drawer> -->
+          <!-- <mat-menu class="custom">
+          <div fxLayout="column" fxLayoutAlign="left left" style="padding-right: 20px">
+            <span class="usernameStyle">{{userName}}</span>
+            <span class="emailStyle">{{email}}</span>
+            <button mat-button (click)="logout()" style="background-color:royalblue;margin-top:25px">Log Out</button>
+          </div>
+        </mat-menu> -->
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+ 
+  <!-- <mat-divider style="width: 100%;color: brown"></mat-divider> -->
+
+
+  <mat-sidenav-container [hasBackdrop]='false'>
+
+    <mat-sidenav #sidenav mode="side" class="sidenav" disableClose>
+
+      <button mat-raised-button style="width:100%">
+        <mat-icon>lightbulb_outline</mat-icon><span style="margin:28%">Note</span>
+      </button>
+
+      <button mat-raised-button style="width:100%">
+        <mat-icon>notifications_none</mat-icon><span style="margin:20%"> Reminders</span>
+      </button>
+      <hr>
+      <span>labels</span>
+      <div *ngFor="let label of userLabel">
+        <button mat-raised-button style="width:100%" routerLink="/dashboard/labelnote/{{label.labelId}}">
+          <div class="dashboard-content">
+            <div>
+              <mat-icon>label</mat-icon>
+            </div>
+            <div>{{label.labelTitle}}</div>
+          </div>
+        </button>
+      </div>
+      <button mat-raised-button style="width:100%">
+        <mat-icon>create</mat-icon><span style="margin:20%">edit label</span>
+      </button>
+
+      <hr>
+      <button mat-raised-button style="width:100%">
+        <mat-icon>archive</mat-icon>
+        <span style="margin:25%">Archive</span>
+      </button>
+      <button mat-raised-button style="width:100%">
+        <mat-icon>delete_outline</mat-icon>
+        <span style="margin:32%">Trash</span>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,54 @@
+
+.form1 {
+  justify-content: center;
+}
+
+@media(min-width:320px){
+.center1{
+margin-left: 1%;
+// margin-top: 5%;
+color: #202124;
+border: solid 0.3px;
+height: 510px;
+border-radius: 10px; 
+}
+} 
+@media screen and (max-width: 2560px) {
+  .button{
+    float: none;
+    width: 100%;
+  }
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.butt{
+  padding:2px 50px;
+}
+.content{
+
+size: 10000cm;
+text-align: center;
+
+}
+.header{
+  color:  blue ":F";
+ }
+.subtitle1{
+font-weight: 400;
+line-height: 32px;
+
+font-size: 24px;
+color:#202124;
+
+}
+.subtitle2{
+  font-weight: 400;
+  line-height: 24px;
+  
+  font-size: 16px;
+  color:#202124;
+}
+
+
