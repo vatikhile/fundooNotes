@@ -18,6 +18,16 @@ return this.http.post(this.baseUrl+url,data)
 }
 
 
+getEncodData(toConvert) {
+	const formBody = [];
+	for (const property in toConvert) {
+	const encodedKey = encodeURIComponent(property);
+	const encodedValue = encodeURIComponent(toConvert[property]);
+	formBody.push(encodedKey + '=' + encodedValue);
+	}
+	return formBody.join('&');
+	}
+
 post(url, data) {
 	const httpOptions = {
 		headers: new HttpHeaders({
@@ -27,7 +37,7 @@ post(url, data) {
 	};
 	console.log('token in s',localStorage.getItem('token')
 	);
-	return this.http.post(this.baseUrl + url, httpOptions);
+	return this.http.post(this.baseUrl + url,this.getEncodData(data), httpOptions);
 }
 
 }
