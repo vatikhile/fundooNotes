@@ -1,9 +1,9 @@
 <div fxLayout="column" fxLayoutAlign="end" >
-  <div  fxLayoutAlign="center start" fxFlex="100" class="toolbar">
+  <div  fxLayoutAlign="center start" fxFlex="80" class="toolbar">
 
     <mat-toolbar class="mat-toolbar">
       <mat-toolbar-row>
-        <div fxLayout="row" fxLayouutGap="2%" fxFlex="7">
+        <div fxLayout="row" fxLayoutGap="2%" fxFlex="7">
           <div>
             <button mat-button (click)="sidenav.toggle()" class="mat-icon-button">
               <mat-icon>menu</mat-icon>
@@ -64,12 +64,13 @@
     </mat-toolbar>
   </div>
  
-  <!-- <mat-divider style="width: 100%;color: brown"></mat-divider> -->
+ 
+  <mat-divider class="divider"></mat-divider>
 
 
-  <mat-sidenav-container [hasBackdrop]='false'>
+  <mat-sidenav-container >
 
-    <mat-sidenav #sidenav mode="side" class="sidenav" disableClose>
+    <mat-sidenav #sidenav mode="side" class="sidenav">
 
       <button mat-raised-button style="width:100%">
         <mat-icon>lightbulb_outline</mat-icon><span style="margin:28%">Note</span>
@@ -104,9 +105,10 @@
         <span style="margin:32%">Trash</span>
       </button>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content class="content">
+
       <router-outlet></router-outlet>
-    
+      
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

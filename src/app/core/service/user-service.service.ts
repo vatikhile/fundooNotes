@@ -8,16 +8,10 @@ import { log } from 'util';
 export class UserServiceService {
 baseUrl=environment.baseUrl;
 	constructor(private http:HttpClient ) { }
-	
-
-
-
-postRequest(url,data)
+	postRequest(url,data)
 {
 return this.http.post(this.baseUrl+url,data)
 }
-
-
 getEncodData(toConvert) {
 	const formBody = [];
 	for (const property in toConvert) {

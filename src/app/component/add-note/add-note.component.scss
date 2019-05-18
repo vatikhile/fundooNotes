@@ -1,13 +1,10 @@
 .card-rechange{
-
-display: flex;
-height: 8vh;
-border-radius: 10px;
-box-shadow: 0 3px 6px rgba(0,0,0,0.16);
-
+    height: 8vh;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.16);
+    min-width: 45vw;
 }
 .search{
-
     width:37vw; 
     border-color: transparent;  
     outline: none;
@@ -25,73 +22,43 @@ box-shadow: 0 3px 6px rgba(0,0,0,0.16);
     outline: none;
 }
 .card{
-
     display: flex;
     border-radius: 10px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
-    
+    box-shadow: 0 3px 8px rgba(0,0,0,0.16);
+    min-width: 45vw;
     }
-    .search2{
+.search2{
 
-        width:40vw; 
-        border-color: transparent;  
-        outline: none;
+    width:40vw; 
+    border-color: transparent;  
+    outline: none;
     }
-    .search2::-webkit-input-placeholder {
-        color: #81878c;
-        font-weight: lighter;
-        font-size: 21px;
-        font-family:Arial, Helvetica, sans-serif;
-       
-       
+.search2::-webkit-input-placeholder {
+    color: #81878c;
+    font-weight: lighter;
+    font-size: 21px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.textArea{
+    width:43vw; 
+    border-color: transparent;  
+    outline: none;
+    overflow: hidden;
+}
+.textArea::-webkit-input-placeholder {
+    color: #81878c;
+    font-weight: lighter;
+    font-size: 14px;
+    font-family:Arial, Helvetica, sans-serif;
     }
-    .textArea{
-        width:44vw; 
-        border-color: transparent;  
-        outline: none;
-        overflow: hidden;
-    }
-    .textArea::-webkit-input-placeholder {
-        color: #81878c;
-        font-weight: lighter;
-        font-size: 14px;
-        font-family:Arial, Helvetica, sans-serif;
-       
-       
-    }
-   
-   
-.card-center{
-  
-    display: flex;
+ .card-center{
+   display: flex;
    padding-top: 20px;
-   height: 100%;
+   height: 15vh;
+  }
 
-}
-.form-control {
-    border: 0;
+.card-center1{
+   display: flex;
+   padding-top: 20px;
+   height: 30vh;
   }
-  .search-bar {
-    border-radius:5px; 
-    padding-left:40px; 
-     width:86%;
-      height:30px ;
-      border:none;
-      
-  }
-  .icon-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-.card-fix{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.row-card{
-    display:flex;
-    justify-content: space-between;
-    flex-direction: row;
-}

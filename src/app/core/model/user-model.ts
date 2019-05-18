@@ -3,6 +3,6 @@ export class UserModel {
     lastName:string;
     email:string;
     password:string;
-    service:string;
+  
     
 }

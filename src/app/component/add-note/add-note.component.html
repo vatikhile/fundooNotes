@@ -1,91 +1,102 @@
-
-<div  class="card-center" *ngIf="flag===false"  fxLayout="row" fxLayoutAlign="center center" fxFlex="100" >
-  <mat-card   (click)="show()"  fxLayout="row" fxFlex="45" class="card-rechange">
- <div >
-         <input matInput fxFlex="100" class="search" placeholder="Take a Note..." >
-      
-   </div>
-   <div fxLayout="row" fxFlex="100"  fxLayoutGap="10%" fxLayoutAlign="end center" >
-   <div>
-
-      <button mat-icon-button style="width:100%" matTooltip="new note with drawing" class="icon">
-          <mat-icon>brush</mat-icon>
-          </button>
-    </div>
+<div class="card-center" *ngIf="flag===false" fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
+  <mat-card (click)="show()" fxLayout="row" fxFlex="45" class="card-rechange">
     <div>
-      <button mat-icon-button style="width:100%" matTooltip="new note with image" class="icon">
-        <mat-icon>photo</mat-icon>
-      </button>
+      <input matInput fxFlex="100" class="search" placeholder="Take a Note...">
+
     </div>
-     </div>
+    <div fxLayout="row" fxFlex="100" fxLayoutGap="10%" fxLayoutAlign="end center">
+      <div>
+
+        <button mat-icon-button style="width:100%" matTooltip="new note with drawing" class="icon">
+          <mat-icon>brush</mat-icon>
+        </button>
+      </div>
+      <div>
+        <button mat-icon-button style="width:100%" matTooltip="new note with image" class="icon">
+          <mat-icon>photo</mat-icon>
+        </button>
+      </div>
+    </div>
   </mat-card>
 </div>
 
 
-<div  class="card-center" *ngIf="flag===true" fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
-  <mat-card  fxLayout="row" fxFlex="45" class="card">
-    <div fxLayout="column"  fxFlex="20" class="abc" >
-<div>
+<div class="card-center1" *ngIf="flag===true" fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
+  <mat-card fxLayout="row" fxFlex="45" class="card">
+    <div fxLayout="column" fxFlex="20" class="abc">
+      <div>
         <div fxLayout="row" fxFlex="20" class="dshnegjk" fxLayoutGap="0%" fxLayoutAlign="start">
-    <div>
-      <input matInput  class="search2" placeholder="Title">
-    
-  
-    </div>
-    <div fxFlexLayout="end">
-        <button mat-icon-button matTooltip="Pin note"  >
-          <img src="https://img.icons8.com/material-outlined/24/000000/pin.png"></button>
-      </div>
-      </div>
-      </div>
-    
-    <div>
-      <textarea  matTextareaAutosize  class="textArea" placeholder="Take a Note..."></textarea>
-    </div>
-   <div>
+          <div>
+            <input matInput class="search2" placeholder="Title" [(ngModel)]="note.Title">
 
-    <div fxLayout="row" fxFlex="100" fxLayoutGap="15%" fxLayoutAlign="start">
-      <div>
-        <button mat-icon-button matTooltip="Remind me">
-          <mat-icon>add_alert</mat-icon>
-        </button>
+
+          </div>
+          <div fxFlexLayout="end">
+            <button mat-icon-button matTooltip="Pin note">
+              <img src="https://img.icons8.com/material-outlined/24/000000/pin.png"></button>
+          </div>
+        </div>
       </div>
+
       <div>
-        <button mat-icon-button matTooltip="Collaborator">
-          <mat-icon>person_add</mat-icon>
-        </button>
+        <textarea matTextareaAutosize class="textArea" placeholder="Take a Note..."  [(ngModel)]="note.description"></textarea>
       </div>
-      <div>
-        <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorMenu">
-          <mat-icon>color_lens</mat-icon>
-        </button>
-      </div>
-      <div>
-          <button mat-icon-button style="width:100%" matTooltip="New note with image" >
+
+
+
+      <div fxLayout="row" fxFlex="100" fxLayoutGap="15%" fxLayoutAlign="start">
+        <div>
+          <button mat-icon-button matTooltip="Remind me">
+            <mat-icon>add_alert</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button matTooltip="Collaborator">
+            <mat-icon>person_add</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button matTooltip="Change color" >
+            <mat-icon>color_lens</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button style="width:100%" matTooltip="New note with image">
             <mat-icon>photo</mat-icon>
           </button>
         </div>
-      <div>
-        <button mat-icon-button matTooltip="Archive">
-          <mat-icon>archive</mat-icon>
-        </button>
+        <div>
+          <button mat-icon-button matTooltip="Archive">
+            <mat-icon>archive</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button matTooltip="More">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </div>
+
+        <div>
+          <button mat-icon-button style="width:100%" matTooltip="new note with image" class="icon">
+            <mat-icon>undo</mat-icon>
+          </button>
+        </div>
+        <div>
+          <button mat-icon-button style="width:100%" matTooltip="new note with image" class="icon">
+            <mat-icon>redo</mat-icon>
+          </button>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start end">
+          <button mat-flat-button class="mat-icon-button" (click)="show(); onClose()">
+            Close
+          </button>
+        </div>
       </div>
-      <div>
-        <button mat-icon-button matTooltip="More">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-      </div>
-      <div fxLayoutAlign="end end">
-        <button mat-flat-button class="mat-icon-button" (click)="show();">
-          Close
-        </button>
-      </div>
-</div>
-    </div>
     </div>
   </mat-card>
 </div>
- 
+
+
 <!-- <div>
     <mat-menu #colorMenu="matMenu" [overlapTrigger]="false">
       <ng-template matMenuContent let-note="note">
@@ -94,8 +105,8 @@
               <div *ngFor="let color of colorCode">
                <span *ngFor="let iteam of color">
               <button mat-icon-button [style.background-color]="iteam" (click)="changeColor(iteam)"> -->
-                <!-- <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon> -->
-              <!-- </button>
+<!-- <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon> -->
+<!-- </button>
             </span>
           </div>
         </div>

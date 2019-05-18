@@ -6,6 +6,9 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
 import { ForgotComponent } from './component/forgot/forgot.component'
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
+import { IconComponent } from './component/icon/icon.component';
+import { AllNotesComponent } from './component/all-notes/all-notes.component';
+
 const routes: Routes = [
  
   { path: '',
@@ -30,15 +33,24 @@ const routes: Routes = [
     component: ResetPasswordComponent
   },
   {
+    path: 'allNotes',
+    component: AllNotesComponent
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
     children:[
       {
         path:'',
         component:AddNoteComponent
-      }
+      },
+      {
+        path: '',
+        component:IconComponent
+      },
     ]
   }
+
 ];
 
 @NgModule({
