@@ -1,9 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { UserModel } from '../../core/model/user-model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UserServiceService } from '../../core/service/user-service.service';
+import { UserServiceService } from '../../core/service/user/user-service.service';
 import { FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-reset-password',
@@ -11,8 +10,8 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
-  model:any
- // reset: UserModel = new UserModel();
+  model: any
+  // reset: UserModel = new UserModel();
   password = new FormControl('', Validators.required);
   //confirmPassword = new FormControl('', Validators.required);
 
@@ -32,14 +31,14 @@ export class ResetPasswordComponent implements OnInit {
   // }
   submit() {
 
-    this.model= {
+    this.model = {
       "newPassword": this.password.value
 
     }
     console.log("dataa sucess", this.model);
     var data = new FormData()
     data.append("newPassword", this.password.value)
-    this.userService.post('user/reset-password', this.model).subscribe(
+    this.userService.resetPassword(this.model).subscribe(
 
       data => {
         console.log("response", data);

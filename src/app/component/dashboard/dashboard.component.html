@@ -38,11 +38,6 @@
             </button>
           </div>
 
-          <div>
-            <button mat-icon-button>
-              <mat-icon>notifications</mat-icon>
-            </button>
-          </div>
           <div fxLayout="row" fxLayoutAlign="end end" fxFlex>
             <button mat-icon-button>
               <mat-icon>logout</mat-icon>
@@ -107,8 +102,10 @@
     </mat-sidenav>
     <mat-sidenav-content class="content">
 
-      <router-outlet></router-outlet>
-      
+      <app-add-note></app-add-note>
+      <div>
+      <app-all-notes></app-all-notes>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

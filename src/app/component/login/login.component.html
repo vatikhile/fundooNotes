@@ -19,10 +19,10 @@
         <div fxFlex="25" fxLayoutAlign="center" class="subtitle2"> Use your Fundoo Acount</div>
         <div fxLayout="column" fxflex="80" fxLayoutAlign="space-around center">
           <div  class="text">
-            <mat-form-field appearance="outline" >
+            <mat-form-field  appearance="outline" >
               <mat-label>Email</mat-label>
               <mat-error *ngIf="email.invalid">{{emailError()}}</mat-error>
-              <input matInput [(ngModel)]="login.email" [formControl]="email">
+              <input matInput  [(ngModel)]="login.email" [formControl]="email">
             </mat-form-field>
             
           </div>
@@ -31,7 +31,7 @@
               <mat-label>Password</mat-label>
               <mat-error *ngIf="password.invalid">{{passwordError()}}</mat-error>
               <input matInput [(ngModel)]="login.password" [formControl]="password" [type]="hide ? 'password' : 'text'">
-              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_on' : 'visibility'}}</mat-icon>
             </mat-form-field>
           </div>
         </div>
@@ -45,7 +45,7 @@
           </div>
           <div>
             <mat-card-actions class="butt">
-              <button mat-raised-button color="primary" (click)="submit()" [disabled]="emailError()!='' || passwordError()!=''" class="button" routerLink='/dashboard'>Next </button>
+              <button mat-raised-button color="primary" (click)="submit()" [disabled]="emailError()!='' || passwordError()!=''" class="button">Next </button>
             </mat-card-actions>
           </div>
         </div>

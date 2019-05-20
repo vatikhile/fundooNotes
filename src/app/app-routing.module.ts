@@ -8,13 +8,15 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { IconComponent } from './component/icon/icon.component';
 import { AllNotesComponent } from './component/all-notes/all-notes.component';
+import { AuthGuardService } from './core/service/auth/auth-guard.service'
 
 const routes: Routes = [
- 
-  { path: '',
-  redirectTo: '/login',
-  pathMatch: 'full'
-},
+
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     component: LoginComponent
@@ -33,28 +35,39 @@ const routes: Routes = [
     component: ResetPasswordComponent
   },
   {
-    path: 'allNotes',
-    component: AllNotesComponent
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    children:[
+    path: '',
+    component: DashboardComponent, canActivate: [AuthGuardService],
+    children: [
       {
-        path:'',
-        component:AddNoteComponent
+        path: 'addNote',
+        component: AddNoteComponent
       },
       {
-        path: '',
-        component:IconComponent
-      },
+        path:'getnote',
+        component:AllNotesComponent
+      }
     ]
+
   }
+  // {
+  //   path: 'allNotes',
+  //   component: AllNotesComponent
+  // },
+  // {
+  //   path: 'dashboard',
+  //   component: DashboardComponent,
+  //   children:[
+  //     {
+  //       path:'',
+  //       component:AddNoteComponent
+  //     },
+  //   ]
+  // }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

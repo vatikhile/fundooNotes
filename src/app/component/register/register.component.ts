@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { UserModel } from '../../core/model/user-model'
-import { UserServiceService } from '../../core/service/user-service.service'
+import { UserModel } from '../../core/model/Users/user-model'
+import { UserServiceService } from '../../core/service/user/user-service.service'
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -15,19 +15,19 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class RegisterComponent implements OnInit {
   register: UserModel = new UserModel();
-  firstName = new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z ]*")]);
-  lastName = new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z ]*")]);
-  userName = new FormControl('',[ Validators.required, Validators.email]);
-  
-  password = new FormControl('', [Validators.required,Validators.minLength(6)]);
-  confirmPassword = new FormControl('', [Validators.required,Validators.minLength(6)]);
+  firstName = new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z ]*")]);
+  lastName = new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z ]*")]);
+  userName = new FormControl('', [Validators.required, Validators.email]);
+
+  password = new FormControl('', [Validators.required, Validators.minLength(6)]);
+  confirmPassword = new FormControl('', [Validators.required, Validators.minLength(6)]);
   service = new FormControl('', [Validators.required]);
 
   constructor(private userService: UserServiceService, private router: Router, private snackbar: MatSnackBar) { }
 
   ngOnInit() {
-}
-  
+  }
+
   firstNameError() {
     return this.firstName.hasError('required') ? 'Enter first name' : '';
   }
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
 
   submit() {
     console.log("dataa sucess", this.register);
-    this.userService.postRequest('user/userSignUp', this.register).subscribe(
+    this.userService.register(this.register).subscribe(
       data => {
         console.log("response", data);
 

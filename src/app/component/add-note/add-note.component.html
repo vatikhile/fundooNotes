@@ -27,7 +27,7 @@
       <div>
         <div fxLayout="row" fxFlex="20" class="dshnegjk" fxLayoutGap="0%" fxLayoutAlign="start">
           <div>
-            <input matInput class="search2" placeholder="Title" [(ngModel)]="note.Title">
+            <input matInput class="search2" placeholder="Title" [(ngModel)]="addNote.title" >
 
 
           </div>
@@ -39,7 +39,7 @@
       </div>
 
       <div>
-        <textarea matTextareaAutosize class="textArea" placeholder="Take a Note..."  [(ngModel)]="note.description"></textarea>
+        <textarea matTextareaAutosize class="textArea" placeholder="Take a Note..." [(ngModel)]="addNote.description"></textarea>
       </div>
 
 
@@ -56,7 +56,7 @@
           </button>
         </div>
         <div>
-          <button mat-icon-button matTooltip="Change color" >
+          <button mat-icon-button matTooltip="Change color">
             <mat-icon>color_lens</mat-icon>
           </button>
         </div>
@@ -87,8 +87,8 @@
           </button>
         </div>
         <div fxLayout="row" fxLayoutAlign="start end">
-          <button mat-flat-button class="mat-icon-button" (click)="show(); onClose()">
-            Close
+          <button mat-flat-button class="mat-icon-button"  (click)="addNotes()">
+          Close
           </button>
         </div>
       </div>
