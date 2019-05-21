@@ -1,5 +1,6 @@
-<div fxLayout="column" fxLayoutAlign="end" >
-  <div  fxLayoutAlign="center start" fxFlex="80" class="toolbar">
+<!-- for displaying the toolbar in dashbaoard -->
+<div fxLayout="column" fxLayoutAlign="end">
+  <div fxLayoutAlign="center start" fxFlex="80" class="toolbar">
 
     <mat-toolbar class="mat-toolbar">
       <mat-toolbar-row>
@@ -32,80 +33,87 @@
               <mat-icon>refresh</mat-icon>
             </button>
           </div>
-          <!-- <button mat-icon-button (click)="changeView(show)"><mat-icon *ngIf="show">view_stream</mat-icon><mat-icon *ngIf="show">view_module</mat-icon></button> -->
+
           <div> <button mat-icon-button>
-              <mat-icon>settings</mat-icon>
+              <mat-icon>view_agenda</mat-icon>
             </button>
           </div>
-
-          <div fxLayout="row" fxLayoutAlign="end end" fxFlex>
-            <button mat-icon-button>
-              <mat-icon>logout</mat-icon>
-            </button>
+          <div fxLayout="row" fxLayoutAlign="end end" fxFlex="20">
+            <div fxLayout="row" fxLayoutAlign="end end" fxFlex>
+              <button mat-icon-button (click)="sign()">
+                <mat-icon>logout</mat-icon>
+              </button>
+              <div fxLayout="row" fxFlex="20">
+                <mat-card *ngIf="flag===true">
+                  <button mat-icon-button >Logout</button>
+                </mat-card>
+              </div>
+            </div>
           </div>
-
-          <!-- <mat-drawer #drawer mode="side" opened="true" [position]="nav_position">
-            Drawer content
-          </mat-drawer> -->
-          <!-- <mat-menu class="custom">
-          <div fxLayout="column" fxLayoutAlign="left left" style="padding-right: 20px">
-            <span class="usernameStyle">{{userName}}</span>
-            <span class="emailStyle">{{email}}</span>
-            <button mat-button (click)="logout()" style="background-color:royalblue;margin-top:25px">Log Out</button>
-          </div>
-        </mat-menu> -->
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
   </div>
- 
- 
-  <mat-divider class="divider"></mat-divider>
 
 
-  <mat-sidenav-container >
 
-    <mat-sidenav #sidenav mode="side" class="sidenav">
-
-      <button mat-raised-button style="width:100%">
-        <mat-icon>lightbulb_outline</mat-icon><span style="margin:28%">Note</span>
-      </button>
-
-      <button mat-raised-button style="width:100%">
-        <mat-icon>notifications_none</mat-icon><span style="margin:20%"> Reminders</span>
-      </button>
-      <hr>
-      <span>labels</span>
-      <div *ngFor="let label of userLabel">
-        <button mat-raised-button style="width:100%" routerLink="/dashboard/labelnote/{{label.labelId}}">
-          <div class="dashboard-content">
-            <div>
-              <mat-icon>label</mat-icon>
-            </div>
-            <div>{{label.labelTitle}}</div>
+  <mat-divider></mat-divider>
+  <!-- Open the sidenav bar after click on menu button in the dashboard -->
+  <div fxLayout="column" fxLayoutAlign="start" fxFlex="50">
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav mode="side" class="sidenav">
+        <div fxLayout="column" fxLayoutAlign="start" fxFlex="100">
+          <div><button mat-raised-button style="width:100%">
+              <mat-icon>lightbulb_outline</mat-icon><span style="margin:28%">Note</span>
+            </button>
           </div>
-        </button>
-      </div>
-      <button mat-raised-button style="width:100%">
-        <mat-icon>create</mat-icon><span style="margin:20%">edit label</span>
-      </button>
+          <div>
+            <button mat-raised-button style="width:100%">
+              <mat-icon>notifications_none</mat-icon><span style="margin:20%"> Reminders</span>
+            </button>
+          </div>
+          <div>
+            <mat-divider class="divider"></mat-divider>
+            <span class="name">LABELS</span>
+          </div>
+          <div>
+            <button mat-raised-button style="width:100%">
+              <div>
+                <div>
+                  <mat-icon>label</mat-icon>
+                  <span style="margin:28%">label1</span>
+                </div>
+              </div>
+            </button>
+          </div>
+          <div>
+            <button mat-raised-button style="width:100%">
+              <mat-icon>create</mat-icon><span style="margin:25%">edit label</span>
+            </button>
+          </div>
+          <div>
+            <mat-divider class="divider"></mat-divider>
+            <button mat-raised-button style="width:100%">
+              <mat-icon>archive</mat-icon>
+              <span style="margin:27%">Archive</span>
+            </button>
+          </div>
+          <div>
+            <button mat-raised-button style="width:100%">
+              <mat-icon>delete_outline</mat-icon>
+              <span style="margin:30%">Trash</span>
+            </button>
+          </div>
+        </div>
 
-      <hr>
-      <button mat-raised-button style="width:100%">
-        <mat-icon>archive</mat-icon>
-        <span style="margin:25%">Archive</span>
-      </button>
-      <button mat-raised-button style="width:100%">
-        <mat-icon>delete_outline</mat-icon>
-        <span style="margin:32%">Trash</span>
-      </button>
-    </mat-sidenav>
-    <mat-sidenav-content class="content">
+      </mat-sidenav>
+      <mat-sidenav-content>
 
-      <app-add-note></app-add-note>
-      <div>
-      <app-all-notes></app-all-notes>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+        <app-add-note></app-add-note>
+        <div>
+          <app-all-notes></app-all-notes>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
 </div>

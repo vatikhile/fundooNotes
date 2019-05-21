@@ -44,6 +44,12 @@ export class LoginComponent implements OnInit {
       data => {
         localStorage.setItem("token", data["id"]);
         localStorage.setItem("Id", data["userId"]);
+        localStorage.setItem("firstName", data["firstName"]);
+        localStorage.setItem("lastName", data["lastName"]);
+        localStorage.setItem("email", data["email"]);
+        
+        
+
         console.log("response", data);
         console.log("tokknnn");
 

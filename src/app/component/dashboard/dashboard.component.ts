@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+private flag:boolean=false;
   constructor() { }
 
   ngOnInit() {
   }
+sign(){
+this.flag=!this.flag;
+
+}
 
 }

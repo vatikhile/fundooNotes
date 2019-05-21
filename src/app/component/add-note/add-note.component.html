@@ -1,3 +1,4 @@
+<!-- for displaying the small matcard -->
 <div class="card-center" *ngIf="flag===false" fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
   <mat-card (click)="show()" fxLayout="row" fxFlex="45" class="card-rechange">
     <div>
@@ -20,14 +21,14 @@
   </mat-card>
 </div>
 
-
+<!-- for displaying the another matcard after click on small matcard-->
 <div class="card-center1" *ngIf="flag===true" fxLayout="row" fxLayoutAlign="center center" fxFlex="100">
   <mat-card fxLayout="row" fxFlex="45" class="card">
     <div fxLayout="column" fxFlex="20" class="abc">
       <div>
         <div fxLayout="row" fxFlex="20" class="dshnegjk" fxLayoutGap="0%" fxLayoutAlign="start">
           <div>
-            <input matInput class="search2" placeholder="Title" [(ngModel)]="addNote.title" >
+            <input matInput class="search2" placeholder="Title" [(ngModel)]="addNote.title">
 
 
           </div>
@@ -39,7 +40,8 @@
       </div>
 
       <div>
-        <textarea matTextareaAutosize class="textArea" placeholder="Take a Note..." [(ngModel)]="addNote.description"></textarea>
+        <textarea matTextareaAutosize class="textArea" placeholder="Take a Note..."
+          [(ngModel)]="addNote.description"></textarea>
       </div>
 
 
@@ -87,31 +89,11 @@
           </button>
         </div>
         <div fxLayout="row" fxLayoutAlign="start end">
-          <button mat-flat-button class="mat-icon-button"  (click)="addNotes()">
-          Close
+          <button mat-flat-button class="mat-icon-button" (click)="addNotes()">
+            Close
           </button>
         </div>
       </div>
     </div>
   </mat-card>
 </div>
-
-
-<!-- <div>
-    <mat-menu #colorMenu="matMenu" [overlapTrigger]="false">
-      <ng-template matMenuContent let-note="note">
-        <div fxLayout="row wrap" fxLayoutAlign="end
-              center" fxFlex="95">
-              <div *ngFor="let color of colorCode">
-               <span *ngFor="let iteam of color">
-              <button mat-icon-button [style.background-color]="iteam" (click)="changeColor(iteam)"> -->
-<!-- <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon> -->
-<!-- </button>
-            </span>
-          </div>
-        </div>
-      </ng-template>
-    </mat-menu>
-  </div>
-   </mat-card>
-</div> -->

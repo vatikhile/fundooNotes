@@ -8,10 +8,11 @@ import { environment } from '../../../../environments/environment'
 export class HttpServiceService {
   baseUrl = environment.baseUrl;
   constructor(private http: HttpClient) { }
-
+  //It hit the API for login ,forgot and register purpose
   postRequest(url, data) {
     return this.http.post(this.baseUrl + url, data)
   }
+  //It make the data into encoded format
   getEncodData(toConvert) {
     const formBody = [];
     for (const property in toConvert) {
@@ -21,7 +22,7 @@ export class HttpServiceService {
     }
     return formBody.join('&');
   }
-
+//It hit the API for reset the password
   post(url, data) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -32,7 +33,7 @@ export class HttpServiceService {
     console.log('token in s', localStorage.getItem('token'));
     return this.http.post(this.baseUrl + url, this.getEncodData(data), httpOptions);
   }
-
+  //It hit the API for adding the new note in the database
   addNotes(url, data) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -44,9 +45,10 @@ export class HttpServiceService {
     console.log("token--------->", localStorage.getItem('token'));
     return this.http.post(this.baseUrl + url, data, httpOptions)
 
-  
+
   }
-getData(url) {
+  //It hit the API for getting the note which is added in the database
+  getData(url) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem('token')

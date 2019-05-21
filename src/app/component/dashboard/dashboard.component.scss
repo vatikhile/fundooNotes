@@ -22,13 +22,31 @@
     outline: none;
  }
 .sidenav{
+    display: flex;
     width: 22vw;
     position: absolute;
     overflow-y: scroll;
+    
   }
-.content{
-    overflow-y: scroll;
+  .mat-raised-button{
+
+    display: flex;
+    outline: none;
+    border-color: transparent;
+    box-shadow: none;
+    height: 8vh;
+    border-top-right-radius: 50px 50px;
+   border-bottom-right-radius: 50px 50px;
+  }
+  .mat-raised-button:hover
+{
+    background-image:none;
+    background-color:#f1f3f3;
+    border-right: 50px 50px;
 }
+.mat-raised-button:focus {
+    background-color: #fcefc3;
+  }
 /deep/.mat-drawer-transition .mat-drawer-content {
     height: 100vh;
   }
@@ -56,4 +74,11 @@
     width: 40p;
     height: 40px;
     background-color: rgba(236,232,226,0)
+}
+.name{
+    color: #5f6268;
+    font-weight:inherit;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+
 }

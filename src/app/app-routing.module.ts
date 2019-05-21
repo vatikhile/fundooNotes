@@ -6,7 +6,6 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
 import { ForgotComponent } from './component/forgot/forgot.component'
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
-import { IconComponent } from './component/icon/icon.component';
 import { AllNotesComponent } from './component/all-notes/all-notes.component';
 import { AuthGuardService } from './core/service/auth/auth-guard.service'
 

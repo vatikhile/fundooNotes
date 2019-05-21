@@ -19,7 +19,7 @@
         <div fxFlex="25" fxLayoutAlign="center" class="subtitle2"> Use your Fundoo Acount</div>
         <div fxLayout="column" fxflex="80" fxLayoutAlign="space-around center">
           <div  class="text">
-            <mat-form-field  appearance="outline" >
+            <mat-form-field  appearance="outline" class="input">
               <mat-label>Email</mat-label>
               <mat-error *ngIf="email.invalid">{{emailError()}}</mat-error>
               <input matInput  [(ngModel)]="login.email" [formControl]="email">
@@ -30,9 +30,9 @@
             <mat-form-field appearance="outline">
               <mat-label>Password</mat-label>
               <mat-error *ngIf="password.invalid">{{passwordError()}}</mat-error>
-              <input matInput [(ngModel)]="login.password" [formControl]="password" [type]="hide ? 'password' : 'text'">
-              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_on' : 'visibility'}}</mat-icon>
-            </mat-form-field>
+              <input matInput [(ngModel)]="login.password" [formControl]="password" [type]="hide ? 'text':'password'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+             </mat-form-field>
           </div>
         </div>
       </div>

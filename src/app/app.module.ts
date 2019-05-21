@@ -28,22 +28,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { IconComponent } from './component/icon/icon.component';
-
-// import { HttpServiceService} from '../../src/app/core/service/http/http-service.service';
-// import { UserServiceService} from '../../src/app/core/service/user/user-service.service';
-
 import { MatChipsModule } from '@angular/material/chips';
-// import { AuthGuard } from '../app/core/service/authGurad/auth.guard';
 import { AllNotesComponent } from './component/all-notes/all-notes.component';
-import { Routes, RouterModule, } from '@angular/router';
-// import { AddNoteComponent } from './component/add-note/add-note.component';
-// const myRoots: Routes = [
-//   { path: '', component: DashboardComponent, pathMatch: 'full' , canActivate: 
-//   [AuthGuard]},
-//   { path: 'register', component: RegisterComponent },
-//   { path: 'login', component: LoginComponent},
-//   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
-// ];
+
 
 
 @NgModule({
@@ -57,7 +44,7 @@ import { Routes, RouterModule, } from '@angular/router';
     AddNoteComponent,
     IconComponent,
     AllNotesComponent,
-  
+
 
   ],
   imports: [
@@ -87,13 +74,7 @@ import { Routes, RouterModule, } from '@angular/router';
     MatTooltipModule,
     MatChipsModule,
 
-    // HttpServiceService,
-    // UserServiceService
 
-    // RouterModule.forRoot(
-    //   myRoots,
-    //   { enableTracing: true } // <-- debugging purposes only
-    // )
   ],
 
   providers: [],
