@@ -1,119 +1,128 @@
 <!-- for displaying the toolbar in dashbaoard -->
-<div fxLayout="column" fxLayoutAlign="end">
-  <div fxLayoutAlign="center start" fxFlex="80" class="toolbar">
+<div fxLayout="column" fxLayoutAlign="end" fxFlex="100" class="main">
 
-    <mat-toolbar class="mat-toolbar">
-      <mat-toolbar-row>
-        <div fxLayout="row" fxLayoutGap="2%" fxFlex="7">
-          <div>
-            <button mat-button (click)="sidenav.toggle()" class="mat-icon-button">
-              <mat-icon>menu</mat-icon>
-            </button>
-          </div>
-          <div>
-            <img mat-img src="https://ssl.gstatic.com/keep/keep.ico" />
-          </div>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="73" fxLayoutGap="5%">
-          <div>
-            <span class="title">Fundoo Notes</span>
-          </div>
-          <div>
-            <mat-card fxLayoutAlign="center center" class="searchInput">
-              <button mat-icon-button class="searchButton">
-                <mat-icon>search</mat-icon>
-              </button>
-              <input mat-input class="searchInput" placeholder="Search">
-            </mat-card>
-          </div>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start center" fxFlex="20" fxLayoutGap="5%">
-          <div>
-            <button mat-icon-button>
-              <mat-icon>refresh</mat-icon>
-            </button>
-          </div>
 
-          <div> <button mat-icon-button>
-              <mat-icon>view_agenda</mat-icon>
+  <mat-toolbar class="mat-toolbar">
+    <mat-toolbar-row fxLayoutGap="10px">
+      <div fxLayout="row" fxLayoutGap="10px" class="12">
+        <div fxFlex="50">
+
+          <button mat-button (click)="sidenav.toggle()" class="mat-icon-button">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <div fxFlex="50">
+          <img mat-img src="https://ssl.gstatic.com/keep/keep.ico" />
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center" fxFlex="73" fxLayoutGap="5%" class="13">
+        <div>
+          <span class="title">fundooNotes</span>
+        </div>
+
+        <div>
+          <mat-card fxLayoutAlign="center center" class="searchInput">
+            <button mat-icon-button class="searchButton">
+              <mat-icon>search</mat-icon>
             </button>
-          </div>
-          <div fxLayout="row" fxLayoutAlign="end end" fxFlex="20">
-            <div fxLayout="row" fxLayoutAlign="end end" fxFlex>
-              <button mat-icon-button (click)="sign()">
-                <mat-icon>logout</mat-icon>
-              </button>
-              <div fxLayout="row" fxFlex="20">
-                <mat-card *ngIf="flag===true">
-                  <button mat-icon-button >Logout</button>
-                </mat-card>
-              </div>
+            <input mat-input class="searchInput" placeholder="Search">
+          </mat-card>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start center" fxFlex="20" fxLayoutGap="5px" class="15">
+        <div>
+          <button mat-icon-button>
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+
+        <div> <button mat-icon-button>
+            <mat-icon>view_agenda</mat-icon>
+          </button>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end end" fxFlex="20" class="16">
+          <div fxLayout="row" fxLayoutAlign="end end" fxFlex>
+            <button mat-icon-button (click)="sign()">
+              <mat-icon>logout</mat-icon>
+            </button>
+            <div fxLayout="row" fxFlex="20" class="17">
+              <mat-card *ngIf="flag===true">
+                <button mat-icon-button>Logout</button>
+              </mat-card>
             </div>
           </div>
         </div>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </div>
-
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
 
   <mat-divider></mat-divider>
-  <!-- Open the sidenav bar after click on menu button in the dashboard -->
-  <div fxLayout="column" fxLayoutAlign="start" fxFlex="50">
-    <mat-sidenav-container>
-      <mat-sidenav #sidenav mode="side" class="sidenav">
-        <div fxLayout="column" fxLayoutAlign="start" fxFlex="100">
-          <div><button mat-raised-button style="width:100%">
-              <mat-icon>lightbulb_outline</mat-icon><span style="margin:28%">Note</span>
-            </button>
-          </div>
-          <div>
-            <button mat-raised-button style="width:100%">
-              <mat-icon>notifications_none</mat-icon><span style="margin:20%"> Reminders</span>
-            </button>
-          </div>
-          <div>
-            <mat-divider class="divider"></mat-divider>
-            <span class="name">LABELS</span>
-          </div>
-          <div>
-            <button mat-raised-button style="width:100%">
-              <div>
+  <div fxLayout="column" fxLayoutAlign="start start" fxFlex="100" class="18">
+    <!-- Open the sidenav bar after click on menu button in the dashboard -->
+    <div fxLayout="column" fxLayoutAlign="start" fxFlex="30" class="19">
+      <mat-sidenav-container>
+        <mat-sidenav fxLayout="column" fxFlex="100" #sidenav mode="side" class="sidenav">
+          <div fxLayout="column" fxLayoutAlign="start-between" fxFlex="100" class="20">
+            <div>
+
+              <button mat-raised-button fxFlex="97">
+                <mat-icon>lightbulb_outline</mat-icon>
+                <span> Note</span>
+              </button>
+
+            </div>
+
+            <div>
+
+              <button mat-raised-button fxFlex="97">
+                <mat-icon>notifications_none</mat-icon>
+                <span> Reminders</span>
+              </button>
+            </div>
+            <div>
+              <mat-divider></mat-divider>
+              <span class="name">LABELS</span>
+            </div>
+            <div>
+              <button mat-raised-button fxFlex="97">
                 <div>
-                  <mat-icon>label</mat-icon>
-                  <span style="margin:28%">label1</span>
+                  <div>
+                    <mat-icon>label</mat-icon>
+                    <span style="margin:28%">label1</span>
+                  </div>
                 </div>
-              </div>
-            </button>
-          </div>
-          <div>
-            <button mat-raised-button style="width:100%">
-              <mat-icon>create</mat-icon><span style="margin:25%">edit label</span>
-            </button>
-          </div>
-          <div>
-            <mat-divider class="divider"></mat-divider>
-            <button mat-raised-button style="width:100%">
-              <mat-icon>archive</mat-icon>
-              <span style="margin:27%">Archive</span>
-            </button>
-          </div>
-          <div>
-            <button mat-raised-button style="width:100%">
-              <mat-icon>delete_outline</mat-icon>
-              <span style="margin:30%">Trash</span>
-            </button>
-          </div>
-        </div>
+              </button>
+            </div>
+            <div>
+              <button mat-raised-button fxFlex="97">
+                <mat-icon>create</mat-icon><span style="margin:25%">edit label</span>
+              </button>
+            </div>
 
-      </mat-sidenav>
-      <mat-sidenav-content>
-
-        <app-add-note></app-add-note>
-        <div>
-          <app-all-notes></app-all-notes>
-        </div>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+            <mat-divider></mat-divider>
+            <div>
+              <mat-divider class="divider"></mat-divider>
+              <button mat-raised-button fxFlex="97">
+                <mat-icon>archive</mat-icon>
+                <span style="margin:27%">Archive</span>
+              </button>
+            </div>
+            <div>
+              <button mat-raised-button fxFlex="97">
+                <mat-icon>delete_outline</mat-icon>
+                <span style="margin:30%">Trash</span>
+              </button>
+            </div>
+          </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <app-add-note></app-add-note>
+          <div>
+            <app-all-notes></app-all-notes>
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>
   </div>
 </div>

@@ -1,8 +1,8 @@
 .card-rechange{
-    height: 8vh;
+    // height: 10vh;
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.16);
-    min-width: 45vw;
+    // min-width: 45vw;
 }
 .search{
     width:37vw; 
@@ -25,7 +25,8 @@
     display: flex;
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.16);
-    min-width: 45vw;
+    // min-width: vw;
+    position: fixed;
     }
 .search2{
 
@@ -53,12 +54,14 @@
     }
  .card-center{
    display: flex;
-   padding-top: 20px;
-   height: 15vh;
+//    padding-top: 20px;
+   height: 18vh;
+   background-color: white;
   }
 
 .card-center1{
    display: flex;
-   padding-top: 20px;
+//    padding-top: 20px;
    height: 30vh;
+   background-color: white;
   }

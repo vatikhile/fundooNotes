@@ -1,10 +1,12 @@
 <!-- for displaying notes i.e title and description on the matcard -->
-  <div class="Card" fxLayout="row wrap" fxLayoutAlign="space-around end">
+  <div class="Card" fxLayout="row wrap" fxLayoutAlign="space-around end" fxFlex="100">
+        <div fxLayout="row wrap " fxLayoutAlign="space-around  end" fxFlex="60">
       <div *ngFor="let items of addNotes">
           <mat-card  class="smallcard">
               <div >{{items.title}}</div>
               <div>{{items.description}}
               </div>
           </mat-card>
+          </div>
           </div>
       </div>
