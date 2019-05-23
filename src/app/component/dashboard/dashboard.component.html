@@ -58,7 +58,7 @@
 
 
   <mat-divider></mat-divider>
-  <div fxLayout="column" fxLayoutAlign="start start" fxFlex="100" class="18">
+  <div fxLayout="column" fxLayoutAlign="start start" fxFlex="100" class="scroll">
     <!-- Open the sidenav bar after click on menu button in the dashboard -->
     <div fxLayout="column" fxLayoutAlign="start" fxFlex="30" class="19">
       <mat-sidenav-container>
@@ -116,11 +116,15 @@
             </div>
           </div>
         </mat-sidenav>
-        <mat-sidenav-content>
+        <mat-sidenav-content class="content" >
+          
+          <div>
           <app-add-note></app-add-note>
+        </div>
           <div>
             <app-all-notes></app-all-notes>
           </div>
+        
         </mat-sidenav-content>
       </mat-sidenav-container>
     </div>

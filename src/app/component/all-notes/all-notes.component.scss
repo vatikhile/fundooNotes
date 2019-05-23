@@ -1,13 +1,44 @@
 .smallcard
 {
-width: 220px;
+// width: 220px;
 margin-top: 20px;
 border-radius: 12px;
 border-color: transparent;  
 outline: none;
 background-color: white;
+width: 17vw;
+position:relative;
 } 
 .Card{
+    display: flex;
+    // min-width: 56vw;
+    // width: 100vw;
+    // max-width: 57vw;
+// display: flex;
+//     //  background-color: white;
+//     position:relative;
+// width: 71vw;
+// margin-right: 17%;
+margin-left: 15%;
+width: 60vw;
+// width:1132px;
 
-    background-color: white;
 }
+.mat-card:hover{
+.icon_hover{
+visibility: visible;
+}
+}
+.icon_hover
+{
+visibility: hidden;
+}
+
+// .Card_div{
+//     display: flex;
+//     min-width: 56vw;
+//     width: 66vw;
+//     max-width: 57vw;
+// }
+// }
+

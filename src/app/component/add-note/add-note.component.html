@@ -1,4 +1,5 @@
 <!-- for displaying the small matcard -->
+<div fxLayout="row"  fxFlex="100" >
 <div class="card-center" *ngIf="flag===false" fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
   <mat-card (click)="show()" fxLayout="row" fxFlex="45" class="card-rechange">
     <div>
@@ -39,62 +40,22 @@
           </div>
        </div>
       
-
+      
       <div>
         <textarea matTextareaAutosize class="textArea" placeholder="Take a Note..."
           [(ngModel)]="addNote.description"></textarea>
       </div>
-
-
-
-      <div fxLayout="row" fxFlex="100" fxLayoutGap="15%" fxLayoutAlign="start">
-        <div>
-          <button mat-icon-button matTooltip="Remind me">
-            <mat-icon>add_alert</mat-icon>
-          </button>
-        </div>
-        <div>
-          <button mat-icon-button matTooltip="Collaborator">
-            <mat-icon>person_add</mat-icon>
-          </button>
-        </div>
-        <div>
-          <button mat-icon-button matTooltip="Change color">
-            <mat-icon>color_lens</mat-icon>
-          </button>
-        </div>
-        <div>
-          <button mat-icon-button style="width:100%" matTooltip="New note with image">
-            <mat-icon>photo</mat-icon>
-          </button>
-        </div>
-        <div>
-          <button mat-icon-button matTooltip="Archive">
-            <mat-icon>archive</mat-icon>
-          </button>
-        </div>
-        <div>
-          <button mat-icon-button matTooltip="More">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-        </div>
-
-        <div>
-          <button mat-icon-button style="width:100%" matTooltip="new note with image" class="icon">
-            <mat-icon>undo</mat-icon>
-          </button>
-        </div>
-        <div>
-          <button mat-icon-button style="width:100%" matTooltip="new note with image" class="icon">
-            <mat-icon>redo</mat-icon>
-          </button>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start end">
-          <button mat-flat-button class="mat-icon-button" (click)="addNotes()">
-            Close
-          </button>
-        </div>
+      <div fxLayout="row" >
+      <div>
+      <app-icon></app-icon>
+    </div>
+    <div>
+        <button mat-flat-button class="mat-icon-button" (click)="addNotes()">
+          Close
+        </button>
+      </div>
       </div>
     </div>
   </mat-card>
+</div>
 </div>
