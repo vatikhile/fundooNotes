@@ -13,7 +13,7 @@ return this.http.addNotes("notes/addNotes",data)
 console.log("in note service");
 }
 
-getNotes():any{
+getNotes(){
 return this.http.getData("notes/getNotesList")
 
 }

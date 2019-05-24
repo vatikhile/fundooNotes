@@ -30,6 +30,15 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { IconComponent } from './component/icon/icon.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { AllNotesComponent } from './component/all-notes/all-notes.component';
+import {LabelComponent} from './component/label/label.component';
+import { TrashComponent } from './component/trash/trash.component';
+import { CollaboratorComponent } from './component/collaborator/collaborator.component';
+// import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
+import { ArchiveComponent } from './component/archive/archive.component'
+import { MatDialogModule } from '@angular/material/dialog';
+// import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
+
+
 
 
 
@@ -44,6 +53,15 @@ import { AllNotesComponent } from './component/all-notes/all-notes.component';
     AddNoteComponent,
     IconComponent,
     AllNotesComponent,
+    LabelComponent,
+    TrashComponent,
+    CollaboratorComponent,
+    // DialogBoxComponent,
+    ArchiveComponent,
+   
+    
+
+  
 
 
   ],
@@ -73,11 +91,12 @@ import { AllNotesComponent } from './component/all-notes/all-notes.component';
     MatDividerModule,
     MatTooltipModule,
     MatChipsModule,
-
-
+    MatDialogModule,
+    
   ],
 
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[LabelComponent]
 })
 export class AppModule { }

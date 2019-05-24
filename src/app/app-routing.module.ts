@@ -7,6 +7,7 @@ import { ForgotComponent } from './component/forgot/forgot.component'
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { AllNotesComponent } from './component/all-notes/all-notes.component';
+import {LabelComponent} from './component/label/label.component'
 import { AuthGuardService } from './core/service/auth/auth-guard.service'
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
+ 
   {
     path: 'forgot',
     component: ForgotComponent
@@ -44,7 +46,11 @@ const routes: Routes = [
       {
         path:'getnote',
         component:AllNotesComponent
-      }
+      },
+      {
+        path: 'label',
+        component: LabelComponent
+      },
     ]
 
   }

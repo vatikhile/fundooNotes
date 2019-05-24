@@ -1,7 +1,5 @@
 <!-- for displaying the toolbar in dashbaoard -->
 <div fxLayout="column" fxLayoutAlign="end" fxFlex="100" class="main">
-
-
   <mat-toolbar class="mat-toolbar">
     <mat-toolbar-row fxLayoutGap="10px">
       <div fxLayout="row" fxLayoutGap="10px" class="12">
@@ -95,7 +93,7 @@
               </button>
             </div>
             <div>
-              <button mat-raised-button fxFlex="97">
+              <button mat-raised-button fxFlex="97" (click)="dialogOpen()">
                 <mat-icon>create</mat-icon><span style="margin:25%">edit label</span>
               </button>
             </div>
