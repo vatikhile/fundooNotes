@@ -61,7 +61,9 @@
     <div fxLayout="column" fxLayoutAlign="start" fxFlex="30" class="19">
       <mat-sidenav-container>
         <mat-sidenav fxLayout="column" fxFlex="100" #sidenav mode="side" class="sidenav">
-          <div fxLayout="column" fxLayoutAlign="start-between" fxFlex="100" class="20">
+          <div fxLayout="column" fxFlex="100" fxLayoutGap="10px">
+            <div>
+           <div fxLayout="column" fxLayoutAlign="start-between" fxFlex="100" class="20">
             <div>
 
               <button mat-raised-button fxFlex="97">
@@ -82,19 +84,31 @@
               <mat-divider></mat-divider>
               <span class="name">LABELS</span>
             </div>
-            <div>
+          </div>
+        </div>
+        <div>
+          <div fxLayout="column" fxLayoutAlign="start-between" fxFlex="100">
+            <div >
+              <span>
               <button mat-raised-button fxFlex="97">
-                <div>
-                  <div>
-                    <mat-icon>label</mat-icon>
-                    <span style="margin:28%">label1</span>
+                
+                <div >
+                  <div *ngFor="let item of addLabels">
+                    <!-- <div>
+                   <img src="../../../assets/outline-label-24px.svg">
+
+                    <div style="margin:28%">{{item.label}}</div>
+                  </div> -->
+                  <mat-icon>label</mat-icon>
+                  <div><span>{{item.label}}</span></div>
                   </div>
                 </div>
               </button>
+            </span>
             </div>
             <div>
               <button mat-raised-button fxFlex="97" (click)="dialogOpen()">
-                <mat-icon>create</mat-icon><span style="margin:25%">edit label</span>
+                  <img src="../../../assets/outline-create-24px.svg"><span style="margin:25%">edit label</span>
               </button>
             </div>
 
@@ -112,6 +126,8 @@
                 <span style="margin:30%">Trash</span>
               </button>
             </div>
+          </div>
+        </div>
           </div>
         </mat-sidenav>
         <mat-sidenav-content class="content" >

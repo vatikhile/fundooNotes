@@ -22,9 +22,9 @@ export class HttpServiceService {
     }
     return formBody.join('&');
   }
-//It hit the API for reset the password
+  //It hit the API for reset the password
   post(url, data) {
-    const httpOptions = {
+    let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': localStorage.getItem('token')
@@ -35,7 +35,7 @@ export class HttpServiceService {
   }
   //It hit the API for adding the new note in the database
   addNotes(url, data) {
-    const httpOptions = {
+    let httpOptions = {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem('token')
 
@@ -49,7 +49,7 @@ export class HttpServiceService {
   }
   //It hit the API for getting the note which is added in the database
   getData(url) {
-    const httpOptions = {
+    let httpOptions = {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem('token')
 
@@ -60,5 +60,26 @@ export class HttpServiceService {
     return this.http.get(this.baseUrl + url, httpOptions)
 
   }
+  postEdit(url, data) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.post(this.baseUrl + url, data, httpOptions);
+  }
+  showLabel(url) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.get(this.baseUrl + url, httpOptions);
+
+
+  }
+
 }
 

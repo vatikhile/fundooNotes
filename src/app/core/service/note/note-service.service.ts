@@ -17,5 +17,13 @@ getNotes(){
 return this.http.getData("notes/getNotesList")
 
 }
+addLabel(data)
+{
+  return this.http.postEdit("noteLabels",data)
 
+}
+showNoteLabel()
+{
+  return this.http.showLabel("noteLabels/getNoteLabelList")
+}
 }
