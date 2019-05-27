@@ -26,5 +26,11 @@ export class NoteServiceService {
   deleteLabels(id){
     return this.http.delete('notelabels/'+id+'/deleteNoteLabel');
   }
+  updateLabel(reqbody)
+  {
+    return this.http.postEd('noteLabels/'+reqbody.id+'/updateNoteLabel',reqbody);
+    console.log("wwwww",reqbody.id);
+    
+  }
 }
 

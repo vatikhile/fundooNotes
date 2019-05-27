@@ -48,7 +48,7 @@ export class HttpServiceService {
 
   }
   //It hit the API for getting the note which is added in the database
-  getData(url) {
+    getData(url) {
     let httpOptions = {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem('token')
@@ -89,6 +89,15 @@ export class HttpServiceService {
 
   }
   return this.http.delete(this.baseUrl+url,httpOptions);
+}
+postEd(url, data) {
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    })
+  }
+  return this.http.post(this.baseUrl + url, data, httpOptions);
 }
 
 }

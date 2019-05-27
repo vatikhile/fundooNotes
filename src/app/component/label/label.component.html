@@ -36,10 +36,36 @@
         </button>
       </div>
     </div>
-    <div><span>{{item.label}}</span></div>
-    <button mat-button (click)="delete(item.id)">
-      <mat-icon>create</mat-icon>
-    </button>
+    <!-- <mat-form-field >
+        <textarea matInput (click)="teamchange(item.id)" [(ngModel)]="labelNote.newLabel" class="example-full-width">{{item.label}}</textarea>
+      </mat-form-field> -->
+    <!-- <div  input matInput (click)="teamchange(item.id)" contenteditable="true" [(ngModel)]="labelNote.newLabel" class="edit">{{item.label}}</div> -->
+    <form class="example-form">
+
+        <mat-form-field  class="example-full-width">
+          <span >  {{item.label}} </span>
+          
+          <input matInput (click)="teamchange(item.id)" [(ngModel)]="labelNote.newLabel" [ngModelOptions]="{standalone: true}">
+        
+        </mat-form-field>
+        <button mat-button *ngIf="item.id==Id" (click)="team(item.id)">
+            <mat-icon>check</mat-icon>
+          </button>
+          <button mat-button *ngIf="item.id!=Id" (click)="teamchange(item.id)">
+              <mat-icon>create</mat-icon>
+            </button>
+        
+      </form>
+     
+    <!-- <button mat-button *ngIf="item.id==Id" (click)="team(item.id)">
+      <mat-icon>check</mat-icon>
+    </button> -->
+    <!-- <button mat-button *ngIf="item.id!=Id" (click)="teamchange(item.id)">
+        <mat-icon>create</mat-icon>
+      </button> -->
+    <!-- <button mat-button>
+        <mat-icon>create</mat-icon>
+      </button> -->
   </div>
   <mat-divider></mat-divider>
   <div>

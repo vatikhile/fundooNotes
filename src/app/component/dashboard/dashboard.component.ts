@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
   //  this.addLabels=this.child.deleteLabel(){
   //    this.dataService.
   //  }
-  this.child.addLabels;
+  // this.child.addLabels;
   // this.showLabel();
  
      this.sidenavUpdateLabel();
@@ -44,8 +44,8 @@ export class DashboardComponent implements OnInit {
   showLabel() {
     this.noteService.showNoteLabel().subscribe(
       (response: any) => {
-        // this.addLabels=response.data.details;
-      this.addLabels=this.child.addLabels
+        this.addLabels=response.data.details;
+      // this.addLabels=this.child.addLabels
         console.log(this.addLabels);
         
         // this.snackbar.open(
