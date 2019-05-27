@@ -1,15 +1,15 @@
-
 <div fxAlign="column" FxLayoutGap="20px" fxFlexLayout="space-between start" class="abc">
   <div>
     <span>
-    Edit Labels</span>
+      Edit Labels</span>
     <div fxFlexLayout="space-between center" fxAlign="row">
       <button mat-button>
         <!-- <img src="../../../assets/download.svg"> -->
         <mat-icon>close</mat-icon>
       </button>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Create new label" [(ngModel)]="labelNote.label" class="outline">
+      <mat-form-field [floatLabel]="'never'" class="outline1">
+        <input matInput type="text" placeholder="Create new label" [(ngModel)]="labelNote.label" class="outline"
+          cdkFocusInitial>
       </mat-form-field>
       <button mat-button (click)="addLabel()">
         <!-- <img src="../../../assets/label_edit.svg"> -->
@@ -19,16 +19,31 @@
   </div>
   <div *ngFor="let item of addLabels" fxAlign="row" fxLayoutAlign="space-between center">
 
-    <button mat-Button (click)="delete(item.id)">
+    <!-- <button mat-Button (click)="delete(item.id)">
       <mat-icon class="set">delete</mat-icon>
 
-    </button>
+    </button> -->
+    <div>
+      <div (mouseover)="toggle=true" (mouseout)="toggle=false">
+        <button mat-button (click)="deleteLabel(item.id)">
+          <span *ngIf="!toggle">
+            <mat-icon>label</mat-icon>
+          </span>
+          <span *ngIf="toggle">
+            <!-- <img src="../../../assets/label_edit.svg"> -->
+            <mat-icon matToolTip="Delete Label">delete</mat-icon>
+          </span>
+        </button>
+      </div>
+    </div>
     <div><span>{{item.label}}</span></div>
-    <mat-icon>create</mat-icon>
+    <button mat-button (click)="delete(item.id)">
+      <mat-icon>create</mat-icon>
+    </button>
   </div>
   <mat-divider></mat-divider>
   <div>
     <div fxFlexLayout="end end">
-      <button mat-button  cdkFocusInitial>Done</button>
+      <button mat-button>Done</button>
     </div>
   </div>

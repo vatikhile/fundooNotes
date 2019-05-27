@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { NoteServiceService } from '../../core/service/note/note-service.service'
 import { Label } from 'src/app/core/model/label/label';
 import { MatSnackBar } from '@angular/material';
+import {UpdateServiceService} from '../../core/service/update/update-service.service'
 
 @Component({
   selector: 'app-label',
@@ -14,15 +15,16 @@ export class LabelComponent implements OnInit {
   addLabels: any[];
   data: any;
   data1: string;
+  message: any;
   
   // label1:Label[] = [];
 
-  constructor(private noteService: NoteServiceService, private snackbar: MatSnackBar) { }
+  constructor(private noteService: NoteServiceService, private snackbar: MatSnackBar,private dataService:UpdateServiceService) { }
 
   ngOnInit() {
-    this.showLabel(); 
-  }
-  // onNoClick(): void {
+    this.showLabel();
+  
+  }  // onNoClick(): void {
   //   // //this.dialogRef.close();
   //   // this.
 
@@ -46,6 +48,7 @@ export class LabelComponent implements OnInit {
       (response: any) => {
         this.showLabel();
         console.log("sucess label add");
+        this.dataService.changeMessage('')
 
         this.snackbar.open(
           "label is created Successfully", "",
@@ -77,5 +80,27 @@ export class LabelComponent implements OnInit {
         console.log("error");
       }
     )
+  }
+  deleteLabel(id:any)
+  {
+this.noteService.deleteLabels(id).subscribe(
+  (response:any)=>{
+    this.showLabel();
+
+this.snackbar.open("label deleted sucessfully","undo",{duration:2000});
+this.update();
+  },
+  (error)=>{
+    this.snackbar.open("Not deleted", "undo",{duration:2000});
+
+  }
+)
+// this.dataService.currentMessage.subscribe(data => {
+//   console.log('after deleting', data);
+//   this.addLabels = data;
+// });
+  }
+  update(){
+    this.dataService.currentMessage;
   }
 }

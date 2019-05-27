@@ -21,7 +21,6 @@ export class AddNoteComponent implements OnInit {
   addNotes() {
     console.log("wewqeg", this.addNote);
     this.show();
-    console.log("onClose():: executed");
     console.log(this.addNote.title);
     this.noteservice.addNote(this.addNote).subscribe(
       (response: any) => {

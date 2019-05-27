@@ -80,6 +80,15 @@ export class HttpServiceService {
 
 
   }
+  delete(url){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('Id')
+      })
 
+  }
+  return this.http.delete(this.baseUrl+url,httpOptions);
 }
 
+}
