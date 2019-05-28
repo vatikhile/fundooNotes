@@ -1,9 +1,9 @@
 <!-- for displaying notes i.e title and description on the matcard -->
-   <div class="Card" fxLayout="row wrap"  fxLayoutAlign="center center" fxLayoutGap="15px"  >
+   <div class="Card" fxLayout="{{direction}} wrap"  fxLayoutAlign="center center" fxLayoutGap="15px" >
        <!-- <div fxLayout="row wrap " fxLayoutAlign="space-between  end" fxFlex="70" fxLayoutGap="1%" class="card_div"> -->
       <div *ngFor="let items of addNotes" >
   
-          <mat-card  class="smallcard">
+          <mat-card   [ngClass]=" direction =='column' ? 'matpad3':'matpad' " class="smallcard">
               <div >{{items.title}}</div>
               <div>{{items.description}} </div>
               

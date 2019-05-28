@@ -17,7 +17,7 @@
         <div>
           <div fxLayout="row" fxLayoutAlign="start center" fxFlex="73" fxLayoutGap="5%" class="13">
             <div>
-              <span class="title">fundooNotes</span>
+              <span class="title">{{header}}</span>
             </div>
 
             <div>
@@ -38,25 +38,24 @@
               </button>
             </div>
 
-            <div> <button mat-icon-button>
-                <mat-icon>view_agenda</mat-icon>
+           
+            <div> <button mat-icon-button *ngIf="grid" (click)="changeView()" fxShow="true" > 
+                <img src="../../../assets/grid.svg">
               </button>
+              <div> <button mat-icon-button *ngIf="list" (click)="changeView()"  fxShow="true" >
+                <img src="../../../assets/list.svg">
+              </button>
+            </div>
             </div>
           </div>
         </div>
       </div>
       <div fxLayout="row" fxLayoutAlign="end" fxFlex="20" class="16">
-        <!-- <div fxLayout="row" fxLayoutAlign="end end" fxFlex> -->
+
         <button mat-icon-button [matMenuTriggerFor]=usermenu>
-          <!-- <mat-icon>logout</mat-icon> -->
+
           <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 40px;width: 40px;">
         </button>
-        <!-- <div fxLayout="row" fxFlex="20" class="17">
-              <mat-card *ngIf="flag===true">
-                <button mat-icon-button>Logout</button>
-              </mat-card>
-            </div> -->
-        <!-- </div> -->
       </div>
 
     </mat-toolbar-row>
@@ -65,6 +64,7 @@
 
   <mat-divider></mat-divider>
   <div fxLayout="column" fxLayoutAlign="start start" fxFlex="100" class="scroll">
+
     <!-- Open the sidenav bar after click on menu button in the dashboard -->
     <div fxLayout="column" fxLayoutAlign="start" fxFlex="30" class="abcd">
       <mat-sidenav-container>
@@ -74,11 +74,11 @@
               <div fxLayout="column" fxLayoutAlign="start-between" fxFlex="100" class="20">
                 <div>
 
-                  <button mat-raised-button  fxFlex="97" >
-                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
-                    <mat-icon>lightbulb_outline</mat-icon> 
-                    <span> Note</span>
-                  </div>
+                  <button mat-raised-button fxFlex="97">
+                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100" (click)='note()'>
+                      <mat-icon>lightbulb_outline</mat-icon>
+                      <span> Note</span>
+                    </div>
                   </button>
 
                 </div>
@@ -86,53 +86,55 @@
                 <div>
 
                   <button mat-raised-button fxFlex="97">
-                      <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
-                    <mat-icon>notifications_none</mat-icon>
-                    <span> Reminders</span>
-                  </div>
+                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100" (click)="headerName='notes'">
+                      <mat-icon>notifications_none</mat-icon>
+                      <span> Reminders</span>
+                    </div>
                   </button>
                 </div>
-               
+
                 <div>
                   <mat-divider></mat-divider>
                 </div>
-               
+
                 <div>
                   <span class="name">LABELS</span>
                 </div>
-                
-              
+
+
               </div>
             </div>
             <div>
               <div fxLayout="column" fxLayoutAlign="start-between" fxFlex="100">
                 <div>
-                 
-                 
 
-                      
-                        <div *ngFor="let item of addLabels">
-                        
-                                <span><button mat-raised-button fxFlex="97"  >
-                     
-                  <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
-                          <div><mat-icon> <img src="../../../assets/outline-label-24px.svg"></mat-icon></div>
+
+
+
+                  <div *ngFor="let item of addLabels">
+
+                    <span><button mat-raised-button fxFlex="97">
+
+                        <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
+                          <div>
+                            <mat-icon> <img src="../../../assets/outline-label-24px.svg"></mat-icon>
+                          </div>
                           <div style="margin:25%">{{item.label}}</div>
-                  </div>
-                        </button>
-                      </span>
-                          
                         </div>
-                      
-                   
-                
+                      </button>
+                    </span>
+
+                  </div>
+
+
+
                 </div>
                 <div>
                   <button mat-raised-button fxFlex="97" (click)="dialogOpen()">
-                      <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
-                    <img src="../../../assets/outline-create-24px.svg">
-                    <span style="margin:25%">edit label</span>
-                      </div>
+                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
+                      <img src="../../../assets/outline-create-24px.svg">
+                      <span style="margin:25%">edit label</span>
+                    </div>
                   </button>
                 </div>
 
@@ -140,18 +142,18 @@
                 <div>
                   <mat-divider class="divider"></mat-divider>
                   <button mat-raised-button fxFlex="97">
-                      <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
-                    <mat-icon>archive</mat-icon>
-                    <span style="margin:27%">Archive</span>
-                      </div>
+                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
+                    <img src ="../../../assets/archive.svg">
+                      <span style="margin:27%">Archive</span>
+                    </div>
                   </button>
                 </div>
                 <div>
                   <button mat-raised-button fxFlex="97">
-                      <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
-                    <mat-icon>delete_outline</mat-icon>
-                    <span style="margin:30%">Trash</span>
-                      </div>
+                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
+                      <img src="../../../assets/menuTrash.svg">
+                      <span style="margin:30%">Trash</span>
+                    </div>
                   </button>
                 </div>
               </div>
@@ -175,31 +177,28 @@
 
 <div fxLayout="column" fxFlex="100" fxLayoutAlign="start center">
   <mat-menu #usermenu="matMenu">
-    <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center" >
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center">
       <div (click)="dialogImage()" fxLayoutGap="10px">
         <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 70px;width: 70px">
-        <!-- <div>
-          <button mat-button class="sbutton">
-            change</button>
-        </div> -->
-    
-      <div fxLayout="column" fxFlex="100" fxLayoutAlign="center">
-        <div class="fname"><span>{{firstName}}</span></div>
-        <div class="email"><span>{{email}}</span></div>
+
+
+        <div fxLayout="column" fxFlex="100" fxLayoutAlign="center">
+          <div class="fname"><span>{{firstName}}</span></div>
+          <div class="email"><span>{{email}}</span></div>
+        </div>
       </div>
-    </div>
     </div>
     <div>
-        <button mat-button class="sbutton">
-          change</button>
-      </div>
+      <button mat-button class="sbutton">
+        change</button>
+    </div>
     <mat-divider></mat-divider>
     <div class="sign">
-    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end" >
-      <div >
-        <button mat-menu-item (click)="onSignout()" routerLink="/login" class="signbutton">sign-out</button>
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="end">
+        <div>
+          <button mat-menu-item (click)="onSignout()" routerLink="/login" class="signbutton">sign-out</button>
+        </div>
       </div>
-       </div>
-      </div>
+    </div>
   </mat-menu>
 </div>

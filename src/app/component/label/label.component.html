@@ -1,10 +1,11 @@
 <div fxAlign="column" FxLayoutGap="20px" fxFlexLayout="space-between start" class="abc">
   <div>
+    <!-- first field on the dialog box for add the new note after click on check button it add  -->
     <span>
       Edit Labels</span>
     <div fxFlexLayout="space-between center" fxAlign="row">
       <button mat-button>
-        <!-- <img src="../../../assets/download.svg"> -->
+
         <mat-icon>close</mat-icon>
       </button>
       <mat-form-field [floatLabel]="'never'" class="outline1">
@@ -12,25 +13,21 @@
           cdkFocusInitial>
       </mat-form-field>
       <button mat-button (click)="addLabel()">
-        <!-- <img src="../../../assets/label_edit.svg"> -->
+
         <mat-icon>check</mat-icon>
       </button>
     </div>
   </div>
+  <!-- this below fields for perform updation deletion for note -->
   <div *ngFor="let item of addLabels" fxAlign="row" fxLayoutAlign="space-between center">
-
-    <!-- <button mat-Button (click)="delete(item.id)">
-      <mat-icon class="set">delete</mat-icon>
-
-    </button> -->
     <div>
       <div (mouseover)="toggle=true" (mouseout)="toggle=false">
         <button mat-button (click)="deleteLabel(item.id)">
           <span *ngIf="!toggle">
             <mat-icon>label</mat-icon>
           </span>
-          <span *ngIf="toggle">
-            <!-- <img src="../../../assets/label_edit.svg"> -->
+          <span *ngIf="toggle" (click)="teamchange(item.id)" >
+
             <mat-icon matToolTip="Delete Label">delete</mat-icon>
           </span>
         </button>
@@ -42,34 +39,26 @@
     <!-- <div  input matInput (click)="teamchange(item.id)" contenteditable="true" [(ngModel)]="labelNote.newLabel" class="edit">{{item.label}}</div> -->
     <form class="example-form">
 
-        <mat-form-field  class="example-full-width">
-          <span >  {{item.label}} </span>
-          
-          <input matInput (click)="teamchange(item.id)" [(ngModel)]="labelNote.newLabel" [ngModelOptions]="{standalone: true}">
-        
-        </mat-form-field>
-        <button mat-button *ngIf="item.id==Id" (click)="team(item.id)">
-            <mat-icon>check</mat-icon>
-          </button>
-          <button mat-button *ngIf="item.id!=Id" (click)="teamchange(item.id)">
-              <mat-icon>create</mat-icon>
-            </button>
-        
-      </form>
-     
-    <!-- <button mat-button *ngIf="item.id==Id" (click)="team(item.id)">
-      <mat-icon>check</mat-icon>
-    </button> -->
-    <!-- <button mat-button *ngIf="item.id!=Id" (click)="teamchange(item.id)">
+      <mat-form-field class="example-full-width">
+        <!-- <span >  {{item.label}} </span> -->
+
+        <!-- <input matInput (click)="teamchange(item.id)" [(ngModel)]="labelNote.newLabel" -->
+        <input matInput (click)="teamchange(item.id)" [(ngModel)]="item.label"
+          [ngModelOptions]="{standalone: true}">
+        <!-- {{item.label}} -->
+        <!-- <input #customerInput>{{customerInput.value}} -->
+      </mat-form-field>
+      <button mat-button *ngIf="item.id==Id" (click)="team(item)" >
+        <mat-icon>check</mat-icon>
+      </button>
+      <button mat-button *ngIf="item.id!=Id" (click)="teamchange(item.id)" >
         <mat-icon>create</mat-icon>
-      </button> -->
-    <!-- <button mat-button>
-        <mat-icon>create</mat-icon>
-      </button> -->
+      </button>
+    </form>
   </div>
   <mat-divider></mat-divider>
-  <div>
-    <div fxFlexLayout="end end">
-      <button mat-button>Done</button>
+  <div >
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end end"  >
+      <button mat-button (click)="done()">Done</button>
     </div>
   </div>

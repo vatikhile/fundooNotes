@@ -17,7 +17,9 @@ export class AddNoteComponent implements OnInit {
   constructor(private noteservice: NoteServiceService, private dataService: UpdateServiceService, private snackbar: MatSnackBar) { }
   ngOnInit() {
   }
-  //Add the new note in database after click on close button
+  /*****
+   @purpose:Add the new note in database after click on close button
+   ******/
   addNotes() {
     console.log("wewqeg", this.addNote);
     this.show();
@@ -40,7 +42,9 @@ export class AddNoteComponent implements OnInit {
     this.addNote.description = null;
   }
 
-  //After click on small matcard it toggle the value of flag
+  /*****
+   @purpose:After click on small matcard it toggle the value of flag
+   ******/
   show() {
     this.flag = !this.flag;
   }
