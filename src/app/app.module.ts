@@ -36,6 +36,7 @@ import { CollaboratorComponent } from './component/collaborator/collaborator.com
 // import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
 import { ArchiveComponent } from './component/archive/archive.component'
 import { MatDialogModule } from '@angular/material/dialog';
+import { EditNotesComponent } from './component/edit-notes/edit-notes.component';
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 
@@ -58,6 +59,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     CollaboratorComponent,
     // DialogBoxComponent,
     ArchiveComponent,
+    EditNotesComponent,
    
     
 
@@ -97,6 +99,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[LabelComponent]
+  entryComponents:[LabelComponent,EditNotesComponent]
 })
 export class AppModule { }

@@ -33,9 +33,7 @@
   }
 //   .sidenav:hover
 //   {
-//     overflow-y: scroll;
-    
-      
+//     overflow-y: scroll;      
 // }
   .mat-raised-button{
 
@@ -65,15 +63,16 @@
 .content {
 
     width: 99vw;
+    background-color: white;
         // height: 100vh;
         // align-content: center;
         // margin-left: 15%;
-        // overflow-x: hidden;
+        overflow-x: hidden;
         // overflow-y: hidden;
 }
-.scroll{
-    overflow-y: scroll;
-}
+// .scroll{
+//     // overflow-y: scroll;
+// }
 .title{
     color: #5f6268;
     font-weight:inherit;
@@ -143,6 +142,6 @@ outline: none;
     // // outline: none;
     // border-color: lightgray;
     // box-shadow: none;
-    // background-color: white;
+    background-color: white;
 }
 

@@ -39,10 +39,10 @@
             </div>
 
            
-            <div> <button mat-icon-button *ngIf="grid" (click)="changeView()" fxShow="true" > 
+            <div> <button mat-icon-button *ngIf="list" (click)="changeView()" fxShow="true" > 
                 <img src="../../../assets/grid.svg">
               </button>
-              <div> <button mat-icon-button *ngIf="list" (click)="changeView()"  fxShow="true" >
+              <div> <button mat-icon-button *ngIf="grid" (click)="changeView()"  fxShow="true" >
                 <img src="../../../assets/list.svg">
               </button>
             </div>
@@ -183,7 +183,7 @@
 
 
         <div fxLayout="column" fxFlex="100" fxLayoutAlign="center">
-          <div class="fname"><span>{{firstName}}</span></div>
+          <div class="fname"><span>{{firstName}}&nbsp;{{lastName}}</span></div>
           <div class="email"><span>{{email}}</span></div>
         </div>
       </div>

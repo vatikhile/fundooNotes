@@ -15,25 +15,27 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 export class LabelComponent implements OnInit {
   labelNote: Label = new Label();
   addLabels: any[];
-    Id = "";
+  Id = "";
+  Idd = "";
 
-  constructor(private noteService: NoteServiceService, private snackbar: MatSnackBar,private dialogRef:MatDialogRef<DashboardComponent>, private dataService: UpdateServiceService) { }
+  constructor(private noteService: NoteServiceService, private snackbar: MatSnackBar, private dialogRef: MatDialogRef<DashboardComponent>, private dataService: UpdateServiceService) { }
 
   ngOnInit() {
     this.showLabel();
-}
+  }
   // onNoClick(): void {
   //   // //this.dialogRef.close();
   //   // this.
 
   // }
-  done(){
+  done() {
     this.dialogRef.close();
     console.log("done")
+    this.addLabel();
   }
- /*****
-  @purpose:On the dialog Box after click on check button it add the label  
-  ******/
+  /*****
+   @purpose:On the dialog Box after click on check button it add the label  
+   ******/
   addLabel() {
     console.log("labellll", this.labelNote.label);
     var data = {
@@ -47,7 +49,7 @@ export class LabelComponent implements OnInit {
 
       (response: any) => {
         this.showLabel();
-        console.log("sucess label add",response);
+        console.log("sucess label add", response);
         this.dataService.changeMessage('')
 
         this.snackbar.open(
@@ -61,11 +63,11 @@ export class LabelComponent implements OnInit {
 
       }
     )
-    this.labelNote.label=null;
+    this.close();
   }
-   /*****
-  @purpose:On the dialog box the added label display below the added label field
-  ******/
+  /*****
+ @purpose:On the dialog box the added label display below the added label field
+ ******/
   showLabel() {
     this.noteService.showNoteLabel().subscribe(
       (response: any) => {
@@ -80,9 +82,10 @@ export class LabelComponent implements OnInit {
       }
     )
   }
-   /*****
-  @purpose:click on delete button it delete the added the labels
-  ******/
+  
+  /*****
+ @purpose:click on delete button it delete the added the labels
+ ******/
   deleteLabel(id: any) {
     this.noteService.deleteLabels(id).subscribe(
       (response: any) => {
@@ -105,22 +108,23 @@ export class LabelComponent implements OnInit {
   /*****
   @purpose:on the dialog box After click on check button it update the label and it toggle or change the button to create button
   ******/
-   team(item) {
-   
+  team(item) {
+
     this.Id = "";
-    var reqbody = 
-      {
-        "label": item.label,
-        "isDeleted": false,
-        "id": item.id,
-        "userId": "userId"
-      }
-    
-    console.log("this is labelnote",reqbody.label)
-    console.log("this label id",reqbody.id);
-    
-    this.noteService.updateLabel(reqbody.id,reqbody).subscribe(
-      (response : any) => {
+    var reqbody =
+    {
+      "label": item.label,
+      "isDeleted": false,
+      "id": item.id,
+      "userId": "userId"
+    }
+
+
+    console.log("this is labelnote", reqbody.label)
+    console.log("this label id", reqbody.id);
+
+    this.noteService.updateLabel(reqbody.id, reqbody).subscribe(
+      (response: any) => {
         this.showLabel();
         console.log("this is update response", response);
         this.dataService.changeMessage('')
@@ -134,5 +138,16 @@ export class LabelComponent implements OnInit {
     }
 
   }
-
+   /*****
+  @purpose:on the dialog box After hover on labels its change into delete button and enable the button to delete the specified label
+  ******/
+  hover(id: any) {
+    this.Idd = id;
+}
+/*****
+  @purpose:on the dialog box After click on close button it clear label name type there before click on check button
+  ******/
+close(){
+  this.labelNote.label = null;
+}
 }

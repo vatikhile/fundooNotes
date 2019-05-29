@@ -13,24 +13,28 @@ import { ViewService } from '../../core/service/viewService/view.service'
 
 export class DashboardComponent implements OnInit {
   private flag: boolean = false;
-  
-  list: boolean = false;
-  grid: boolean = true;
+
+  list: boolean = true;
+  grid: boolean = false;
   addLabels: any = [];
   email: string;
   firstName: string;
   message: any;
- header:string;
+  header: string;
+  lastName: string;
+  profilImaage: string;
   // @ViewChild(LabelComponent) child;
   constructor(private matDialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService) {
     this.firstName = localStorage.getItem('firstName'),
-      this.email = localStorage.getItem('email')
+      this.email = localStorage.getItem('email'),
+      this.lastName = localStorage.getItem('lastName'),
+      this.profilImaage = localStorage.getItem('profilPic')
   }
 
   ngOnInit() {
     this.showLabel();
     this.sidenavUpdateLabel();
-    this.header= 'fundooNotes';
+    this.header = 'fundooNotes';
   }
 
   /*****
@@ -81,20 +85,22 @@ export class DashboardComponent implements OnInit {
   }
   changeView() {
     // toggle the button
-    if (this.list) {
-      this.grid = true;
-      this.list = false;
+    if (this.grid) {
+      this.grid = false;
+      this.list = true;
+      this.view.gridview();
     }
     else {
-      this.list = true;
-      this.grid = false;
+      this.list = false;
+      this.grid = true;
+      this.view.gridview();
     }
-    this.view.gridview();
+
 
   }
   note() {
     this.header = 'Notes';
-   
+
   }
 
 

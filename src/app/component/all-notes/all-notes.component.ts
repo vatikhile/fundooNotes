@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NoteServiceService } from '../../core/service/note/note-service.service'
 import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
 import { ViewService } from 'src/app/core/service/viewService/view.service';
+import { MatDialog } from '@angular/material';
+import { EditNotesComponent } from '../edit-notes/edit-notes.component';
 // import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
 @Component({
   selector: 'app-all-notes',
@@ -14,7 +16,7 @@ export class AllNotesComponent implements OnInit {
   views:any;
   direction:string;
   constructor(private noteService: NoteServiceService,
-    private dataService:UpdateServiceService,private view: ViewService) { }
+    private dataService:UpdateServiceService,private view: ViewService,private dialog :MatDialog) { }
 
   ngOnInit() {
     this.getAllNotes();
@@ -49,6 +51,11 @@ export class AllNotesComponent implements OnInit {
       
     })
   
+    }
+    openDialog(){
+      this.dialog.open(EditNotesComponent);
+      console.log("hhh");
+      
     }
 
    

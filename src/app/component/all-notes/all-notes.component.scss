@@ -9,13 +9,18 @@ background-color: white;
 width: 18vw;
 position:relative;
 } 
+// .smallcard:hover
+// {
+//     visibility: visible;
+//     box-shadow: black;
+// }
 .Card{
     display: flex;
     // min-width: 56vw;
     // width: 100vw;
     // max-width: 57vw;
 // display: flex;
-//     //  background-color: white;
+     background-color: white;
 //     position:relative;
 // width: 71vw;
 // margin-right: 17%;
@@ -46,6 +51,12 @@ visibility: hidden;
    // box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
     margin-bottom: 8px;
 }
+// .matShade:hover{
+//     box-shadow: black;
+//     // .matShade:::shadow
+//     shad
+// }
+
 
 // .Card_div{
 //     display: flex;
