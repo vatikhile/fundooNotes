@@ -38,23 +38,23 @@
               </button>
             </div>
 
-           
-            <div> <button mat-icon-button *ngIf="list" (click)="changeView()" fxShow="true" > 
+
+            <div> <button mat-icon-button *ngIf="list" (click)="changeView()" fxShow="true">
                 <img src="../../../assets/grid.svg">
               </button>
-              <div> <button mat-icon-button *ngIf="grid" (click)="changeView()"  fxShow="true" >
-                <img src="../../../assets/list.svg">
-              </button>
-            </div>
+              <div> <button mat-icon-button *ngIf="grid" (click)="changeView()" fxShow="true">
+                  <img src="../../../assets/list.svg">
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div fxLayout="row" fxLayoutAlign="end" fxFlex="20" class="16">
+      <div fxLayout="row" fxLayoutAlign="end" fxFlex="100" class="16">
 
         <button mat-icon-button [matMenuTriggerFor]=usermenu>
 
-          <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 40px;width: 40px;">
+          <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 50px;width: 50px;">
         </button>
       </div>
 
@@ -143,7 +143,7 @@
                   <mat-divider class="divider"></mat-divider>
                   <button mat-raised-button fxFlex="97">
                     <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
-                    <img src ="../../../assets/archive.svg">
+                      <img src="../../../assets/archive.svg">
                       <span style="margin:27%">Archive</span>
                     </div>
                   </button>
@@ -175,11 +175,15 @@
   </div>
 </div>
 
-<div fxLayout="column" fxFlex="100" fxLayoutAlign="start center">
-  <mat-menu #usermenu="matMenu">
-    <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around center">
-      <div (click)="dialogImage()" fxLayoutGap="10px">
-        <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 70px;width: 70px">
+<div fxLayout="row" fxLayoutAlign="start center" fxFlex="100">
+  <mat-menu #usermenu="matMenu" fxLayout="row" fxFlex="100" class="menu">
+    <div fxLayout="column" fxFlex="100" fxLayoutAlign="space-around center">
+      <div (click)="dialogImage()" fxLayoutGap="10px">&nbsp;
+        <div>        <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 68px;width:68px">
+        <div class="sbutton">
+          &nbsp; change
+        </div>
+      </div>
 
 
         <div fxLayout="column" fxFlex="100" fxLayoutAlign="center">
@@ -188,15 +192,21 @@
         </div>
       </div>
     </div>
-    <div>
+    &nbsp;
+    &nbsp;
+    <!-- <div>
       <button mat-button class="sbutton">
         change</button>
-    </div>
-    <mat-divider></mat-divider>
+    </div> -->
+
+    <div><mat-divider></mat-divider></div>
+    
     <div class="sign">
-      <div fxLayout="row" fxFlex="100" fxLayoutAlign="end">
+        &nbsp;
+      <div fxLayout="row"fxFlex="100" fxLayoutAlign="end space-evenly" >
+        
         <div>
-          <button mat-menu-item (click)="onSignout()" routerLink="/login" class="signbutton">sign-out</button>
+          <button mat-menu-item (click)="onSignout()"  routerLink="/login" class="signbutton" >sign-out</button>
         </div>
       </div>
     </div>

@@ -23,15 +23,15 @@ export class NoteServiceService {
   showNoteLabel() {
     return this.http.showLabel("noteLabels/getNoteLabelList")
   }
-  deleteLabels(id){
-    return this.http.delete('notelabels/'+id+'/deleteNoteLabel');
+  deleteLabels(id) {
+    return this.http.delete('notelabels/' + id + '/deleteNoteLabel');
   }
-  updateLabel(id,data)
+  updateLabel(id, data) {
+    return this.http.postEd('noteLabels/' + id + '/updateNoteLabel', data);
+  }
+  updateNote(data)
   {
-    
-    return this.http.postEd('noteLabels/'+id+'/updateNoteLabel',data);
-    
-    
+   return this.http.postUpdate('notes/updateNotes',data) 
   }
 }
 

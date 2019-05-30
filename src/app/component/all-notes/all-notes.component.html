@@ -2,7 +2,7 @@
    <div class="Card" fxLayout="{{direction}} wrap"  fxLayoutAlign="center center" fxLayoutGap="15px">
        <!-- <div fxLayout="row wrap " fxLayoutAlign="space-between  end" fxFlex="70" fxLayoutGap="1%" class="card_div"> -->
       <div *ngFor="let items of addNotes">
-        <div   (click)="openDialog()" class="matShade">
+        <div   (click)="openDialog(items)" class="matShade">
   
           <mat-card   [ngClass]=" direction =='column' ? 'matpad3':'matpad' " class="smallcard" > 
               <div >{{items.title}}</div>

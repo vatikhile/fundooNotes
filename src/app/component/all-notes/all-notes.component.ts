@@ -4,6 +4,7 @@ import { UpdateServiceService } from 'src/app/core/service/update/update-service
 import { ViewService } from 'src/app/core/service/viewService/view.service';
 import { MatDialog } from '@angular/material';
 import { EditNotesComponent } from '../edit-notes/edit-notes.component';
+import { identifierModuleUrl } from '@angular/compiler';
 // import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
 @Component({
   selector: 'app-all-notes',
@@ -52,8 +53,14 @@ export class AllNotesComponent implements OnInit {
     })
   
     }
-    openDialog(){
-      this.dialog.open(EditNotesComponent);
+    openDialog(items:any){
+      this.dialog.open(EditNotesComponent,{
+        data:{
+          title:items.title,
+          description:items.description,
+          id:items.id
+        }
+      });
       console.log("hhh");
       
     }

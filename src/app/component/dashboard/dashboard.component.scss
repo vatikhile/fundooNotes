@@ -122,14 +122,27 @@ size:8px;
 font-family:  Arial, sans-serif;
 }
 .sbutton{
-    size:1px;
-    color:white;
-    position: absolute;
-    margin-top: -34px;
-    /* margin-right: 21px; */
-    padding: 0px;
+    size:0.5px;
+    color:#f2f2f0;
+    position: fixed;
+    
     outline: transparent;
+
+    margin-top: -2%;
+    padding: 0px;
+    border-bottom-left-radius: 270px;
+    border-bottom-right-radius: 270px;
+  
+    background-color: #4b483c;
+
+    opacity: 0.7;
+    height:4vh;
+    width: 5vw;
+    margin-left: 1.5px;
+    
 }
+    
+
 .sign{
 background-color: #f5f5f5;
 outline-color: lightgray;
@@ -139,9 +152,9 @@ outline: none;
 }
 .signbutton{
     outline-color: lightgray;
-    // // outline: none;
-    // border-color: lightgray;
-    // box-shadow: none;
     background-color: white;
+    
 }
+
+
 
