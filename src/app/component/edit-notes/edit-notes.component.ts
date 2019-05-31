@@ -1,41 +1,34 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { FormControl } from '@angular/forms';
-import {NoteServiceService} from '../../core/service/note/note-service.service';
+import { NoteServiceService } from '../../core/service/note/note-service.service';
 import { MatSnackBar } from '@angular/material';
+import { UpdateServiceService } from '../../core/service/update/update-service.service'
+
 @Component({
   selector: 'app-edit-notes',
   templateUrl: './edit-notes.component.html',
   styleUrls: ['./edit-notes.component.scss']
 })
 export class EditNotesComponent implements OnInit {
-  title= new FormControl('');
-  description = new FormControl('');
-  constructor(private noteService:NoteServiceService,@Inject(MAT_DIALOG_DATA)public data:any,private snackbar:MatSnackBar)  { }
-
+  constructor(private noteService: NoteServiceService, private snackbar: MatSnackBar, @Inject(MAT_DIALOG_DATA) private data: any, private updateData: UpdateServiceService) { }
+  noteData = this.data;
   ngOnInit() {
-    this.updateNotes1();
-  }
-  updateNotes1(){
-  console.log("datttttttttt",this.data);
-  }
-updateNotes(){
-  console.log("datttttttttt",this.data);
-  var data={
-    "noteId":this.data.id,
-    "title" : this.title.value,
-    "description" : this.description.value
-  }
 
-
-  this.noteService.updateNote(data).subscribe(
-    (response:any)=>{
-      this.snackbar.open("Note updated sucessfully","",{duration:2000});
-    },
-    (error)=>{
-this.snackbar.open("Error:Note not updated")
+  }
+  updateNotes() {
+    var data = {
+      "noteId": this.noteData.id,
+      "title": this.noteData.title,
+      "description": this.noteData.description,
     }
-
-  )
-}
+    this.noteService.updateNote(data).subscribe(
+      (response: any) => {
+        this.updateData.changeMessage('');
+        this.snackbar.open("Note updated sucessfully", "", { duration: 2000 });
+      },
+      (error) => {
+        this.snackbar.open("Error:Note not updated")
+      }
+    )
+  }
 }

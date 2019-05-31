@@ -1,12 +1,14 @@
 <!-- for displaying notes i.e title and description on the matcard -->
-   <div class="Card" fxLayout="{{direction}} wrap"  fxLayoutAlign="center center" fxLayoutGap="15px">
-       <!-- <div fxLayout="row wrap " fxLayoutAlign="space-between  end" fxFlex="70" fxLayoutGap="1%" class="card_div"> -->
-      <div *ngFor="let items of addNotes">
-        <div   (click)="openDialog(items)" class="matShade">
-  
-          <mat-card   [ngClass]=" direction =='column' ? 'matpad3':'matpad' " class="smallcard" > 
-              <div >{{items.title}}</div>
-              <div>{{items.description}} </div>
+
+<div fxLayout="row" fxLayoutAlign="end end" fxFlex="80" class="sd8">
+   <!-- <div class="Card" fxLayout="{{direction}} wrap"  fxLayoutAlign="end"  fxFlex="70"> -->
+       <div fxLayout="row wrap" class="Card" fxLayoutAlign="end end" fxFlex="85"  class="card_div">
+      <div *ngFor="let items of addNotes"  >
+        <div   (click)="openDialog(items)" class="matShade" fxLayout="row" fxFlex="70" fxLayoutGap="0px" class="ssf6">
+         <div>
+           <mat-card   [ngClass]=" direction =='column' ? 'matpad3':'matpad' "  class="smallcard" fxFlex="87" > 
+              <div class="123" ><p>{{items.title}}</p></div>
+              <div><p>{{items.description}} </p></div>
               
                 <app-icon class="icon_hover"></app-icon>
      
@@ -14,5 +16,8 @@
           </div>
           
         </div>
-          <!-- </div>-->
+          <!--  </div>-->
       </div> 
+      </div>
+      </div>
+    <!-- </div> -->

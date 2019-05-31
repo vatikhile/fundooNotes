@@ -1,17 +1,57 @@
-<div fxLayout="row" fxlayoutAlign="center center" fxFlex="100">
-<mat-card>
-<div fxLayout="column" fxFlex="100" fxLayoutGap="10px">
-  <div >
-    <input matInput type="text" [formControl]="title" > 
+<!-- <div fxAlign="row" FxLayoutGap="20px" fxFlexLayout="space-between start" fxFlex="100">
+  <div>
+        <mat-dialog-content>
+          <div fxLayout="column" fxLayoutAlign="start">
+      <div>
+          <textarea matTextareaAutosize class="textArea" placeholder="Title"
+            [(ngModel)]="noteData.title" class="textArea"></textarea>
+        </div>
+        <div>
+            <textarea matTextareaAutosize class="textArea" placeholder="Note"
+              [(ngModel)]="noteData.description"></textarea>
+          </div>
+    </div>
+    
+      </mat-dialog-content>
+    </div>
+    <mat-dialog-actions>
+      <div><button matbutton [mat-dialog-close]="true" (click)="updateNotes()">close</button>
+      </div>
+    </mat-dialog-actions>
+    </div> -->
+<div class="card-center1" fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
+<div fxLayout="column" fxFlex="100">
+
+    <div fxLayout="row" fxFlex="50" fxLayoutGap="0%" fxLayoutAlign="start">
+      <div  >
+        <textarea matTextareaAutosize class="textArea" placeholder="Title"
+          [(ngModel)]="noteData.title"></textarea>
+      </div>
+      <div fxFlexLayout="end">
+        <button mat-icon-button matTooltip="Pin note">
+          <img src="../../../assets/pin.svg"></button>
+      </div>
+    </div>
+        <div>
+      <textarea matTextareaAutosize class="textArea" placeholder="Note"
+        [(ngModel)]="noteData.description"></textarea>
+    </div>
+    <div fxLayout="row">
+      <div>
+        <app-icon></app-icon>
+      </div>
+      <div>
+        <button mat-flat-button fxLayout="row" fxLayoutAlign="space-between end" class="mat-icon-button"
+          [mat-dialog-close]="true" (click)="updateNotes()">
+          Close
+        </button>
+      </div>
+    </div>
+    </div>
   </div>
-  <div >
-      <input matInput type="text" [formControl]="description" > 
-    </div>
-    <div><button matbutton (click)="updateNotes()" >close</button>
-    </div>
-    </div>
-  </mat-card>
-</div>
+
+
+
 <!-- 
 <div>
     <div class="card-div">
@@ -105,8 +145,8 @@
         <div *ngFor="let color of colorCode">
           <span *ngFor="let iteam of color">
             <button mat-icon-button [style.background-color]="iteam" (click)="changeColor(iteam)">-->
-              <!-- <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon> -->
-            <!-- </button>
+<!-- <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon> -->
+<!-- </button>
           </span>
         </div>
       </div>
@@ -141,9 +181,9 @@
       <input [owlDateTimeTrigger]="dt" (dateTimeChange)="addRemainder($event)" [owlDateTime]="dt">
       <owl-date-time #dt></owl-date-time>
     </label> -->
-  
-  
-  <!-- </mat-menu>
+
+
+<!-- </mat-menu>
   
   <mat-menu #extra="matMenu">
     <mat-card (click)="$event.stopPropagation();">

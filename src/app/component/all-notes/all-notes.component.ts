@@ -4,7 +4,7 @@ import { UpdateServiceService } from 'src/app/core/service/update/update-service
 import { ViewService } from 'src/app/core/service/viewService/view.service';
 import { MatDialog } from '@angular/material';
 import { EditNotesComponent } from '../edit-notes/edit-notes.component';
-import { identifierModuleUrl } from '@angular/compiler';
+import { identifierModuleUrl, analyzeAndValidateNgModules } from '@angular/compiler';
 // import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
 @Component({
   selector: 'app-all-notes',
@@ -16,8 +16,7 @@ export class AllNotesComponent implements OnInit {
   message: any;
   views:any;
   direction:string;
-  constructor(private noteService: NoteServiceService,
-    private dataService:UpdateServiceService,private view: ViewService,private dialog :MatDialog) { }
+  constructor(private noteService: NoteServiceService,private dataService:UpdateServiceService,private view: ViewService,private dialog :MatDialog) { }
 
   ngOnInit() {
     this.getAllNotes();
@@ -59,9 +58,9 @@ export class AllNotesComponent implements OnInit {
           title:items.title,
           description:items.description,
           id:items.id
-        }
+      }
       });
-      console.log("hhh");
+      console.log("hhh",items.title,);
       
     }
 

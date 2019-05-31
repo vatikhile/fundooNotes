@@ -26,7 +26,7 @@
     border-radius: 10px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.16);
     // min-width: vw;
-    position: fixed;
+    // position: fixed;
     }
 .search2{
 
@@ -40,18 +40,34 @@
     font-size: 21px;
     font-family:Arial, Helvetica, sans-serif;
 }
+.textAreaa{
+    width:43vw; 
+    border-color: transparent;  
+    outline: none;
+    overflow: hidden;
+
+}
+.textAreaa::-webkit-input-placeholder {
+    color: #81878c;
+    font-weight: lighter;
+    font-size: 21px;
+    font-family:Arial, Helvetica, sans-serif; 
+    line-height: 20px;  
+}
 .textArea{
     width:43vw; 
     border-color: transparent;  
     outline: none;
     overflow: hidden;
+
 }
 .textArea::-webkit-input-placeholder {
     color: #81878c;
     font-weight: lighter;
     font-size: 14px;
     font-family:Arial, Helvetica, sans-serif;
-    }
+    line-height: 20px;    
+}
  .card-center{
    display: flex;
 //    padding-top: 20px;

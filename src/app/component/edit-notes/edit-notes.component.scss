@@ -1,0 +1,36 @@
+.textArea{
+    width:43vw; 
+    border-color: transparent;  
+    outline: none;
+    overflow: hidden;
+}
+.textArea::-webkit-input-placeholder {
+    color: #81878c;
+    font-weight: lighter;
+    font-size: 18px;
+    font-family:Arial, Helvetica, sans-serif;
+    }
+//     .card{
+//         display: flex;
+//         border-radius: 10px;
+//         box-shadow: 0 3px 8px rgba(0,0,0,0.16);
+        // min-width: vw;////////////
+        // position: fixed;
+        // }
+        // .search2{
+
+        //     width:40vw; 
+        //     border-color: transparent;  
+        //     outline: none;
+        //     }
+        // .search2::-webkit-input-placeholder {
+        //     color: #81878c;
+        //     font-weight: lighter;
+        //     font-size: 21px;
+        //     font-family:Arial, Helvetica, sans-serif;
+        // }
+        // .card-center1{
+        //     display: flex;
+        //     height: 30vh;
+        //     background-color: white;
+        //    }

@@ -1,6 +1,6 @@
 <!-- for displaying the small matcard -->
-<div fxLayout="row"  fxFlex="100" >
-<div class="card-center" *ngIf="flag===false" fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
+<div fxLayout="row"  fxFlex="75" >
+<div class="card-center" *ngIf="flag===false" fxLayout="column" fxLayoutAlign="center end" fxFlex="100">
   <mat-card (click)="show()" fxLayout="row" fxFlex="45" class="card-rechange">
     <div>
       <input matInput fxFlex="100" class="search" placeholder="Take a Note...">
@@ -23,16 +23,15 @@
 </div>
 
 <!-- for displaying the another matcard after click on small matcard-->
-<div class="card-center1" *ngIf="flag===true" fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
-  <mat-card fxLayout="row" fxFlex="45" class="card">
-    <div fxLayout="column" fxFlex="20" class="abc">
+<div class="card-center1" *ngIf="flag===true" fxLayout="column" fxLayoutAlign="center end" fxFlex="100">
+  <mat-card fxLayout="row" fxFlex="72" class="card">
+    <div fxLayout="column" fxFlex="20">
        <div>
         <div fxLayout="row" fxFlex="50" fxLayoutGap="0%" fxLayoutAlign="start"> 
-          <div>
-            <input matInput class="search2" placeholder="Title" [(ngModel)]="addNote.title">
-
-
-          </div>
+          <div >
+              <textarea matTextareaAutosize fxLayout="column" class="textAreaa" placeholder="Title"
+                [(ngModel)]="addNote.title"></textarea>
+            </div>
           <div fxFlexLayout="end">
             <button mat-icon-button matTooltip="Pin note">
               <img src="../../../assets/pin.svg"></button>
@@ -42,7 +41,7 @@
       
       
       <div>
-        <textarea matTextareaAutosize class="textArea" placeholder="Take a Note..."
+        <textarea matTextareaAutosize fxLayout="column" class="textArea" placeholder="Take a Note..."
           [(ngModel)]="addNote.description"></textarea>
       </div>
       <div fxLayout="row" >
