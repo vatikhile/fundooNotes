@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-icon',
@@ -6,12 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./icon.component.scss']
 })
 export class IconComponent implements OnInit {
+  colorCode: string[][]= 
+  [['white','lightGreen','purple','red'],
+  ['orange','teal','pink','darkBlue'],['blue','brown','yellow','gray']];
+  color:string;
+  constructor(){
+  // @Inject(MAT_DIALOG_DATA) private data:{ notes: any}) {
+    // this.http.getRequest('/label/getlabel').subscribe(data => this.userLabel = data );
+   }
+//   notes=this.data.notes;
+ngOnInit() {
+  console.log("color");
 
-  constructor() { }
-
-  ngOnInit() {
+ 
+}
+  changeColor(color:string){
+    // this.color=color;
+    // this.notes.color= color;
+    console.log("color",this.color);
+    console.log("color",color);
     
-  }
+     }
   colors=[
     [
       {name:"white",hexcode:"#ffffff"},

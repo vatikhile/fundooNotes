@@ -1,7 +1,8 @@
 <!-- for displaying the small matcard -->
-<div fxLayout="row"  fxFlex="75" >
-<div class="card-center" *ngIf="flag===false" fxLayout="column" fxLayoutAlign="center end" fxFlex="100">
-  <mat-card (click)="show()" fxLayout="row" fxFlex="45" class="card-rechange">
+<div fxLayout="row"  fxFlex="70">
+<div class="card-center" *ngIf="flag===false" fxLayout="column" fxLayoutAlign="center end" fxFlex="65">
+  <!-- <div fxLayout="row" fxLayoutAlign="center end"> -->
+  <mat-card (click)="show()" fxLayout="row" fxLayoutAlign="center center" fxFlex="45" class="card-rechange">
     <div>
       <input matInput fxFlex="100" class="search" placeholder="Take a Note...">
 
@@ -20,10 +21,11 @@
       </div>
     </div>
   </mat-card>
+<!-- </div> -->
 </div>
 
 <!-- for displaying the another matcard after click on small matcard-->
-<div class="card-center1" *ngIf="flag===true" fxLayout="column" fxLayoutAlign="center end" fxFlex="100">
+<div class="card-center1" *ngIf="flag===true" fxLayout="column" fxLayoutAlign="center end" fxFlex="65">
   <mat-card fxLayout="row" fxFlex="72" class="card">
     <div fxLayout="column" fxFlex="20">
        <div>

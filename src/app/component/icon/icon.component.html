@@ -1,5 +1,5 @@
 <!-- for displaying the icons below the Note far various purpose -->
-<div fxLayout="row" fxFlex="100"  fxLayoutAlign="start" fxLayoutGap="1px">
+<div fxLayout="row" fxFlex="100" >
   <div>
     <button mat-icon-button matTooltip="Remind me">
         <img src="../../../assets/remindcard.svg">
@@ -11,7 +11,7 @@
     </button>
   </div>
   <div>
-    <button mat-icon-button matTooltip="Change color">
+    <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorMenu">
         <img src="../../../assets/colorcard.svg">
     </button>
   </div>
@@ -32,4 +32,20 @@
   </div>
 </div>
 
+<div>
+    <mat-menu #colorMenu="matMenu" fxFlex="80" [overlapTrigger]="false">
+  
+      <div>
+        <div *ngFor="let color of colorCode" fxLayout="row wrap" >
+          <div *ngFor="let iteam of color">
+            <button   mat-icon-button [style.background-color]="iteam" (click)="changeColor(iteam)">
+              <!-- <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon> -->
+            </button>
+          </div>
+        </div>
+      </div>
+  
+    </mat-menu>
+  </div>
+  
 

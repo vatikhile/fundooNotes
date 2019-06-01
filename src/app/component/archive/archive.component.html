@@ -1,3 +1,134 @@
-<p>
-  archive works!
-</p>
+<!-- <div [ngClass]="listView ? 'list-view' : 'main-div'">
+    <div *ngFor="let notes of userNote ">
+      <div class="card-div">
+        <mat-card [ngClass]="listView ? 'list-width' : 'row-width'" [style.background-color]="notes.color"
+          style="margin-left:10px ">
+          <div>
+            <div class="pin">
+              <button mat-icon-button>
+                <div *ngIf="notes.pin===false">
+                  <img style="width: 50%" src="https://img.icons8.com/ios/30/000000/pin.png">
+                </div>
+                <div *ngIf="notes.pin===true">
+                  <img style="width: 50%" src="https://img.icons8.com/ios/30/000000/pin-filled.png">
+                </div>
+              </button>
+            </div>
+            <div>
+              <textarea class="text-bar" matTextareaAutosize [(ngModel)]="notes.title" matInput
+                placeholder="Title"></textarea>
+            </div>
+            <div>
+              <textarea class="text-bar" matTextareaAutosize [(ngModel)]="notes.description" matInput
+                placeholder=" note"></textarea>
+            </div>
+  
+            <mat-chip-list #chipList>
+              <mat-chip *ngFor="let label of notes.label">
+                {{label.labelTitle}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+  
+            </mat-chip-list>
+  
+            <div class="icon-div">
+              <div>
+                <button mat-icon-button matTooltip="remind me" [matMenuTriggerFor]="datetime">
+                  <mat-icon>add_alert</mat-icon>
+                </button>
+              </div>
+              <div>
+                <button mat-icon-button matTooltip="collaborator" (click)="openCollabDialog()">
+                  <mat-icon>person_add</mat-icon>
+                </button>
+              </div>
+              <div>
+                <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorMenu">
+                  <mat-icon>color_lens</mat-icon>
+                </button>
+              </div>
+              <div>
+                <button mat-icon-button matTooltip="archive" (click)="onArchive(notes)">
+                  <mat-icon>archive</mat-icon>
+                </button>
+              </div>
+              <div>
+                <button mat-icon-button matTooltip="bin" (click)="onBin(notes)">
+                  <mat-icon>delete_outline</mat-icon>
+                </button>
+              </div>
+              <div>
+                <button mat-icon-button matTooltip="MORE" [matMenuTriggerFor]="extra">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+              </div>
+  
+  
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div>
+        <mat-menu #colorMenu="matMenu" [overlapTrigger]="false">
+  
+          <div>
+            <div *ngFor="let color of colorCode">
+              <span *ngFor="let iteam of color">
+                ......<button mat-icon-button [style.background-color]="iteam" (click)="changeColor(notes,iteam)"> -->
+                  <!-- <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon> -->
+                <!-- </button>
+              </span>
+            </div>
+          </div>
+  
+        </mat-menu>
+      </div>
+      <mat-menu #datetime="matMenu">
+        <button mat-menu-item>
+          <div class="time">
+            <div>today</div>
+            <div>8.00</div>
+          </div>
+        </button>
+        <button mat-menu-item>
+          <div class="time">
+            <div>tomorrow</div>
+            <div>8.00</div>
+          </div>
+        </button>
+        <button mat-menu-item>
+          <div class="time">
+            <div>next week</div>
+            <div>8.00</div>
+          </div>
+        </button>
+        <div>
+          <label>
+            Date Time:
+            <input [owlDateTimeTrigger]="dt" (dateTimeChange)="addRemainder(notes,$event)" [owlDateTime]="dt">
+            <owl-date-time #dt></owl-date-time>
+          </label>
+        </div>
+      </mat-menu>
+  
+      <mat-menu #extra="matMenu">
+        <mat-card (click)="$event.stopPropagation();">
+          <button mat-menu-item [matMenuTriggerFor]="label">add label</button>
+        </mat-card>
+      </mat-menu>
+  
+      <mat-menu #label="matMenu">
+        <mat-card (click)="$event.stopPropagation();">
+          <input placeholder="create label" [(ngModel)]="labels.labelTitle">
+          <div *ngFor="let label of userLabel">
+            <mat-checkbox (click)="addLabel(notes,label)">
+              {{label.labelTitle}}
+            </mat-checkbox>
+  
+          </div>
+          <button mat-raise-button (click)=addLabel(notes,labels)>add label</button>
+        </mat-card>
+      </mat-menu>
+  
+    </div>
+  </div> -->

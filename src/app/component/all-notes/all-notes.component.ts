@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NoteServiceService } from '../../core/service/note/note-service.service'
 import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
 import { ViewService } from 'src/app/core/service/viewService/view.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog} from '@angular/material';
 import { EditNotesComponent } from '../edit-notes/edit-notes.component';
 import { identifierModuleUrl, analyzeAndValidateNgModules } from '@angular/compiler';
+import { MAT_DIALOG_DATA } from '@angular/material';
 // import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
 @Component({
   selector: 'app-all-notes',

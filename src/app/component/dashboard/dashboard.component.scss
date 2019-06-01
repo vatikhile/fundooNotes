@@ -62,13 +62,13 @@
 
 .content {
 
-    width: 99vw;
+    // width: 99vw;
     background-color: white;
         // height: 100vh;
         // align-content: center;
         // margin-left: 15%;
         overflow-x: hidden;
-        // overflow-y: hidden;
+        overflow-y: hidden;
 }
 // .scroll{
 //     // overflow-y: scroll;
@@ -107,7 +107,9 @@
 }
 .main
 {
-    height:302vh;
+    display: flex;
+    // height:2000vh;
+    // min-height: 10vh;
     background-color: white;
 }
 .fname{

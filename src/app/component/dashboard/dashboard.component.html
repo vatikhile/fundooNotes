@@ -161,14 +161,15 @@
           </div>
         </mat-sidenav>
         <mat-sidenav-content class="content">
-
-          <div>
-            <app-add-note></app-add-note>
+          <div >
+            <div>
+              <app-add-note></app-add-note>
+            </div>
+            <!-- <div fxLayout="row" fxFlex="90"> -->
+              <div>
+              <app-all-notes></app-all-notes>
+            </div>
           </div>
-          <div>
-            <app-all-notes></app-all-notes>
-          </div>
-
         </mat-sidenav-content>
       </mat-sidenav-container>
     </div>
@@ -179,11 +180,11 @@
   <mat-menu #usermenu="matMenu" fxLayout="row" fxFlex="100" class="menu">
     <div fxLayout="column" fxFlex="100" fxLayoutAlign="space-around center">
       <div (click)="dialogImage()" fxLayoutGap="10px">&nbsp;
-        <div>        <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 68px;width:68px">
-        <div class="sbutton">
-          &nbsp; change
+        <div> <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 68px;width:68px">
+          <div class="sbutton">
+            &nbsp; change
+          </div>
         </div>
-      </div>
 
 
         <div fxLayout="column" fxFlex="100" fxLayoutAlign="center">
@@ -199,14 +200,16 @@
         change</button>
     </div> -->
 
-    <div><mat-divider></mat-divider></div>
-    
+    <div>
+      <mat-divider></mat-divider>
+    </div>
+
     <div class="sign">
-        &nbsp;
-      <div fxLayout="row"fxFlex="100" fxLayoutAlign="end space-evenly" >
-        
+      &nbsp;
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="end space-evenly">
+
         <div>
-          <button mat-menu-item (click)="onSignout()"  routerLink="/login" class="signbutton" >sign-out</button>
+          <button mat-menu-item (click)="onSignout()" routerLink="/login" class="signbutton">sign-out</button>
         </div>
       </div>
     </div>
