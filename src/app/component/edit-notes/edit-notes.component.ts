@@ -13,6 +13,7 @@ export class EditNotesComponent implements OnInit {
   constructor(private noteService: NoteServiceService, private snackbar: MatSnackBar, @Inject(MAT_DIALOG_DATA) private data: any, private updateData: UpdateServiceService) { }
   noteData = this.data;
   ngOnInit() {
+console.log("colooooer", this.data.color);
 
   }
   updateNotes() {

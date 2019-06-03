@@ -9,7 +9,7 @@ import { AddNoteComponent } from './component/add-note/add-note.component';
 import { AllNotesComponent } from './component/all-notes/all-notes.component';
 import {LabelComponent} from './component/label/label.component'
 import { AuthGuardService } from './core/service/auth/auth-guard.service'
-
+import {SearchComponent} from '../app/component/search/search.component'
 const routes: Routes = [
 
   {
@@ -50,6 +50,10 @@ const routes: Routes = [
       {
         path: 'label',
         component: LabelComponent
+      },
+      {
+        path: 'search',
+        component: SearchComponent
       },
     ]
 

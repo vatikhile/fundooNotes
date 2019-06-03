@@ -33,5 +33,10 @@ export class NoteServiceService {
   {
    return this.http.postUpdate('notes/updateNotes',data) 
   }
+  postColor(data)
+  {
+    console.log('A');
+return this.http.postData('notes/changesColorNotes',data)
+  }
 }
 

@@ -19,10 +19,11 @@
       </div>
     </mat-dialog-actions>
     </div> -->
-<div class="card-center1" fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
+    <!-- <div  [ngStyle]="{'background-color': data.color }"> -->
+<div class="card-center1" fxLayout="column" fxLayoutAlign="center center" fxFlex="100" >
 <div fxLayout="column" fxFlex="100">
 
-    <div fxLayout="row" fxFlex="50" fxLayoutGap="0%" fxLayoutAlign="start">
+    <div fxLayout="row" fxFlex="50" fxLayoutGap="0%" fxLayoutAlign="start" >
       <div  >
         <textarea matTextareaAutosize class="textArea" placeholder="Title"
           [(ngModel)]="noteData.title"></textarea>
@@ -34,14 +35,14 @@
     </div>
         <div>
       <textarea matTextareaAutosize class="textArea" placeholder="Note"
-        [(ngModel)]="noteData.description"></textarea>
+        [(ngModel)]="noteData.description" ></textarea>
     </div>
     <div fxLayout="row">
       <div>
         <app-icon></app-icon>
       </div>
       <div>
-        <button mat-flat-button fxLayout="row" fxLayoutAlign="space-between end" class="mat-icon-button"
+        <button matbutton fxLayout="row" fxLayoutAlign="space-between end" class="mat-icon-button"
           [mat-dialog-close]="true" (click)="updateNotes()">
           Close
         </button>
@@ -49,6 +50,7 @@
     </div>
     </div>
   </div>
+  <!-- </div> -->
 
 
 

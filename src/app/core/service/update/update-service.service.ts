@@ -4,11 +4,16 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UpdateServiceService {
+  private messageSource1 = new BehaviorSubject('default message');
+  Notes = this.messageSource1.asObservable();
+
   private messageSource = new BehaviorSubject('default message');
   currentMessage = this.messageSource.asObservable();
 
   constructor() { }
-
+  messageSearch(message: string) {
+    this.messageSource1.next(message)
+  }
   changeMessage(message: string) {
     this.messageSource.next(message)
   }

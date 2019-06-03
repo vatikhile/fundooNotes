@@ -14,6 +14,7 @@
     <button mat-icon-button matTooltip="Change color" [matMenuTriggerFor]="colorMenu">
         <img src="../../../assets/colorcard.svg">
     </button>
+    
   </div>
   <div>
     <button mat-icon-button matTooltip="New note with image">
@@ -36,9 +37,9 @@
     <mat-menu #colorMenu="matMenu" fxFlex="80" [overlapTrigger]="false">
   
       <div>
-        <div *ngFor="let color of colorCode" fxLayout="row wrap" >
+        <div *ngFor="let color of colorCodes" fxLayout="row wrap" >
           <div *ngFor="let iteam of color">
-            <button   mat-icon-button [style.background-color]="iteam" (click)="changeColor(iteam)">
+            <button  matbutton [ngStyle]="{ 'background-color': iteam.hexcode }" (click)="changeColor(iteam.hexcode)" matTooltip="{{ iteam.name }}" mat-mini-fab class="color">
               <!-- <mat-icon style="font-size: 40px" class="colorIcons">fiber_manual_record</mat-icon> -->
             </button>
           </div>

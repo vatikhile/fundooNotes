@@ -14,6 +14,7 @@ export class AddNoteComponent implements OnInit {
   private flag: Boolean = false;
 
   addNote: Notes = new Notes();
+  setColor: any;
   constructor(private noteservice: NoteServiceService, private dataService: UpdateServiceService, private snackbar: MatSnackBar) { }
   ngOnInit() {
   }
@@ -24,6 +25,13 @@ export class AddNoteComponent implements OnInit {
     console.log("wewqeg", this.addNote);
     this.show();
     console.log(this.addNote.title);
+    if(this.setColor==undefined){
+      this.addNote.color=""
+    }
+        else{
+          this.addNote.color=this.setColor
+        }
+
     this.noteservice.addNote(this.addNote).subscribe(
       (response: any) => {
 
@@ -47,5 +55,8 @@ export class AddNoteComponent implements OnInit {
    ******/
   show() {
     this.flag = !this.flag;
+  }
+  receiveColorEvent($event){
+    this.setColor= $event;    
   }
 }

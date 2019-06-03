@@ -15,6 +15,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 import { MatRadioModule } from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -37,6 +38,9 @@ import { CollaboratorComponent } from './component/collaborator/collaborator.com
 import { ArchiveComponent } from './component/archive/archive.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditNotesComponent } from './component/edit-notes/edit-notes.component';
+import { NoteSearchPipePipe } from './pipe/note-search-pipe.pipe';
+import { OrderOfPipe } from './pipe/order-of.pipe';
+import { SearchComponent } from './component/search/search.component';
 
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
@@ -61,6 +65,9 @@ import { EditNotesComponent } from './component/edit-notes/edit-notes.component'
     // DialogBoxComponent,
     ArchiveComponent,
     EditNotesComponent,
+    NoteSearchPipePipe,
+    OrderOfPipe,
+    SearchComponent,
    
     
 
@@ -87,6 +94,7 @@ import { EditNotesComponent } from './component/edit-notes/edit-notes.component'
     MatButtonToggleModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    FilterPipeModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatMenuModule,

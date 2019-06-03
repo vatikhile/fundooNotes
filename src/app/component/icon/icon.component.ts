@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit,Inject , Output, EventEmitter, Input } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
@@ -7,9 +7,9 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./icon.component.scss']
 })
 export class IconComponent implements OnInit {
-  colorCode: string[][]= 
-  [['white','lightGreen','purple','red'],
-  ['orange','teal','pink','darkBlue'],['blue','brown','yellow','gray']];
+  // colorCode: string[][]= 
+  // [['white','lightGreen','purple','red'],
+  // ['orange','teal','pink','darkBlue'],['blue','brown','yellow','gray']];
   color:string;
   constructor(){
   // @Inject(MAT_DIALOG_DATA) private data:{ notes: any}) {
@@ -17,36 +17,41 @@ export class IconComponent implements OnInit {
    }
 //   notes=this.data.notes;
 ngOnInit() {
-  console.log("color");
+  // console.log("color");
 
  
 }
-  changeColor(color:string){
+@Output() countChange = new EventEmitter();
+  changeColor(color){
     // this.color=color;
     // this.notes.color= color;
-    console.log("color",this.color);
+
+      this.countChange.emit(color);
+
     console.log("color",color);
+    // console.log("color",color);
     
      }
-  colors=[
+  colorCodes=
     [
-      {name:"white",hexcode:"#ffffff"},
-      {name:"lightGreen",hexcode:"#90ee90"},
-      {name:"purple",hexcode:"#800080"},
-      {name:"red",hexcode:"#ff0000"}
-    ],
-    [
-      {name:"Teal",hexcode:"#008080"},
-      {name:"pink",hexcode:"#ffc0cb"},
-      {name:"orange",hexcode:"#ffa500"},
-      {name:"blue",hexcode:"#0000ff"}
-    ],
-    [
-      {name:"brown",hexcode:"#a52a2a"},
-      {name:"yellow",hexcode:"#ffff00"},
-      {name:"darkBlue",hexcode:"#00008b"},
-      {name:"gray",hexcode:"#808080"}
-    ],
-  ]
+      [
+        { name: "white",hexcode: "#ffffff" },
+        { name: "lightGreen",hexcode: "#90ee90" },
+        { name: "purple", hexcode: "#800080" },
+        { name: "red", hexcode: "#ff0000" },
+      ],
+      [
+        { name: "Teal", hexcode: "#008080" },
+        { name: "pink", hexcode: "#ffc0cb" },
+        { name: "orange", hexcode: "#ffa500" },
+        { name: "blue", hexcode: "#0000ff" },
+      ],
+      [
+        { name: "brown", hexcode: "#a52a2a" },
+        { name: "yellow", hexcode: "#ffff00" },
+        { name: "darkBlue", hexcode: "#00008b" },
+        { name: "gray", hexcode: "#808080" }
+      ]
+    ]
 
 }

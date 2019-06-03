@@ -2,9 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 // import { MatDialog } from '@angular/material';
 import { LabelComponent } from '../label/label.component';
 import { MatDialog } from '@angular/material';
+import { Router} from '@angular/router';
 import { NoteServiceService } from 'src/app/core/service/note/note-service.service';
 import { UpdateServiceService } from '../../core/service/update/update-service.service'
-import { ViewService } from '../../core/service/viewService/view.service'
+import { ViewService } from '../../core/service/viewService/view.service';
+// import {NoteSearchPipePipe} from '../../pipe/note-search-pipe.pipe'
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -18,13 +20,14 @@ export class DashboardComponent implements OnInit {
   grid: boolean = false;
   addLabels: any = [];
   email: string;
+  searchText:any;
   firstName: string;
   message: any;
   header: string;
   lastName: string;
   profilImaage: string;
   // @ViewChild(LabelComponent) child;
-  constructor(private matDialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService) {
+  constructor(private matDialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService,private route:Router) {
     this.firstName = localStorage.getItem('firstName'),
       this.email = localStorage.getItem('email'),
       this.lastName = localStorage.getItem('lastName'),
@@ -35,6 +38,7 @@ export class DashboardComponent implements OnInit {
     this.showLabel();
     this.sidenavUpdateLabel();
     this.header = 'fundooNotes';
+    
   }
 
   /*****
@@ -102,7 +106,22 @@ export class DashboardComponent implements OnInit {
     this.header = 'Notes';
 
   }
+  search()
+  {
+this.route.navigateByUrl('/search');
+  }
+  searchmessage(){
+    this.dataService.messageSearch(this.searchText);
+  }
+  // onSearchChange(event) {  
+  //   typeof(event);
+  //   console.log(event);
+  // this.searchTermSharing.searchNotes(event);
+  // }
+//  search(search:string){
+//         this.searchTermSharing.transform(search);
 
+//       }
 
 
 

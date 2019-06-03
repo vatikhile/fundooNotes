@@ -26,12 +26,12 @@
 
 <!-- for displaying the another matcard after click on small matcard-->
 <div class="card-center1" *ngIf="flag===true" fxLayout="column" fxLayoutAlign="center end" fxFlex="65">
-  <mat-card fxLayout="row" fxFlex="72" class="card">
+  <mat-card [style.backgroundColor]="setColor" fxLayout="row" fxFlex="72" class="card">
     <div fxLayout="column" fxFlex="20">
        <div>
         <div fxLayout="row" fxFlex="50" fxLayoutGap="0%" fxLayoutAlign="start"> 
           <div >
-              <textarea matTextareaAutosize fxLayout="column" class="textAreaa" placeholder="Title"
+              <textarea matTextareaAutosize [style.backgroundColor]="setColor" fxLayout="column" class="textAreaa" placeholder="Title"
                 [(ngModel)]="addNote.title"></textarea>
             </div>
           <div fxFlexLayout="end">
@@ -43,15 +43,15 @@
       
       
       <div>
-        <textarea matTextareaAutosize fxLayout="column" class="textArea" placeholder="Take a Note..."
+        <textarea matTextareaAutosize [style.backgroundColor]="setColor" fxLayout="column" class="textArea" placeholder="Take a Note..."
           [(ngModel)]="addNote.description"></textarea>
       </div>
       <div fxLayout="row" >
       <div>
-      <app-icon></app-icon>
+      <app-icon  (countChange)="receiveColorEvent($event)"></app-icon>
     </div>
     <div >
-        <button mat-flat-button fxLayout="row" fxLayoutAlign="space-between end" class="mat-icon-button" (click)="addNotes()">
+        <button matbutton fxLayout="row" fxLayoutAlign="space-between end" class="mat-icon-button" (click)="addNotes()">
           Close
         </button>
       </div>

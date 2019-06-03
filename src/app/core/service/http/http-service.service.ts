@@ -109,5 +109,14 @@ postUpdate(url,data){
   
   return this.http.post(this.baseUrl + url , data, httpOptions);
 }
-
+postData(url,data){
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    })
+  }
+  console.log('B');
+  return this.http.post(this.baseUrl + url , data, httpOptions);
+}
 }
