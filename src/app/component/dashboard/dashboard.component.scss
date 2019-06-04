@@ -31,10 +31,7 @@
     
     
   }
-//   .sidenav:hover
-//   {
-//     overflow-y: scroll;      
-// }
+
   .mat-raised-button{
 
     display: flex;
@@ -54,25 +51,14 @@
 .mat-raised-button:focus {
     background-color: #fcefc3;
   }
-// /deep/.mat-drawer-transition .mat-drawer-content {
-//     // overflow-y: scroll;
-//     margin-left: 13%;
-//     width: 100vw;
-//   }
 
 .content {
 
-    // width: 99vw;
     background-color: white;
-        // height: 100vh;
-        // align-content: center;
-        // margin-left: 15%;
+    
         overflow-x: hidden;
-        // overflow-y: hidden;
 }
-// .scroll{
-//     // overflow-y: scroll;
-// }
+
 .title{
     color: #5f6268;
     font-weight:inherit;
@@ -83,7 +69,7 @@
 .mat-toolbar{
     display:flex;
     background-color: white;
-    // position: fixed;
+  
 }
 .mat-divider{
     color:lightgray;
@@ -108,8 +94,7 @@
 .main
 {
     display: flex;
-    // height:2000vh;
-    // min-height: 10vh;
+  
     background-color: white;
 }
 .fname{

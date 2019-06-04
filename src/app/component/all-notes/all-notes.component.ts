@@ -5,29 +5,19 @@ import { ViewService } from 'src/app/core/service/viewService/view.service';
 import { MatDialog} from '@angular/material';
 import { EditNotesComponent } from '../edit-notes/edit-notes.component';
 import { MatSnackBar } from '@angular/material';
-// import { Pipe, PipeTransform } from '@angular/core';
-import { identifierModuleUrl, analyzeAndValidateNgModules } from '@angular/compiler';
-import { MAT_DIALOG_DATA } from '@angular/material';
-import { notEqual } from 'assert';
-// import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
 @Component({
   selector: 'app-all-notes',
   templateUrl: './all-notes.component.html',
   styleUrls: ['./all-notes.component.scss']
 })
-// @Pipe({ name: 'reverse' })
+
 export class AllNotesComponent implements OnInit {
-  // transform(value) {
-  //   return value.slice().reverse();
-  // }
-  // @Input() childMessage: string;
+
   addNotes: any[];
-  // searchText:any;
   message: any;
   views:any;
   direction:string;
   setColor: any;
-  // searchText:string;
   @Input() note;
   @Input() searchText;
   constructor(private noteService: NoteServiceService,private dataService:UpdateServiceService,private view: ViewService,private dialog :MatDialog,private snackbar:MatSnackBar) { }

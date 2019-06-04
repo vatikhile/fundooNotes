@@ -113,15 +113,7 @@ this.route.navigateByUrl('/search');
   searchmessage(){
     this.dataService.messageSearch(this.searchText);
   }
-  // onSearchChange(event) {  
-  //   typeof(event);
-  //   console.log(event);
-  // this.searchTermSharing.searchNotes(event);
-  // }
-//  search(search:string){
-//         this.searchTermSharing.transform(search);
 
-//       }
 
 
 
