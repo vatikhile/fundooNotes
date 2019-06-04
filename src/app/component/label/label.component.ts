@@ -26,7 +26,6 @@ export class LabelComponent implements OnInit {
   // onNoClick(): void {
   //   // //this.dialogRef.close();
   //   // this.
-
   // }
   done() {
     this.dialogRef.close();
@@ -82,7 +81,7 @@ export class LabelComponent implements OnInit {
       }
     )
   }
-  
+
   /*****
  @purpose:click on delete button it delete the added the labels
  ******/
@@ -138,16 +137,16 @@ export class LabelComponent implements OnInit {
     }
 
   }
-   /*****
-  @purpose:on the dialog box After hover on labels its change into delete button and enable the button to delete the specified label
-  ******/
+  /*****
+ @purpose:on the dialog box After hover on labels its change into delete button and enable the button to delete the specified label
+ ******/
   hover(id: any) {
     this.Idd = id;
-}
-/*****
-  @purpose:on the dialog box After click on close button it clear label name type there before click on check button
-  ******/
-close(){
-  this.labelNote.label = null;
-}
+  }
+  /*****
+    @purpose:on the dialog box After click on close button it clear label name type there before click on check button
+    ******/
+  close() {
+    this.labelNote.label = null;
+  }
 }

@@ -36,21 +36,21 @@ ngOnInit() {
     [
       [
         { name: "white",hexcode: "#ffffff" },
-        { name: "lightGreen",hexcode: "#90ee90" },
-        { name: "purple", hexcode: "#800080" },
-        { name: "red", hexcode: "#ff0000" },
+        { name: "lightGreen",hexcode: "#f28b82" },
+        { name: "purple", hexcode: "#f7bc04" },
+        { name: "red", hexcode: "#faf474" },
       ],
       [
-        { name: "Teal", hexcode: "#008080" },
-        { name: "pink", hexcode: "#ffc0cb" },
-        { name: "orange", hexcode: "#ffa500" },
-        { name: "blue", hexcode: "#0000ff" },
+        { name: "Teal", hexcode: "#cbff90" },
+        { name: "pink", hexcode: "#a7ffeb" },
+        { name: "orange", hexcode: "#cbf0f8" },
+        { name: "blue", hexcode: "#adcbfa" },
       ],
       [
-        { name: "brown", hexcode: "#a52a2a" },
-        { name: "yellow", hexcode: "#ffff00" },
-        { name: "darkBlue", hexcode: "#00008b" },
-        { name: "gray", hexcode: "#808080" }
+        { name: "brown", hexcode: "#d7aefb" },
+        { name: "yellow", hexcode: "#fdcfe8" },
+        { name: "darkBlue", hexcode: "#cbb294" },
+        { name: "gray", hexcode: "#e8eaed" }
       ]
     ]
 

@@ -1,28 +1,30 @@
 <!-- for displaying notes i.e title and description on the matcard -->
 
    
-              <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="60"  class="card_div">
+              <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="62"  class="card_div">
                   
-         <div fxLayout="{{direction}} wrap" fxLayoutAlign="end" fxFlex="67" fxLayoutGap="0%" class="5">
+         <div fxLayout="{{direction}} wrap" fxLayoutAlign="space-around" fxFlex="64" fxLayoutGap="0%" class="main">
       <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText"   class="111">
-        <div   class="matShade" fxFlex="85" class="ssf6">
+        <!-- <div   class="matShade" fxFlex="88" class="ssf6"> -->
          <!-- <div class="122"> -->
-           <mat-card   [ngClass]=" direction =='column' ? 'matpad3':'matpad' "  class="smallcard" fxFlex="100" [ngStyle]="{ 'background-color': items.color }" > 
-             <div  (click)="openDialog(items)">
-              <div class="123" ><p>{{items.title}}</p></div>
-              <div><p>{{items.description}} </p></div>
+           <mat-card   [ngClass]=" direction =='column' ? 'matpad3':'matpad'"  class="smallcard" [ngStyle]="{ 'background-color': items.color }" > 
+              <!-- <mat-card-content>  -->
+            <div  (click)="openDialog(items)">
+                
+              <div class="bold" fxLayout="column" >{{items.title}}</div>
+              <div fxLayout="column"> <p>{{items.description}}</p></div>
              </div>
               <div>
                 <app-icon class="icon_hover" 
-                (countChange)="changeColor(items,$event)"  
-                ></app-icon>
+                (countChange)="changeColor(items,$event)"></app-icon>
               </div>
+            <!-- </mat-card-content> -->
           </mat-card>
           
           
-        </div>
+        <!-- </div> -->
           
       </div> 
     </div>
-      </div>
+      <!-- </div> -->
    

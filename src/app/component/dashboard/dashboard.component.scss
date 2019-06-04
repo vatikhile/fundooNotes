@@ -23,7 +23,7 @@
  }
 .sidenav{
     display: flex;
-    width: 22vw;
+    // width: 22vw;
     position: absolute;
   
     // width: 23vw;
@@ -31,6 +31,10 @@
     
     
   }
+//   .abc{
+//     width: 22vw;
+
+//   }
 
   .mat-raised-button{
 
@@ -51,7 +55,9 @@
 .mat-raised-button:focus {
     background-color: #fcefc3;
   }
-
+// .scroll{
+//     overflow-y: scroll;
+// }
 .content {
 
     background-color: white;
