@@ -108,8 +108,7 @@ export class AllNotesComponent implements OnInit {
            this.snackbar.open('note color not updated', 'End now', {duration: 1000}); 
          })
      }
-
-
+// dummy 
      archiveNote(items,$event){
 
       this.archive=$event
