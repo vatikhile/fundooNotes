@@ -55,13 +55,14 @@
 .mat-raised-button:focus {
     background-color: #fcefc3;
   }
-// .scroll{
-//     overflow-y: scroll;
-// }
+.scroll{
+    overflow-y: scroll;
+    width: 100vw;
+}
 .content {
 
     background-color: white;
-    
+    // overflow-y: scroll;
         overflow-x: hidden;
 }
 
@@ -148,6 +149,11 @@ outline: none;
     background-color: white;
     
 }
+// .mat-drawer-content {
+//     width: 100vw;
+//     // overflow: hidden;
+//     height: 100vh;
+// }
 
 
 

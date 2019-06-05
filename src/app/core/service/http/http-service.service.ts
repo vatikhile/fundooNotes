@@ -119,4 +119,16 @@ postData(url,data){
   console.log('B');
   return this.http.post(this.baseUrl + url , data, httpOptions);
 }
+
+getNoteArchive1(url) {
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': localStorage.getItem('token')
+    })
+  };
+  console.log('token in s',localStorage.getItem('id')
+  );
+  return this.http.get(this.baseUrl + url, httpOptions);
+}
 }

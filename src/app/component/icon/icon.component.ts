@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject , Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter, Input } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
@@ -10,33 +10,34 @@ export class IconComponent implements OnInit {
   // colorCode: string[][]= 
   // [['white','lightGreen','purple','red'],
   // ['orange','teal','pink','darkBlue'],['blue','brown','yellow','gray']];
-  color:string;
-  constructor(){
-  // @Inject(MAT_DIALOG_DATA) private data:{ notes: any}) {
+  color: string;
+  constructor() {
+    // @Inject(MAT_DIALOG_DATA) private data:{ notes: any}) {
     // this.http.getRequest('/label/getlabel').subscribe(data => this.userLabel = data );
-   }
-//   notes=this.data.notes;
-ngOnInit() {
-  // console.log("color");
+  }
+  //   notes=this.data.notes;
+  ngOnInit() {
+    // console.log("color");
 
- 
-}
-@Output() countChange = new EventEmitter();
-  changeColor(color){
+
+  }
+  @Output() countChange = new EventEmitter();
+  @Output() archiveNote = new EventEmitter();
+  changeColor(color) {
     // this.color=color;
     // this.notes.color= color;
+    console.log("color", color);
+    this.countChange.emit(color);
 
-      this.countChange.emit(color);
-
-    console.log("color",color);
-    // console.log("color",color);
     
-     }
-  colorCodes=
+    // console.log("color",color);
+
+  }
+  colorCodes =
     [
       [
-        { name: "white",hexcode: "#ffffff" },
-        { name: "lightGreen",hexcode: "#f28b82" },
+        { name: "white", hexcode: "#ffffff" },
+        { name: "lightGreen", hexcode: "#f28b82" },
         { name: "purple", hexcode: "#f7bc04" },
         { name: "red", hexcode: "#faf474" },
       ],
@@ -54,4 +55,11 @@ ngOnInit() {
       ]
     ]
 
+  archieveNote(archive) {
+   
+    this.archiveNote.emit(archive);
+    console.log("archieve", archive);
+  
+
+  }
 }

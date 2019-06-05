@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
         console.log("tokknnn");
 
         this.snackbar.open('login sucessfullly', "", { duration: 2000 })
-        this.router.navigateByUrl('addNote');
+        this.router.navigateByUrl('addNotes');
       },
       error => {
         this.snackbar.open('login fail', "", { duration: 2000 })

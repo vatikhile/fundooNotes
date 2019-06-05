@@ -38,5 +38,13 @@ export class NoteServiceService {
     console.log('A');
 return this.http.postData('notes/changesColorNotes',data)
   }
+  postArchive(data)
+  {
+    return  this.http.postData('notes/archiveNotes',data)
+  }
+  getNoteArchive()
+  {
+    return this.http.getNoteArchive1('notes/getArchiveNotesList')
+  }
 }
 

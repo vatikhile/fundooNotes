@@ -1,49 +1,242 @@
-// .main-div{
-//     display: flex;
-//     align-items: flex-start;
-// flex-flow: row wrap;
+// // .main-div{
+// //     display: flex;
+// //     align-items: flex-start;
+// // flex-flow: row wrap;
+
+// // }
+// // .text-bar{
+// //     border: none;
+// //     width: 100%
+// //   }
+// // .icon-div{
+// //     display: flex;
+// //     flex-direction: row;
+// //     justify-content: space-evenly;
+// //     width: 100%;
+// //    visibility: hidden;
+// //   }
+// //   .mat-card:hover  .icon-div{
+// //     visibility: visible;
+// //   }
+// //   .row-width{
+// //     width: 250px;
+// //     height: auto;
+// //     margin-top: 10px;
+// //     margin-left: 10px;
+// //   }
+// //   .list-width{
+// //     width: 500px;
+// //     margin-top: 10px;
+// //   }
+
+// //   .list-view{
+// //     display: flex;
+// //     flex-direction: column;
+// //     align-items: center;
+// // }
+// // .pin{
+// //     display: flex;
+// //     justify-content: flex-end;
+// //     visibility: hidden;
+// //   }
+// //   .mat-card:hover    .pin{
+// //     visibility: visible;
+// //   }
+// //   .time{
+// //       display: flex;
+// //       flex-direction: row;
+// //       justify-content: space-between;
+// //   }
+
+
+// .smallcard
+// {
+//     // width: 220px;
+//     margin-top: 20px;
+//     border-radius: 15px;
+//     //box-shadow: 0px 7px 15px grey;
+//     box-shadow: 0 2px 1px -1px rgba(0,0,0,.9), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+
+//     // padding: 100px 0 0;
+// } 
+// .mainCard{
+//   // width:90%;
+//   display: flex;
+//   padding-left: 15%;
+//   padding-right: 10%;
+// }
+
+// mat-card:hover{
+//   .appicon{
+//       visibility: visible
+//   }
 
 // }
-// .text-bar{
-//     border: none;
-//     width: 100%
-//   }
-// .icon-div{
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-evenly;
-//     width: 100%;
-//    visibility: hidden;
-//   }
-//   .mat-card:hover  .icon-div{
-//     visibility: visible;
-//   }
-//   .row-width{
-//     width: 250px;
-//     height: auto;
-//     margin-top: 10px;
-//     margin-left: 10px;
-//   }
-//   .list-width{
-//     width: 500px;
-//     margin-top: 10px;
-//   }
-
-//   .list-view{
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
+// .appicon{
+// visibility: hidden
 // }
-// .pin{
+// // .smallcard
+// // {
+// // // width: 220px;
+// // margin-top: 30px;
+// // border-radius: 8px;
+// // border-color: transparent;  
+// // outline: none;
+// // background-color: white;
+// // // width: 18vw;
+// // // position:;
+// // } 
+// // .main{
+// //     display: flex;
+// //     // margin-left: 30%;
+// //     // padding-left: 159px;
+// // }
+
+// // .smallcard:hover
+// // {
+// //     visibility: visible;
+// //     box-shadow: black;
+// // }
+// // .sd8
+// // {
+// //     display: flex;
+// //     width: 900px;
+// // }
+// .Card{
 //     display: flex;
-//     justify-content: flex-end;
-//     visibility: hidden;
-//   }
-//   .mat-card:hover    .pin{
+//     // min-width: 56vw;
+//     // width: 100vw;
+//     // max-width: 57vw;
+// // display: flex;
+//      background-color: white;
+// //     position:relative;
+// // width: 71vw;
+// // margin-right: 17%;
+// // margin-left: 15%;
+// // width: 60vw;
+// // width:1132px;
+
+// }
+// .mat-card:hover{
+// .icon_hover{
+// visibility: visible;
+// }
+// }
+// .icon_hover
+// {
+// visibility: hidden;
+// }
+// // .matpad{
+// //     margin-top: 8px;
+// //     width: 230px;
+// //     //box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
+// //     margin-bottom: 8px;
+// // }
+
+// .matpad3{
+//     margin-top: 8px;
+//     width: 100vw;
+//    // box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
+//     margin-bottom: 8px;
+// }
+// .card_div{
+//   height: 100vh;
+// }
+
+// // .appicon span.only-show-on-hover {
+// //     visibility: hidden;
+// // }
+// // .appicon:hover span.only-show-on-hover  {
+// //     visibility: visible;
+// // }
+.smallcard
+{
+// width: 220px;
+margin-top: 30px;
+border-radius: 8px;
+border-color: transparent;  
+outline: none;
+background-color: white;
+// height: 25vh;
+
+// width: 18vw;
+// position:;
+} 
+// .ssf6{
+//     max-width: 240px;
+// }
+// .main{
+//     display: flex;
+//     // margin-left: 30%;
+//     // padding-left: 159px;
+// }
+
+// .smallcard:hover
+// {
 //     visibility: visible;
-//   }
-//   .time{
-//       display: flex;
-//       flex-direction: row;
-//       justify-content: space-between;
-//   }
+//     box-shadow: black;
+// }
+// .sd8
+// {
+//     display: flex;
+//     width: 900px;
+// }
+.Card{
+    display: flex;
+    // min-width: 56vw;
+    // width: 100vw;
+    // max-width: 57vw;
+// display: flex;
+     background-color: white;
+//     position:relative;
+// width: 71vw;
+// margin-right: 17%;
+// margin-left: 15%;
+// width: 60vw;
+// width:1132px;
+
+}
+.mat-card:hover{
+.icon_hover{
+visibility: visible;
+}
+}
+.icon_hover
+{
+visibility: hidden;
+}
+// .matpad{
+//     // margin-top: 8px;
+//     // display: inline;
+//     //box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
+//     // margin-bottom: 8px;
+// }
+
+.matpad3{
+    margin-top: 8px;
+    width: 100vw;
+   // box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
+    margin-bottom: 8px;
+}
+.bold{
+    word-wrap:break-word;
+}
+.light{
+    word-wrap:break-word; 
+}
+
+// .matShade:hover{
+//     box-shadow: black;
+//     // .matShade:::shadow
+//     shad
+// }
+
+
+// .Card_div{
+//     display: flex;
+//     min-width: 56vw;
+//     width: 66vw;
+//     max-width: 57vw;
+// }
+// }
+

@@ -1,8 +1,9 @@
 <!-- for displaying the small matcard -->
-<div fxLayout="row"  fxFlex="62">
-<div class="card-center" *ngIf="flag===false" fxLayout="column" fxLayoutAlign="center center" fxFlex="100" >
+<div fxLayout="column"  fxFlex="100">
+<div class="card-center" *ngIf="flag===false" fxLayout="row" fxLayoutAlign="start">
   <!-- <div fxLayout="row" fxLayoutAlign="center end"> -->
-  <mat-card (click)="show()" fxLayout="row" fxLayoutAlign="center" fxFlex="45" class="card-rechange">
+    <div fxLayout="column" fxLayoutAlign="center center" class="22" fxFlex="58">
+  <mat-card (click)="show()" fxLayout="row" fxLayoutAlign="center center" fxFlex="45" class="card-rechange">
     <div>
       <input matInput fxFlex="100" class="search" placeholder="Take a Note...">
 
@@ -21,11 +22,14 @@
       </div>
     </div>
   </mat-card>
+  </div>
+  <!-- </div> -->
 <!-- </div> -->
 </div>
 
 <!-- for displaying the another matcard after click on small matcard-->
-<div class="card-center1" *ngIf="flag===true" fxLayout="column" fxLayoutAlign="center center" fxFlex="100">
+<div class="card-center1" *ngIf="flag===true" fxLayout="row" fxLayoutAlign="start">
+    <div fxLayout="column" fxLayoutAlign="center center" class="22" fxFlex="58">
   <mat-card [style.backgroundColor]="setColor" fxLayout="row" fxFlex="72" class="card">
     <div fxLayout="column" fxFlex="20">
        <div>
@@ -46,17 +50,26 @@
         <textarea matTextareaAutosize [style.backgroundColor]="setColor" fxLayout="column" class="textArea" placeholder="Take a Note..."
           [(ngModel)]="addNote.description"></textarea>
       </div>
-      <div fxLayout="row" >
+      <!-- <mat-card-actions> -->
+              <div fxLayout="row" fxLayoutAlign="space-between start">
+          
       <div>
       <app-icon  (countChange)="receiveColorEvent($event)"></app-icon>
     </div>
     <div >
-        <button matbutton fxLayout="row" fxLayoutAlign="space-between end" class="mat-icon-button" (click)="addNotes()">
+        <button matbutton  class="mat-icon-button" (click)="addNotes()">
           Close
         </button>
       </div>
-      </div>
+           </div>
+          <!-- </mat-card-actions> -->
+
+      
     </div>
   </mat-card>
+  </div>
 </div>
+<div>
+    <app-all-notes></app-all-notes>
+  </div>
 </div>

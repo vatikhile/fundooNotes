@@ -65,18 +65,18 @@
 
 
   <mat-divider></mat-divider>
-  <div fxLayout="column" fxLayoutAlign="start start"  class="scroll">
+  <div fxLayout="column" fxLayoutAlign="start start" class="scroll">
 
     <!-- Open the sidenav bar after click on menu button in the dashboard -->
-    <div fxLayout="column" fxLayoutAlign="start" fxFlex="30" class="abcd">
-      <mat-sidenav-container>
+    <div fxLayout="column" fxLayoutAlign="start" fxFlex="30">
+      <mat-sidenav-container class="abc">
         <mat-sidenav fxLayout="column" fxFlex="100" #sidenav mode="side" class="sidenav">
           <div fxLayout="column" fxFlex="100" fxLayoutGap="10px">
             <div>
               <div fxLayout="column" fxLayoutAlign="start-between" fxFlex="100" class="20">
                 <div>
 
-                  <button mat-raised-button fxFlex="97">
+                  <button mat-raised-button fxFlex="97" (click)="noteButton()">
                     <div fxLayout="row" fxLayoutGap="30px" fxFlex="100" (click)='note()'>
                       <mat-icon>lightbulb_outline</mat-icon>
                       <span> Note</span>
@@ -143,7 +143,7 @@
                 <mat-divider></mat-divider>
                 <div>
                   <mat-divider class="divider"></mat-divider>
-                  <button mat-raised-button fxFlex="97">
+                  <button mat-raised-button fxFlex="97" (click)="archive()">
                     <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
                       <img src="../../../assets/archive.svg">
                       <span style="margin:27%">Archive</span>
@@ -163,15 +163,17 @@
           </div>
         </mat-sidenav>
         <mat-sidenav-content class="content">
-          <div >
-            <div>
-              <app-add-note></app-add-note>
+
+           
+                <router-outlet></router-outlet>
+              <!-- <app-add-note></app-add-note>
             </div>
        
               <div>
               <app-all-notes></app-all-notes>
             </div>
-          </div>
+            <div><app-archive></app-archive></div> -->
+      
         </mat-sidenav-content>
       </mat-sidenav-container>
     </div>

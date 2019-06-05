@@ -35,9 +35,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.showLabel();
-    this.sidenavUpdateLabel();
-    this.header = 'fundooNotes';
+    // this.showLabel();
+    // this.sidenavUpdateLabel();
+    // this.header = 'fundooNotes';
     
   }
 
@@ -114,9 +114,13 @@ this.route.navigateByUrl('/search');
     this.dataService.messageSearch(this.searchText);
   }
 
-
-
-
+  archive(){
+    // this.route.navigate(['dashboard','archive']);
+    this.route.navigateByUrl('/archive');
+  }
+  noteButton(){
+    this.route.navigateByUrl('/addNotes');
+  }
 }
 
 

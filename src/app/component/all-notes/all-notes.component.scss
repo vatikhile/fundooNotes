@@ -1,14 +1,19 @@
 .smallcard
 {
 // width: 220px;
-// margin-top: 30px;
+margin-top: 30px;
 border-radius: 8px;
 border-color: transparent;  
 outline: none;
 background-color: white;
+// height: 2vh;
+
 // width: 18vw;
 // position:;
 } 
+// .ssf6{
+//     max-width: 240px;
+// }
 // .main{
 //     display: flex;
 //     // margin-left: 30%;
@@ -50,10 +55,10 @@ visibility: visible;
 visibility: hidden;
 }
 // .matpad{
-//     margin-top: 8px;
-//     width: 230px;
+//     // margin-top: 8px;
+//     // display: inline;
 //     //box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
-//     margin-bottom: 8px;
+//     // margin-bottom: 8px;
 // }
 
 .matpad3{
@@ -62,8 +67,12 @@ visibility: hidden;
    // box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
     margin-bottom: 8px;
 }
-
-
+.bold{
+    word-wrap:break-word;
+}
+.light{
+    word-wrap:break-word; 
+}
 
 // .matShade:hover{
 //     box-shadow: black;

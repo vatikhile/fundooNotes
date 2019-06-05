@@ -10,6 +10,7 @@ import { AllNotesComponent } from './component/all-notes/all-notes.component';
 import {LabelComponent} from './component/label/label.component'
 import { AuthGuardService } from './core/service/auth/auth-guard.service'
 import {SearchComponent} from '../app/component/search/search.component'
+import {ArchiveComponent} from '../../src/app/component/archive/archive.component'
 const routes: Routes = [
 
   {
@@ -37,15 +38,14 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: DashboardComponent, canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
+    component:DashboardComponent,
+    // component: DashboardComponent, canActivate: [AuthGuardService],
     children: [
+      
       {
-        path: 'addNote',
-        component: AddNoteComponent
-      },
-      {
-        path:'getnote',
-        component:AllNotesComponent
+        path:'addNotes',
+        component:AddNoteComponent
       },
       {
         path: 'label',
@@ -55,9 +55,44 @@ const routes: Routes = [
         path: 'search',
         component: SearchComponent
       },
+      {
+        path: 'archive',
+        component: ArchiveComponent
+      },
+      {
+        path: 'allNotes',
+        component: AllNotesComponent
+      },
     ]
 
   }
+
+
+  // {
+  //   path:'dashboard',
+  //   canActivate: [AuthGuardService],
+  //   component:DashboardComponent,
+  //   children:[{
+  //   path:'',
+  //   component:AddnotesComponent
+  //   },
+  //   {
+  //   path:'note',
+  //   component:AddnotesComponent
+  //   },
+  //   {
+  //   path:'archive',
+  //   component:ArchiveComponent
+  //   },{
+  //   path:'reminder',
+  //   component:ReminderComponent
+  //   },{
+  //   path:'trash',
+  //   component:TrashComponent
+  //   }
+  //   ]
+  //   }
+  
   // {
   //   path: 'allNotes',
   //   component: AllNotesComponent
@@ -76,7 +111,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes),
+   RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
