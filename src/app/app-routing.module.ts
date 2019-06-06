@@ -12,7 +12,6 @@ import { AuthGuardService } from './core/service/auth/auth-guard.service'
 import {SearchComponent} from '../app/component/search/search.component'
 import {ArchiveComponent} from '../../src/app/component/archive/archive.component'
 const routes: Routes = [
-
   {
     path: '',
     redirectTo: '/login',
@@ -66,6 +65,7 @@ const routes: Routes = [
     ]
 
   }
+
 
 
   // {

@@ -17,23 +17,29 @@ export class AllNotesComponent implements OnInit {
   addNotes: any[];
   message: any;
   views:any;
-  direction:string;
+  
   setColor: any;
   archive: any;
   @Input() note;
   @Input() searchText;
   noteId: any;
   countId: any;
+  direction1: string='wrap';
+  allign:string='';
+  direction:string="row";
+  // toggle: Boolean=true;
+
   constructor(private noteService: NoteServiceService,private dataService:UpdateServiceService,private view: ViewService,private dialog :MatDialog,private snackbar:MatSnackBar) { }
 
   ngOnInit() {
     this.getAllNotes();
-    this.dataService.currentMessage.subscribe(
-      (response: any) => {
-        this.message = response;
-        this.getAllNotes();
-      }
-    )
+    // this.toggle=this.direction
+    // this.dataService.currentMessage.subscribe(
+    //   (response: any) => {
+    //     this.message = response;
+    //     this.getAllNotes();
+    //   }
+    // )
     // this.dataService.currentMessage.subscribe(
 
     //   (response:any)=>{
@@ -43,12 +49,25 @@ export class AllNotesComponent implements OnInit {
     //   }
     // )
 
-    //  this.view.getView().subscribe(
-    //   (res) => {
-    //     this.views = res;
-    //     this.direction = this.views.data;
-    //      console.log(this.direction);
-    //   });
+     this.view.getView().subscribe(
+      (res) => {
+        this.views = res;
+        this.direction = this.views.data;
+        if(this.direction=='row')
+        {
+          this.direction1='wrap';
+          this.allign=''
+          console.log("wrap",this.direction1);
+          
+        }
+        else{
+          this.direction1=''
+          this.allign='center'
+          console.log("no wrap",this.direction1);
+        }
+        // this.toggle=this.views.data1;
+         console.log(this.direction);
+      });
       
   }
     /*****
@@ -98,10 +117,12 @@ export class AllNotesComponent implements OnInit {
        this.noteService.postColor(data).subscribe(
          (response:any)=>{
              console.log(response);
-             this.addNotes=response.data;
+             //this.addNotes=response.data;
                 console.log("data1==>",this.addNotes);
-                this.dataService.changeMessage('');          
+                // this.dataService.changeMessage(''); 
+                 this.getAllNotes();        
                 this.snackbar.open('note color updated Successfully..', 'End now', {duration: 1000}); 
+                
          },
          error=>{
            console.log(error);

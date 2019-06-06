@@ -149,19 +149,19 @@
 // // .appicon:hover span.only-show-on-hover  {
 // //     visibility: visible;
 // // }
-.smallcard
-{
+// .smallcard
+// {
 // width: 220px;
-margin-top: 30px;
-border-radius: 8px;
-border-color: transparent;  
-outline: none;
-background-color: white;
+// margin-top: 30px;
+// border-radius: 8px;
+// border-color: transparent;  
+// outline: none;
+// background-color: white;
 // height: 25vh;
 
 // width: 18vw;
 // position:;
-} 
+// } 
 // .ssf6{
 //     max-width: 240px;
 // }
@@ -214,9 +214,23 @@ visibility: hidden;
 
 .matpad3{
     margin-top: 8px;
-    width: 100vw;
+    // width: 100vw;
+    // margin-top: 11%;
    // box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
     margin-bottom: 8px;
+    // margin-top: 30px;
+border-radius: 8px;
+border-color: transparent;  
+outline: none;
+background-color: white;
+}
+.matpad{
+    margin-top: 11%;
+    border-radius: 8px;
+border-color: transparent;  
+outline: none;
+background-color: white;
+
 }
 .bold{
     word-wrap:break-word;

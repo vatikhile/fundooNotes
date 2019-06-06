@@ -41,31 +41,32 @@
             </div>
 
 
-            <div> <button mat-icon-button *ngIf="list" (click)="changeView()" fxShow="true">
-                <img src="../../../assets/grid.svg">
+            <div> <button mat-icon-button *ngIf="toggle==true" (click)="changeView()">
+                <img src="../../../assets/list.svg">
               </button>
-              <div> <button mat-icon-button *ngIf="grid" (click)="changeView()" fxShow="true">
-                  <img src="../../../assets/list.svg">
+              <div> <button mat-icon-button *ngIf ="toggle==false" (click)="changeView1()">
+                  <img src="../../../assets/grid.svg">
                 </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div fxLayout="row" fxLayoutAlign="end" fxFlex="100" class="16">
-
-        <button mat-icon-button [matMenuTriggerFor]=usermenu>
-
-          <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 50px;width: 50px;">
+      <div fxFlex="10" >
+   
+        <button style="outline: none;" mat-icon-button [matMenuTriggerFor]="menu">
+          <div mat-card-avatar
+            [ngStyle]="{'background-image': 'url('+img+')','background-size':'cover', 'height':'60px','width':'60px'}"
+            class="img1"></div>
         </button>
-      </div>
-
+     
+    </div>
     </mat-toolbar-row>
   </mat-toolbar>
 
 
   <mat-divider></mat-divider>
-  <div fxLayout="column" fxLayoutAlign="start start" class="scroll">
+  <div fxLayout="column" fxLayoutAlign="start start"  class="scroll">
 
     <!-- Open the sidenav bar after click on menu button in the dashboard -->
     <div fxLayout="column" fxLayoutAlign="start" fxFlex="30">
@@ -181,37 +182,24 @@
 </div>
 
 <div fxLayout="row" fxLayoutAlign="start center" fxFlex="100">
-  <mat-menu #usermenu="matMenu" fxLayout="row" fxFlex="100" class="menu">
-    <div fxLayout="column" fxFlex="100" fxLayoutAlign="space-around center">
-      <div (click)="dialogImage()" fxLayoutGap="10px">&nbsp;
-        <div> <img src="../../../assets/v.jpg" style="border-radius: 50%;height: 68px;width:68px">
-          <div class="sbutton">
-            &nbsp; change
-          </div>
-        </div>
 
-
-        <div fxLayout="column" fxFlex="100" fxLayoutAlign="center">
-          <div class="fname"><span>{{firstName}}&nbsp;{{lastName}}</span></div>
-          <div class="email"><span>{{email}}</span></div>
-        </div>
-      </div>
-    </div>
-    &nbsp;
-    &nbsp;
+  <mat-menu class="menu" #menu="matMenu"> 
 
     <div>
-      <mat-divider></mat-divider>
+    <mat-card-header>
+    <div mat-card-avatar
+    [ngStyle]="{'background-image': 'url('+img+')','background-size':'cover', 'height':'60px','width':'60px'}"
+    class="img2" (click)=image.click()>
+    </div>
+    <mat-card-title>{{first}} {{last}}</mat-card-title>
+    <mat-card-subtitle>{{email1}}</mat-card-subtitle>
+    </mat-card-header><br>
+    <mat-divider></mat-divider>
+    <div fxLayoutAlign="end end">
+    <input type="file" class="fileSelect" (change)=profileImage($event) #image>
+    <button mat-flat-button color="warn" routerLink="/login" (click)="logout()">Sign out</button>
+    </div>
     </div>
 
-    <div class="sign">
-      &nbsp;
-      <div fxLayout="row" fxFlex="100" fxLayoutAlign="end space-evenly">
-
-        <div>
-          <button mat-menu-item (click)="onSignout()" routerLink="/login" class="signbutton">sign-out</button>
-        </div>
-      </div>
-    </div>
-  </mat-menu>
+</mat-menu>
 </div>

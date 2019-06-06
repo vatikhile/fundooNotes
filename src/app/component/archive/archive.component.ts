@@ -49,12 +49,12 @@ export class ArchiveComponent implements OnInit {
       }
     )
 
-     this.view.getView().subscribe(
-      (res) => {
-        this.views = res;
-        this.direction = this.views.data;
-         console.log(this.direction);
-      });
+    //  this.view.gridview().subscribe(
+    //   (res) => {
+    //     this.views = res;
+    //     this.direction = this.views.data;
+    //      console.log(this.direction);
+    //   });
       
 
 

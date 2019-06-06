@@ -1,18 +1,19 @@
 <!-- for displaying notes i.e title and description on the matcard -->
 
    
-              <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="62"  class="card_div">
+              <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100"  class="card_div">
                   
-         <div fxLayout="{{direction}} wrap" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main">
+         <div fxLayout="{{direction}} {{direction1}}"  fxLayoutAlign="start {{allign}}" fxFlex="65"  class="main">
+            <!-- <div fxLayout="column" *ngIf="toggle==false" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main"> -->
       <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText"   class="111">
         <div  *ngIf="items.isArchived===false" class="matShade" fxFlex="88" class="ssf6">
-         <!-- <div class="122"> -->
-           <mat-card   [ngClass]=" direction =='column' ? 'matpad3':'matpad'"  class="smallcard" [ngStyle]="{ 'background-color': items.color }" > 
+         <div class="122" [ngClass]=" direction =='column' ? 'matpad3':'matpad'">
+           <mat-card     [ngStyle]="{ 'background-color': items.color }" > 
               <!-- <mat-card-content>  -->
             <div  (click)="openDialog(items)">
                 
               <div class="bold" fxLayout="column" >{{items.title}}</div>
-              <div fxLayout="column"> <p>{{items.description}}</p></div>
+              <div fxLayout="column" class="bold" > <p>{{items.description}}</p></div>
              </div>
              <div>
               <!-- <div class="gg" fxLayout="row" fxLayoutAlign="center end"> -->
@@ -23,11 +24,12 @@
               <!-- </div> -->
             <!-- </mat-card-content> -->
           </mat-card>
-          
+          </div>
           
         </div>
           
-      </div> 
+      <!-- </div>  -->
+      </div>
     </div>
-      <!-- </div> -->
+      </div>
    

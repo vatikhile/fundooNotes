@@ -1,23 +1,23 @@
-.smallcard
-{
+// .smallcard
+// {
 // width: 220px;
-margin-top: 30px;
-border-radius: 8px;
-border-color: transparent;  
-outline: none;
-background-color: white;
+// margin-top: 30px;
+// border-radius: 8px;
+// border-color: transparent;  
+// outline: none;
+// background-color: white;
 // height: 2vh;
 
 // width: 18vw;
 // position:;
-} 
+// } 
 // .ssf6{
 //     max-width: 240px;
 // }
 // .main{
 //     display: flex;
 //     // margin-left: 30%;
-//     // padding-left: 159px;
+//     // padding-left: 159px
 // }
 
 // .smallcard:hover
@@ -62,10 +62,25 @@ visibility: hidden;
 // }
 
 .matpad3{
-    margin-top: 8px;
-    width: 100vw;
+    margin-top: 12px;
+    width: 50vw;
    // box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
-    margin-bottom: 8px;
+    // margin-bottom: 8px;
+    // margin-top: 30px;
+border-radius: 12px;
+border-color: transparent;  
+outline: none;
+background-color: white;
+
+}
+.matpad{
+    // width:240px;
+    max-width: 22vw;
+    margin-top: 30px;
+border-radius: 12px;
+border-color: transparent;  
+outline: none;
+background-color: white;
 }
 .bold{
     word-wrap:break-word;

@@ -1,8 +1,9 @@
 <!-- for displaying the small matcard -->
+
 <div fxLayout="column"  fxFlex="100">
-<div class="card-center" *ngIf="flag===false" fxLayout="row" fxLayoutAlign="start">
+<div class="card-center" *ngIf="flag===false" fxLayout="row" fxLayoutAlign="center">
   <!-- <div fxLayout="row" fxLayoutAlign="center end"> -->
-    <div fxLayout="column" fxLayoutAlign="center center" class="22" fxFlex="58">
+    <div fxLayout="column" fxLayoutAlign="center center" class="22" fxFlex="63">
   <mat-card (click)="show()" fxLayout="row" fxLayoutAlign="center center" fxFlex="45" class="card-rechange">
     <div>
       <input matInput fxFlex="100" class="search" placeholder="Take a Note...">
@@ -68,8 +69,11 @@
     </div>
   </mat-card>
   </div>
+
+      
+   
 </div>
-<div>
-    <app-all-notes></app-all-notes>
-  </div>
+<app-all-notes class="allnotes"></app-all-notes>
 </div>
+ 
+

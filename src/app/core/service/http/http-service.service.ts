@@ -131,4 +131,15 @@ getNoteArchive1(url) {
   );
   return this.http.get(this.baseUrl + url, httpOptions);
 }
+postNewData(url, data) {
+  const httpOptions = {
+    headers: new HttpHeaders({
+      //'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    })
+  };
+  console.log('token in s',localStorage.getItem('token')
+  );
+  return this.http.post(this.baseUrl + url,data, httpOptions);
+}
 }

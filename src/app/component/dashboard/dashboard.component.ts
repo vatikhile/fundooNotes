@@ -6,6 +6,8 @@ import { Router} from '@angular/router';
 import { NoteServiceService } from 'src/app/core/service/note/note-service.service';
 import { UpdateServiceService } from '../../core/service/update/update-service.service'
 import { ViewService } from '../../core/service/viewService/view.service';
+import { environment } from 'src/environments/environment';
+import { ProfilePicComponent } from '../profile-pic/profile-pic.component';
 // import {NoteSearchPipePipe} from '../../pipe/note-search-pipe.pipe'
 @Component({
   selector: 'app-dashboard',
@@ -15,31 +17,43 @@ import { ViewService } from '../../core/service/viewService/view.service';
 
 export class DashboardComponent implements OnInit {
   private flag: boolean = false;
-
-  list: boolean = true;
-  grid: boolean = false;
+    toggle: boolean = true;
+  // list: boolean = true;
+  // grid: boolean=false;
   addLabels: any = [];
-  email: string;
-  searchText:any;
-  firstName: string;
+  
   message: any;
   header: string;
-  lastName: string;
-  profilImaage: string;
-  // @ViewChild(LabelComponent) child;
-  constructor(private matDialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService,private route:Router) {
-    this.firstName = localStorage.getItem('firstName'),
-      this.email = localStorage.getItem('email'),
-      this.lastName = localStorage.getItem('lastName'),
-      this.profilImaage = localStorage.getItem('profilPic')
-  }
 
-  ngOnInit() {
-    // this.showLabel();
-    // this.sidenavUpdateLabel();
-    // this.header = 'fundooNotes';
+  firstName = localStorage.getItem('firstName');
+  email = localStorage.getItem('email');
+  lastName = localStorage.getItem('lastName');
+  profilImaage = localStorage.getItem('profilPic');
+  // @ViewChild(LabelComponent) child;
+  constructor(private dialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService,private route:Router) {
     
   }
+  img = environment.url + this.profilImaage;
+
+  ngOnInit() {
+    this.showLabel();
+    this.sidenavUpdateLabel();
+    this.header = 'fundooNotes';
+    
+  }
+
+
+
+  profileImage(event): void {
+    const dialogRef = this.dialog.open(ProfilePicComponent, {
+    width: '400px',
+    data: event
+    });
+    dialogRef.afterClosed()
+    .subscribe(result => {
+    this.img = environment.url + localStorage.getItem("profilePic")
+    });
+    }
 
   /*****
   @purpose:on the sidenav display all the labels which are already added
@@ -65,7 +79,7 @@ export class DashboardComponent implements OnInit {
   dialogOpen() {
 
     console.log('add');
-    this.matDialog.open(LabelComponent);
+    this.dialog.open(LabelComponent);
   }
   /*****
   @purpose:After click on signout it clear the local storage and redirect on login page
@@ -88,20 +102,34 @@ export class DashboardComponent implements OnInit {
     )
   }
   changeView() {
-    // toggle the button
-    if (this.grid) {
-      this.grid = false;
-      this.list = true;
-      this.view.gridview();
-    }
-    else {
-      this.list = false;
-      this.grid = true;
-      this.view.gridview();
-    }
+    // toggle the butto
+    // if (this.grid) {
+    //   this.grid = false;
+    //   this.list = true;
+      
+    // }
+    // else {
+    //   this.list = false;
+    //   this.grid = true;
+    //   this.view.gridview();
+    
+      // list= !this.grid;
+      this.toggle=false;
+      this.view.gridview(this.toggle);
+    // this.sideNavView.currentListStatus(this.gridView);
+// console.log('lll',this.toggle1);
+// console.log("ggggg",this.grid);
 
 
-  }
+    //     this.getNote.ngOnInit();
+    
+    }
+    changeView1() {
+      this.toggle=true;
+      this.view.gridview(this.toggle);
+    }
+
+  
   note() {
     this.header = 'Notes';
 
@@ -110,13 +138,11 @@ export class DashboardComponent implements OnInit {
   {
 this.route.navigateByUrl('/search');
   }
-  searchmessage(){
-    this.dataService.messageSearch(this.searchText);
-  }
+
 
   archive(){
-    // this.route.navigate(['dashboard','archive']);
-    this.route.navigateByUrl('/archive');
+    this.route.navigate(['','archive']);
+    // this.route.navigateByUrl('/archive');
   }
   noteButton(){
     this.route.navigateByUrl('/addNotes');

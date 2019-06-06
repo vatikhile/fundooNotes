@@ -4,31 +4,36 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ViewService {
-
+  // result: boolean;
+  toggle:boolean=true;
   constructor() { }
-  result:boolean = true;
+  // result:boolean = true;
   subject = new Subject();
 
 
 
   getView() 
   {
-    this.gridview();
+    this.gridview(this.toggle);
     return this.subject.asObservable();
   }
 
-  gridview()
+  gridview(result)
   {
-    if(this.result)
+    this.toggle=result
+    if(this.toggle==false)
     {
+      // this.result=false;
       this.subject.next({data:"column"});
-      this.result = false;
-      console.log(this.result)
+      // this.result = false;
+      // console.log(this.result)
+      // return this.subject.asObservable();
     }
     else
     {
       this.subject.next({data:"row"});
-      this.result = true;
+      // return this.subject.asObservable();
+      // this.result = true;
     }
   } 
 }

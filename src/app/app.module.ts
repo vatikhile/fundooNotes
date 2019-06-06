@@ -41,6 +41,8 @@ import { EditNotesComponent } from './component/edit-notes/edit-notes.component'
 import { NoteSearchPipePipe } from './pipe/note-search-pipe.pipe';
 import { OrderOfPipe } from './pipe/order-of.pipe';
 import { SearchComponent } from './component/search/search.component';
+import { ProfilePicComponent } from './component/profile-pic/profile-pic.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
@@ -68,6 +70,7 @@ import { SearchComponent } from './component/search/search.component';
     NoteSearchPipePipe,
     OrderOfPipe,
     SearchComponent,
+    ProfilePicComponent,
    
     
 
@@ -84,6 +87,7 @@ import { SearchComponent } from './component/search/search.component';
     MatInputModule,
     MatCardModule,
     MatFormFieldModule,
+    ImageCropperModule,
     MatIconModule,
     HttpClientModule,
     FlexLayoutModule,
@@ -108,6 +112,6 @@ import { SearchComponent } from './component/search/search.component';
 
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[LabelComponent,EditNotesComponent]
+  entryComponents:[LabelComponent,EditNotesComponent,ProfilePicComponent]
 })
 export class AppModule { }
