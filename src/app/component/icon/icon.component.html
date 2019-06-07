@@ -27,11 +27,13 @@
     </button>
   </div>
   <div>
-    <button mat-icon-button matTooltip="More">
+    <button mat-icon-button matTooltip="More"  [matMenuTriggerFor]="morelist" >
+        
         <img src="../../../assets/more1.png">
     </button>
   </div>
 </div>
+
 
 <div>
     <mat-menu #colorMenu="matMenu" fxFlex="80" [overlapTrigger]="false">
@@ -48,5 +50,21 @@
   
     </mat-menu>
   </div>
+  
+  <mat-menu #morelist="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="label"> Add Label</button>
+    <button mat-button  (click)="deleteNote(noteId)"> Delete Note</button>
+  </mat-menu>
+
+
+<mat-menu #label="matMenu">
+  Label Note
+  <div  *ngFor="let items of addNoteLabels">
+
+  <button  mat-menu-item (click)="addLabelToNote(noteId,items.id)"> 
+          <mat-checkbox></mat-checkbox>
+      <span>{{items.label}}</span></button>
+  </div>
+</mat-menu>
   
 

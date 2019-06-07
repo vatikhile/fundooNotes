@@ -69,10 +69,13 @@ export class ArchiveComponent implements OnInit {
     console.log("archive note=-=>",data);
     this.noteService.postArchive(data).subscribe(
       (response:any)=>{
-        console.log(response);
+        console.log("abc",response);
+  
         this.update.changeMessage('rewq');
+        // this.getArchiveNotes();
 
-        this.snackbar.open('note archived Successful', 'End now', {duration: 1000});       
+        this.snackbar.open('note archived Successful', 'End now', {duration: 1000});    
+        // this.getArchiveNotes();   
 
       },
       (error)=>{

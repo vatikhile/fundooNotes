@@ -147,6 +147,12 @@ this.route.navigateByUrl('/search');
   noteButton(){
     this.route.navigateByUrl('/addNotes');
   }
+  trash()
+{
+  this.route.navigateByUrl('/trash');
+  console.log("gdsgfhg");
+  
+}
 }
 
 

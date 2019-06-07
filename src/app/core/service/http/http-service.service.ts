@@ -142,4 +142,53 @@ postNewData(url, data) {
   );
   return this.http.post(this.baseUrl + url,data, httpOptions);
 }
+
+  getNote(url) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    console.log('token in s',localStorage.getItem('token')
+    );
+    return this.http.get(this.baseUrl + url, httpOptions);
+  }
+  postDelete(url,data){
+    console.log("service data",data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    console.log('token in s',localStorage.getItem('token'));
+
+    return this.http.post(this.baseUrl + url, data,httpOptions);
+  }
+
+  postLabel(url,data) {
+    //console.log("service data",data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    console.log('token in delete label',localStorage.getItem('id'));
+
+    return this.http.post(this.baseUrl + url,data,httpOptions);
+  }
+  getLabel(url) {
+    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('id')
+      })
+    };
+    console.log('token in s',localStorage.getItem('id'));
+
+    return this.http.get(this.baseUrl + url,httpOptions);
+  }
 }

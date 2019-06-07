@@ -11,6 +11,7 @@ import {LabelComponent} from './component/label/label.component'
 import { AuthGuardService } from './core/service/auth/auth-guard.service'
 import {SearchComponent} from '../app/component/search/search.component'
 import {ArchiveComponent} from '../../src/app/component/archive/archive.component'
+import {TrashComponent} from '../../src/app/component/trash/trash.component'
 const routes: Routes = [
   {
     path: '',
@@ -61,6 +62,10 @@ const routes: Routes = [
       {
         path: 'allNotes',
         component: AllNotesComponent
+      },
+      {
+        path: 'trash',
+        component: TrashComponent
       },
     ]
 

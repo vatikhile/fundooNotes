@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
@@ -43,7 +43,7 @@ import { OrderOfPipe } from './pipe/order-of.pipe';
 import { SearchComponent } from './component/search/search.component';
 import { ProfilePicComponent } from './component/profile-pic/profile-pic.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 
@@ -93,6 +93,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     FlexLayoutModule,
     MatRadioModule,
     FormsModule,
+    MatCheckboxModule,
     MatSnackBarModule,
     ReactiveFormsModule,
     MatButtonToggleModule,

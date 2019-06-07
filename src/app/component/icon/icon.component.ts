@@ -1,5 +1,8 @@
 import { Component, OnInit, Inject, Output, EventEmitter, Input } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import {HttpServiceService} from '../../core/service/http/http-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { UpdateServiceService } from '../../core/service/update/update-service.service'
 
 @Component({
   selector: 'app-icon',
@@ -11,16 +14,29 @@ export class IconComponent implements OnInit {
   // [['white','lightGreen','purple','red'],
   // ['orange','teal','pink','darkBlue'],['blue','brown','yellow','gray']];
   color: string;
-  constructor() {
+  addNote: any;
+  addNoteLabels: any[];
+  message: any;
+  constructor(private http:HttpServiceService,private update:UpdateServiceService,private snackbar:MatSnackBar) {
     // @Inject(MAT_DIALOG_DATA) private data:{ notes: any}) {
     // this.http.getRequest('/label/getlabel').subscribe(data => this.userLabel = data );
   }
   //   notes=this.data.notes;
   ngOnInit() {
     // console.log("color");
+this.getLabels();
+this.update.currentMessage.subscribe(
 
+  (response:any)=>{
+    console.log(response);
+    this.message=response;
+    this.getLabels();
+    
+  }
+)
 
   }
+  @Input()  noteId:any;
   @Output() countChange = new EventEmitter();
   @Output() archiveNote = new EventEmitter();
   changeColor(color) {
@@ -61,5 +77,55 @@ export class IconComponent implements OnInit {
     console.log("archieve", archive);
   
 
+  }
+  deleteNote(noteId)
+  {
+    console.log("ggggg");
+    
+    var data={
+      "noteIdList":[noteId],
+      "isDeleted":true,
+}
+this.http.postDelete('notes/trashNotes',data).subscribe(
+  (response)=>{
+    this.update.changeMessage('');
+    this.snackbar.open('Note deleted sucessfully')
+ },
+ (error)=>{
+console.log('error occur when deleting the  note');
+ })
+  }
+  addLabelToNote(noteId,lableId){
+  
+
+    this.http.postLabel('notes/'+noteId+'/addLabelToNotes/'+lableId+'/add',{}).subscribe(
+      (response:any)=>{
+        console.log(response);
+                  this.addNote=response.data
+                  this.update.changeMessage('rewq');
+                  console.log("swrwer",this.addNote);
+                this.snackbar.open('label added to note successfully', 'End now', {duration: 1000});
+      },
+      (error)=>{
+        console.log(error);
+        this.snackbar.open('label not added', 'End now', {duration: 1000});
+  
+        
+      }
+    )
+    
+  }
+  getLabels(){
+    this.http.getLabel('noteLabels/getNoteLabelList').subscribe(
+      (response:any)=>{
+        console.log("get Labels==>",response);
+        this.addNoteLabels=response.data.details;
+       
+      },
+      (error)=>{
+        console.log(error);
+        
+      }
+    )
   }
 }

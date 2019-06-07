@@ -51,8 +51,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div fxFlex="10" >
+     
+      <div fxLayout="row" fxLayoutAlign="end start">
    
         <button style="outline: none;" mat-icon-button [matMenuTriggerFor]="menu">
           <div mat-card-avatar
@@ -61,6 +61,7 @@
         </button>
      
     </div>
+  </div>
     </mat-toolbar-row>
   </mat-toolbar>
 
@@ -152,7 +153,7 @@
                   </button>
                 </div>
                 <div>
-                  <button mat-raised-button fxFlex="97">
+                  <button mat-raised-button fxFlex="97" (click)="trash()" >
                     <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
                       <img src="../../../assets/menuTrash.svg">
                       <span style="margin:30%">Trash</span>
@@ -191,11 +192,11 @@
     [ngStyle]="{'background-image': 'url('+img+')','background-size':'cover', 'height':'60px','width':'60px'}"
     class="img2" (click)=image.click()>
     </div>
-    <mat-card-title>{{first}} {{last}}</mat-card-title>
-    <mat-card-subtitle>{{email1}}</mat-card-subtitle>
+    <mat-card-title class="color">{{firstName}} {{lastName}}</mat-card-title>
+    <mat-card-subtitle>{{email}}</mat-card-subtitle>
     </mat-card-header><br>
     <mat-divider></mat-divider>
-    <div fxLayoutAlign="end end">
+    <div fxLayout="row" fxLayoutAlign="end">
     <input type="file" class="fileSelect" (change)=profileImage($event) #image>
     <button mat-flat-button color="warn" routerLink="/login" (click)="logout()">Sign out</button>
     </div>

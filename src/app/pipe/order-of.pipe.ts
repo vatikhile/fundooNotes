@@ -7,7 +7,7 @@ export class OrderOfPipe implements PipeTransform {
   transform(value) {
        if (!value || !value.length) 
        { 
-         return; 
+         return;
         }
     return value.slice().reverse();
   }

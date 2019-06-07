@@ -5,6 +5,7 @@ import { ViewService } from 'src/app/core/service/viewService/view.service';
 import { MatDialog} from '@angular/material';
 import { EditNotesComponent } from '../edit-notes/edit-notes.component';
 import { MatSnackBar } from '@angular/material';
+import { Notes } from 'src/app/core/model/Notes/notes';
 
 @Component({
   selector: 'app-all-notes',
@@ -15,6 +16,7 @@ import { MatSnackBar } from '@angular/material';
 export class AllNotesComponent implements OnInit {
 
   addNotes: any[];
+  Notes: any[];
   message: any;
   views:any;
   
@@ -22,6 +24,7 @@ export class AllNotesComponent implements OnInit {
   archive: any;
   @Input() note;
   @Input() searchText;
+  // @Input()notesData: any;
   noteId: any;
   countId: any;
   direction1: string='wrap';
@@ -40,14 +43,14 @@ export class AllNotesComponent implements OnInit {
     //     this.getAllNotes();
     //   }
     // )
-    // this.dataService.currentMessage.subscribe(
+    this.dataService.currentMessage.subscribe(
 
-    //   (response:any)=>{
-    //     console.log(response);
-    //     this.message=response;
-    //     this.getAllNotes();
-    //   }
-    // )
+      (response:any)=>{
+        console.log(response);
+        this.message=response;
+        this.getAllNotes();
+      }
+    )
 
      this.view.getView().subscribe(
       (res) => {
@@ -69,7 +72,9 @@ export class AllNotesComponent implements OnInit {
          console.log(this.direction);
       });
       
+      
   }
+  
     /*****
    @purpose:for getting the note data i.e title and description from the database for displaying the created note
    ******/
@@ -81,6 +86,22 @@ export class AllNotesComponent implements OnInit {
       (response:any) => {
       console.log('data notes -->',response);
       this.addNotes =response.data.data;
+      this.noteId=response.data.data[0].id
+//       for(var i=0;i<3;i++)
+//       {
+//         console.log("sss",this.Notes[i]);
+//         for(var j=i;j<3;j++){
+// // this.addNotes=Notes[i];
+// console.log("vvv",this.Notes[j]);
+// this.Notes=Notes[i];
+// this.addNotes=this.Notes[j];
+// this.dataService.changeMessage('');
+        
+
+        
+        
+      
+      
       // this.noteId=response.data.data[0].id
       // this.countId=response.data.data.length;
       // this.sidenavUpdateLabel();
@@ -90,6 +111,7 @@ export class AllNotesComponent implements OnInit {
       // console.log("response count",this.countId);
       // console.log("response note",this.noteId);
       })
+ 
 }
 
     openDialog(items:any){
@@ -142,7 +164,7 @@ export class AllNotesComponent implements OnInit {
         (response:any)=>{
           console.log(response);
           this.dataService.changeMessage('rewq');
-  
+  this.getAllNotes();
           this.snackbar.open('note archived Successful', 'End now', {duration: 1000});       
   
         },
