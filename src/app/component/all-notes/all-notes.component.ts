@@ -30,6 +30,8 @@ export class AllNotesComponent implements OnInit {
   direction1: string='wrap';
   allign:string='';
   direction:string="row";
+  setReminder: any;
+  // addNote: any;
   // toggle: Boolean=true;
 
   constructor(private noteService: NoteServiceService,private dataService:UpdateServiceService,private view: ViewService,private dialog :MatDialog,private snackbar:MatSnackBar) { }
@@ -176,6 +178,32 @@ export class AllNotesComponent implements OnInit {
       )
       
     }
+    updateReminder(items,$event){
+    
+      this.setReminder=$event
+    
+   console.log("get reminder" ,this.setReminder);
+   var noteData={
+     "reminder":this.setReminder,
+     "noteIdList":[items.id]
+   }
+   console.log("jdfdhfhd",noteData);
+   
+     this.noteService.postData(noteData).subscribe(
+       (response:any)=>{
+           console.log(response);
+          //  this.addNotes=response.data;
+           this.dataService.changeMessage('rewq');
+          this.getAllNotes();
+              console.log("data1==>",this.addNotes);         
+              this.snackbar.open('note reminder added Successfully..', 'End now', {duration: 1000}); 
+       },
+       error=>{
+         console.log(error);
+         this.snackbar.open('reminder not set', 'End now', {duration: 1000}); 
+       }
+     )
+   }
   
 
    

@@ -1,40 +1,49 @@
 <!-- for displaying notes i.e title and description on the matcard -->
 
-   
-              <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100"  class="card_div">
-                  
-         <div fxLayout="{{direction}} {{direction1}}"  fxLayoutAlign="start {{allign}}" fxFlex="65"  class="main">
-            <!-- <div fxLayout="column" *ngIf="toggle==false" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main"> -->
-      <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText"   class="111">
-        <div  *ngIf="items.isArchived===false && items.isDeleted===false" class="matShade" fxFlex="88" class="ssf6">
-         <div class="122" [ngClass]=" direction =='column' ? 'matpad3':'matpad'">
-           <mat-card     [ngStyle]="{ 'background-color': items.color }" > 
-              <!-- <mat-card-content>  -->
-            <div  (click)="openDialog(items)">
-                
-              <div class="bold" fxLayout="column" >{{items.title}}</div>
-              <div fxLayout="column" class="bold" > <p>{{items.description}}</p></div>
-             </div>
-             <div>
-              <!-- <div class="gg" fxLayout="row" fxLayoutAlign="center end"> -->
-                <app-icon fxLayout="row" fxLayoutAlign="center end" class="icon_hover"
 
-                (countChange)="changeColor(items,$event)"
-                (archiveNote)="archiveNote(items,$event)"
-                [noteId]="items.id"
-                >
-                <!-- [notesData]="items" -->
-                </app-icon> 
+<div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100" class="card_div">
+
+  <div fxLayout="{{direction}} {{direction1}}" fxLayoutAlign="start {{allign}}" fxFlex="65" class="main">
+    <!-- <div fxLayout="column" *ngIf="toggle==false" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main"> -->
+    <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText" class="111">
+      <div *ngIf="items.isArchived===false && items.isDeleted===false" class="matShade" fxFlex="88" class="ssf6">
+        <div class="122" [ngClass]=" direction =='column' ? 'matpad3':'matpad'">
+          <mat-card [ngStyle]="{ 'background-color': items.color }">
+            <!-- <mat-card-content>  -->
+            <div (click)="openDialog(items)">
+
+              <div class="bold" fxLayout="column">{{items.title}}</div>
+              <div fxLayout="column" class="bold">
+                <p>{{items.description}}</p>
               </div>
-              <!-- </div> -->
+
+              <div *ngIf="items.reminder.length > 0">
+                <mat-chip-list>
+                  <mat-chip> <img src="../../../assets/images/clock.svg"> {{items.reminder | date:'MMM d, y, h:mm a'}}
+                  </mat-chip>
+                </mat-chip-list>
+              </div>
+              <!-- <div>
+                <app-display-labels  [noteId]="items.id" [noteData]="items.noteLabels"></app-display-labels>
+          </div> -->
+            </div>
+            <div>
+              <!-- <div class="gg" fxLayout="row" fxLayoutAlign="center end"> -->
+              <app-icon fxLayout="row" fxLayoutAlign="center end" class="icon_hover"
+                (countChange)="changeColor(items,$event)" (archiveNote)="archiveNote(items,$event)" (remindChange)="updateReminder(items,$event)" >
+                <!-- [noteData]="items"
+                [noteId]="items.id"> -->
+                <!-- [notesData]="items" -->
+              </app-icon>
+            </div>
+            <!-- </div> -->
             <!-- </mat-card-content> -->
           </mat-card>
-          </div>
-          
         </div>
-          
+
+      </div>
+
       <!-- </div>  -->
-      </div>
     </div>
-      </div>
-   
+  </div>
+</div>

@@ -1,11 +1,11 @@
 <!-- for displaying the icons below the Note far various purpose -->
 <div fxLayout="row" fxFlex="100" >
   <div>
-    <button mat-icon-button matTooltip="Remind me">
+    <button mat-icon-button matTooltip="Remind me" [matMenuTriggerFor]="reminder">
         <img src="../../../assets/remindcard.svg">
     </button>
   </div>
-  <div>
+   <div>
     <button mat-icon-button matTooltip="Collaborator">
         <img src="../../../assets/collabcard.svg">
     </button>
@@ -65,6 +65,28 @@
           <mat-checkbox></mat-checkbox>
       <span>{{items.label}}</span></button>
   </div>
+</mat-menu>
+<mat-menu #reminder="matMenu" [overlapTrigger]="false">
+  <ng-template matMenuContent>
+      <div fxLayout="column" fxLayoutAlign="space-between">
+           Reminder:
+           <div>
+                  <button  mat-button (click)="setTodayReminder()">
+              Later Today  8:00
+          </button>
+           </div>
+           <div>
+                  <button mat-button (click)="setTomorrowReminder()">
+              Tommorrow   8:00
+                  </button>
+          </div>
+          <div>
+                  <button mat-button (click)="setWeeklyReminder()">
+              Next Week    8:00
+                  </button>
+          </div>
+      </div>
+  </ng-template>
 </mat-menu>
   
 

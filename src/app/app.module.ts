@@ -44,6 +44,8 @@ import { SearchComponent } from './component/search/search.component';
 import { ProfilePicComponent } from './component/profile-pic/profile-pic.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ReminderComponent } from './component/reminder/reminder.component';
+import { DisplayLabelsComponent } from './component/display-labels/display-labels.component';
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 
@@ -71,6 +73,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     OrderOfPipe,
     SearchComponent,
     ProfilePicComponent,
+    ReminderComponent,
+    DisplayLabelsComponent,
    
     
 

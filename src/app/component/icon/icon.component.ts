@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import {HttpServiceService} from '../../core/service/http/http-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UpdateServiceService } from '../../core/service/update/update-service.service'
-
+import {NoteServiceService} from '../../core/service/note/note-service.service';
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
@@ -17,7 +17,7 @@ export class IconComponent implements OnInit {
   addNote: any;
   addNoteLabels: any[];
   message: any;
-  constructor(private http:HttpServiceService,private update:UpdateServiceService,private snackbar:MatSnackBar) {
+  constructor(private http:HttpServiceService,private update:UpdateServiceService,private snackbar:MatSnackBar,private noteService:NoteServiceService) {
     // @Inject(MAT_DIALOG_DATA) private data:{ notes: any}) {
     // this.http.getRequest('/label/getlabel').subscribe(data => this.userLabel = data );
   }
@@ -34,11 +34,11 @@ this.update.currentMessage.subscribe(
     
   }
 )
-
-  }
+}
   @Input()  noteId:any;
   @Output() countChange = new EventEmitter();
   @Output() archiveNote = new EventEmitter();
+  @Output() remindChange = new EventEmitter();
   changeColor(color) {
     // this.color=color;
     // this.notes.color= color;
@@ -116,16 +116,43 @@ console.log('error occur when deleting the  note');
     
   }
   getLabels(){
-    this.http.getLabel('noteLabels/getNoteLabelList').subscribe(
+    this.noteService.showNoteLabel().subscribe(
       (response:any)=>{
         console.log("get Labels==>",response);
         this.addNoteLabels=response.data.details;
-       
-      },
+       },
       (error)=>{
         console.log(error);
         
       }
     )
   }
+
+    setTodayReminder(){
+      var date = new Date().toDateString();
+      var reminder1 = date+ ", 8:00 "
+      this.remindChange.emit(reminder1);
+      console.log("in reminder1==>",reminder1);
+}
+setTomorrowReminder=()=>{
+  let days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun","Mon"]
+  var date = new Date().toDateString();
+  var rewhr=new Date().getDate()+1;
+  date=date.replace(new Date().getDate().toString(),rewhr.toString());
+  //console.log("srfas",date);
+  
+  date=date.replace(days[new Date().getDay()-1],days[new Date().getDay()]);
+  var reminder1= date+ ", 8:00 " ;
+  this.remindChange.emit(reminder1);
+  console.log("tommorow reminder==>",reminder1); 
+}
+setWeeklyReminder=()=>{
+  var date = new Date().toDateString();
+  var Adate=date.replace(new Date().getDate().toString(),(new Date().getDate()+7).toString());
+  var reminder1 = Adate+ ", 8:00" ;
+  this.remindChange.emit(reminder1);
+  console.log("weekly reminder==>",reminder1);
+
+  
+}
 }

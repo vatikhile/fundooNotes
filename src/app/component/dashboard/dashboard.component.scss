@@ -72,6 +72,9 @@
     font-weight:inherit;
     font-size: 20px;
     font-family: Arial, sans-serif;
+    min-width: 100px;
+    white-space: nowrap;
+    position:relative;
     }
 
 .mat-toolbar{
@@ -265,6 +268,10 @@ outline: none;
 .color{
   color:black;
 }
+// .name{
+//     // min-width: 113px;
+//     position:relative;
+// }
 // .allnotes{
 //     width: 100vw;
 //     height: 100vh;

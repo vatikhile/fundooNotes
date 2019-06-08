@@ -12,6 +12,7 @@ import { AuthGuardService } from './core/service/auth/auth-guard.service'
 import {SearchComponent} from '../app/component/search/search.component'
 import {ArchiveComponent} from '../../src/app/component/archive/archive.component'
 import {TrashComponent} from '../../src/app/component/trash/trash.component'
+import {ReminderComponent} from '../../src/app/component/reminder/reminder.component'
 const routes: Routes = [
   {
     path: '',
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path:'addNotes',
         component:AddNoteComponent
+      },
+      {
+        path: 'reminder',
+        component: ReminderComponent
       },
       {
         path: 'label',

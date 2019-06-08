@@ -46,5 +46,9 @@ return this.http.postData('notes/changesColorNotes',data)
   {
     return this.http.getNoteArchive1('notes/getArchiveNotesList')
   }
+  postData(data)
+  {
+    return this.http.postData('notes/addUpdateReminderNotes',data)
+  }
 }
 

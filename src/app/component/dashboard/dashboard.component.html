@@ -16,7 +16,7 @@
       <div fxLayout="row" fxLayoutAlign="start center" fxFlex="73" fxLayoutGap="10%">
         <div>
           <div fxLayout="row" fxLayoutAlign="start center" fxFlex="73" fxLayoutGap="5%" class="13">
-            <div>
+            <div class="name">              
               <span class="title">{{header}}</span>
             </div>
 
@@ -79,7 +79,7 @@
                 <div>
 
                   <button mat-raised-button fxFlex="97" (click)="noteButton()">
-                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100" (click)='note()'>
+                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
                       <mat-icon>lightbulb_outline</mat-icon>
                       <span> Note</span>
                     </div>
@@ -89,8 +89,8 @@
 
                 <div>
 
-                  <button mat-raised-button fxFlex="97">
-                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100" (click)="headerName='notes'">
+                  <button mat-raised-button fxFlex="97" (click)="reminder()">
+                    <div fxLayout="row" fxLayoutGap="30px" fxFlex="100" >
                       <mat-icon>notifications_none</mat-icon>
                       <span> Reminders</span>
                     </div>

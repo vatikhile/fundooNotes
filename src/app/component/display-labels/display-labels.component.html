@@ -1,0 +1,10 @@
+<div fxLayout="row" fxLayoutGap="10px" >
+  <div *ngFor="let items of noteData">
+    <mat-chip-list>
+      <mat-chip  [removable]="removable" (removed)="addLabelToNote(noteId,items.id)">
+        {{items.label}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>

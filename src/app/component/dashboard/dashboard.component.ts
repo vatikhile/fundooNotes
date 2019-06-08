@@ -130,10 +130,10 @@ export class DashboardComponent implements OnInit {
     }
 
   
-  note() {
-    this.header = 'Notes';
+  // note() {
+  //   this.header = 'Notes';
 
-  }
+  // }
   search()
   {
 this.route.navigateByUrl('/search');
@@ -145,6 +145,7 @@ this.route.navigateByUrl('/search');
     // this.route.navigateByUrl('/archive');
   }
   noteButton(){
+    this.header = 'Notes';
     this.route.navigateByUrl('/addNotes');
   }
   trash()
@@ -152,6 +153,11 @@ this.route.navigateByUrl('/search');
   this.route.navigateByUrl('/trash');
   console.log("gdsgfhg");
   
+}
+reminder(){
+
+  this.header='Reminder';
+  this.route.navigateByUrl('/reminder');
 }
 }
 
