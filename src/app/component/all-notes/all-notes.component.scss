@@ -45,6 +45,10 @@
 // width:1132px;
 
 }
+.mat-card{
+
+    border-radius: 12px;
+}
 .mat-card:hover{
 .icon_hover{
 visibility: visible;
@@ -62,8 +66,8 @@ visibility: hidden;
 // }
 
 .matpad3{
-    margin-top: 12px;
-    width: 50vw;
+    margin-top: 14px;
+    width: 46vw;
    // box-shadow: -1px 1px 11px 8px rgba(173, 173, 173, 0.72);
     // margin-bottom: 8px;
     // margin-top: 30px;
@@ -88,6 +92,9 @@ background-color: white;
 .light{
     word-wrap:break-word; 
 }
+// .mat-chip{
+//     size:10px;
+// }
 
 // .matShade:hover{
 //     box-shadow: black;

@@ -23,14 +23,16 @@ export class AllNotesComponent implements OnInit {
   setColor: any;
   archive: any;
   @Input() note;
+  @Input() notesData;
   @Input() searchText;
   // @Input()notesData: any;
-  noteId: any;
+  // noteId: any;
   countId: any;
   direction1: string='wrap';
   allign:string='';
   direction:string="row";
   setReminder: any;
+  noteId: any;
   // addNote: any;
   // toggle: Boolean=true;
 
@@ -87,13 +89,23 @@ export class AllNotesComponent implements OnInit {
       
       (response:any) => {
       console.log('data notes -->',response);
-      this.addNotes =response.data.data;
+      this.Notes =response.data.data;
+      
       this.noteId=response.data.data[0].id
-//       for(var i=0;i<3;i++)
-//       {
-//         console.log("sss",this.Notes[i]);
-//         for(var j=i;j<3;j++){
-// // this.addNotes=Notes[i];
+      for(var i=0;i<this.Notes.length/3;i++)
+      {
+        for(var j=0;j<3;j++){
+          this.addNotes=this.Notes;
+          console.log(this.Notes[j]);
+          // console.log(this.addNotes[j]);
+          
+          
+        }
+         console.log("\n");
+      }
+          
+
+// this.addNotes=Notes[i];
 // console.log("vvv",this.Notes[j]);
 // this.Notes=Notes[i];
 // this.addNotes=this.Notes[j];

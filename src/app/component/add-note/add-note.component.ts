@@ -17,6 +17,8 @@ export class AddNoteComponent implements OnInit {
   setColor: any;
   constructor(private noteservice: NoteServiceService,private view:ViewService, private dataService: UpdateServiceService, private snackbar: MatSnackBar) { }
   ngOnInit() {
+
+
   }
   /*****
    @purpose:Add the new note in database after click on close button

@@ -2,8 +2,10 @@ import { Component, OnInit, Inject, Output, EventEmitter, Input } from '@angular
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { HttpServiceService } from '../../core/service/http/http-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material';
 import { UpdateServiceService } from '../../core/service/update/update-service.service'
 import { NoteServiceService } from '../../core/service/note/note-service.service';
+import {CollaboratorComponent} from '../../component/collaborator/collaborator.component';
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
@@ -17,12 +19,22 @@ export class IconComponent implements OnInit {
   addNote: any;
   addNoteLabels: any[];
   message: any;
-  constructor(private http: HttpServiceService, private update: UpdateServiceService, private snackbar: MatSnackBar, private noteService: NoteServiceService) {
+  constructor(private http: HttpServiceService, private update: UpdateServiceService,private dialog:MatDialog, private snackbar: MatSnackBar, private noteService: NoteServiceService) {
     // @Inject(MAT_DIALOG_DATA) private data:{ notes: any}) {
     // this.http.getRequest('/label/getlabel').subscribe(data => this.userLabel = data );
   }
   //   notes=this.data.notes;
   ngOnInit() {
+    this.getLabels();
+    this.update.currentMessage.subscribe(
+
+      (response:any)=>{
+        console.log(response);
+        this.message=response;
+        this.getLabels();
+        
+      }
+    )
     // console.log("color");
     // this.getLabels();
     // this.update.currentMessage.subscribe(
@@ -36,6 +48,7 @@ export class IconComponent implements OnInit {
     // )
   }
   @Input() noteId: any;
+  @Input() notesData:any;
   @Output() countChange = new EventEmitter();
   @Output() archiveNote = new EventEmitter();
   @Output() remindChange = new EventEmitter();
@@ -157,6 +170,19 @@ export class IconComponent implements OnInit {
 
 
   }
+
+openDialog(notesData:any) {
+  const dialogRef = this.dialog.open(CollaboratorComponent,{
+    data:{      
+            id:notesData.id,
+            collaborators:notesData.collaborators
+    }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(`Dialog result: ${result}`);
+  });
+}
 }
 
 

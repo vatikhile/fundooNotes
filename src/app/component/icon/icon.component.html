@@ -6,7 +6,7 @@
     </button>
   </div>
    <div>
-    <button mat-icon-button matTooltip="Collaborator">
+    <button mat-icon-button matTooltip="Collaborator" (click)="openDialog(notesData)">
         <img src="../../../assets/collabcard.svg">
     </button>
   </div>
@@ -56,8 +56,17 @@
     <button mat-button  (click)="deleteNote(noteId)"> Delete Note</button>
   </mat-menu>
 
+  <mat-menu #label="matMenu">
+    Label Note
+    <div  *ngFor="let items of addNoteLabels">
 
-<mat-menu #label="matMenu">
+    <button  mat-menu-item (click)="addLabelToNote(noteId,items.id)"> 
+            <mat-checkbox></mat-checkbox>
+        <span>{{items.label}}</span></button>
+    </div>
+</mat-menu>
+
+<!-- <mat-menu #label="matMenu">
   Label Note
   <div  *ngFor="let items of addNoteLabels">
 
@@ -65,7 +74,7 @@
           <mat-checkbox></mat-checkbox>
       <span>{{items.label}}</span></button>
   </div>
-</mat-menu>
+</mat-menu> -->
 <mat-menu #reminder="matMenu" [overlapTrigger]="false">
   <ng-template matMenuContent>
       <div fxLayout="column" fxLayoutAlign="space-between">

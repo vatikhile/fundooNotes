@@ -1,3 +1,46 @@
-<p>
-  collaborator works!
-</p>
+
+<div class="dialog" fxLayout="column"  fxLayoutAlign="space-between start" >
+Collaborators
+      <mat-divider></mat-divider>
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+          <button mat-mini-fab class="color" mat-icon-button  aria-label="Example icon-button with a menu">
+          <mat-icon>account_circle</mat-icon></button>
+          <div class="Collab">
+      <div>{{first}} {{last}} (owner)</div>
+      <div>{{email1}}</div>
+        </div>
+        </div>
+
+        <div *ngFor="let item of collaborators" fxAlign="row" fxFlexLayout="space-between center">
+          <div>
+          <button mat-mini-fab class="color" mat-icon-button  aria-label="Example icon-button with a menu">
+          <mat-icon>account_circle</mat-icon></button>
+          <div  class="Collab">
+      <div>{{item.firstName}} {{item.lastName}} </div>
+      <div>{{item.email}}</div>
+        </div>
+          </div>
+        </div>
+    
+    <div fxLayout="column" fxLayoutGap="18px" fxLayoutAlign="space-between start">
+          <button mat-mini-fab class="color" mat-icon-button  aria-label="Example icon-button with a menu">
+          <mat-icon>account_circle</mat-icon></button>
+     
+            <input type="text" class="input" (keyup)="searchList()" placeholder="Person or email to share with" [value]="option" matInput [formControl]="searchvalue" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+            <div class="new">
+              <mat-option *ngFor="let option of search" [value]="option.email">
+                {{option.firstName}} {{option.lastName}} {{option.email}}
+              </mat-option>
+            </div>
+            </mat-autocomplete>
+          </div>
+
+          <mat-divider></mat-divider>
+          <div class="button">
+            <button mat-button (click)="closeDialog()">Cancel</button>
+            <button mat-button (click)="addCollab(id)">Save</button>
+            </div>
+ 
+    </div>
+  

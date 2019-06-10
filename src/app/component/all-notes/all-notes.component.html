@@ -19,18 +19,18 @@
 
               <div *ngIf="items.reminder.length > 0">
                 <mat-chip-list>
-                  <mat-chip> <img src="../../../assets/images/clock.svg"> {{items.reminder | date:'MMM d, y, h:mm a'}}
+                  <mat-chip> <img src="../../../assets/c.svg"> {{items.reminder | date:'MMM d, y, h:mm a'}}
                   </mat-chip>
                 </mat-chip-list>
               </div>
-              <!-- <div>
+              <div>
                 <app-display-labels  [noteId]="items.id" [noteData]="items.noteLabels"></app-display-labels>
-          </div> -->
+          </div>
             </div>
             <div>
               <!-- <div class="gg" fxLayout="row" fxLayoutAlign="center end"> -->
               <app-icon fxLayout="row" fxLayoutAlign="center end" class="icon_hover"
-                (countChange)="changeColor(items,$event)" (archiveNote)="archiveNote(items,$event)" (remindChange)="updateReminder(items,$event)" >
+                (countChange)="changeColor(items,$event)" (archiveNote)="archiveNote(items,$event)" (remindChange)="updateReminder(items,$event)" [notesData]="items" [noteId]="items.id" >
                 <!-- [noteData]="items"
                 [noteId]="items.id"> -->
                 <!-- [notesData]="items" -->

@@ -36,9 +36,13 @@ export class DashboardComponent implements OnInit {
   img = environment.url + this.profilImaage;
 
   ngOnInit() {
+    localStorage.getItem('profilePic');
     this.showLabel();
     this.sidenavUpdateLabel();
     this.header = 'fundooNotes';
+   // console.log("piccc",this.img);
+    
+    
     
   }
 

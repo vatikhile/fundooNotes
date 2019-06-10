@@ -184,15 +184,25 @@ postNewData(url, data) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('id')
+        'Authorization': localStorage.getItem('token')
       })
     };
-    console.log('token in s',localStorage.getItem('id'));
+    console.log('token in s',localStorage.getItem('token'));
 
     return this.http.get(this.baseUrl + url,httpOptions);
   }
+  postSearch(url,data){
+    console.log("service data",data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    console.log('token in s',localStorage.getItem('token'));
 
-
+    return this.http.post(this.baseUrl + url, data,httpOptions);
+  }
 
  
 }

@@ -46,6 +46,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { DisplayLabelsComponent } from './component/display-labels/display-labels.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 
@@ -66,6 +68,8 @@ import { DisplayLabelsComponent } from './component/display-labels/display-label
     LabelComponent,
     TrashComponent,
     CollaboratorComponent,
+    
+    
     // DialogBoxComponent,
     ArchiveComponent,
     EditNotesComponent,
@@ -94,6 +98,7 @@ import { DisplayLabelsComponent } from './component/display-labels/display-label
     ImageCropperModule,
     MatIconModule,
     HttpClientModule,
+    MatSelectModule,
     FlexLayoutModule,
     MatRadioModule,
     FormsModule,
@@ -112,11 +117,11 @@ import { DisplayLabelsComponent } from './component/display-labels/display-label
     MatTooltipModule,
     MatChipsModule,
     MatDialogModule,
-    
+    MatAutocompleteModule,
   ],
 
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[LabelComponent,EditNotesComponent,ProfilePicComponent]
+  entryComponents:[LabelComponent,EditNotesComponent,ProfilePicComponent,CollaboratorComponent]
 })
 export class AppModule { }

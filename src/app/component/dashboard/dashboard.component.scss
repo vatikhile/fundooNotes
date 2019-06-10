@@ -102,6 +102,9 @@
     font-family: Arial, sans-serif;
 
 }
+.img1{
+    background-color: gray;
+}
 .main
 {
     display: flex;
@@ -160,7 +163,10 @@ outline: none;
 // }
 
 
-
+.color{
+    background-color: lightgray;
+    outline: none;
+}
 
 
 .img
@@ -265,7 +271,7 @@ outline: none;
 .fileSelect{
     display: none;
 }
-.color{
+.text_color{
   color:black;
 }
 // .name{
