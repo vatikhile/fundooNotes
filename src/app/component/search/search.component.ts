@@ -3,7 +3,6 @@ import {UpdateServiceService} from '../../core/service/update/update-service.ser
 import {Notes} from '../../core/model/Notes/notes'
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators'
-import { SubjectSubscriber } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-search',

@@ -19,13 +19,13 @@
   </div>
   <!-- this below fields for perform updation deletion for note -->
   <div *ngFor="let item of addLabels | orderOf" fxAlign="row" fxLayoutAlign="space-between center">
-    <div>
+    <div fxLayoutGap="5px">
       <div (mouseover)="hover(item.id)" (mouseout)="hover()">
         <button mat-button (click)="deleteLabel(item.id)" class="labels" >
           <span *ngIf="item.id!=Idd">
             <mat-icon >label</mat-icon>
           </span>
-          <span *ngIf="item.id==Idd" matToolTip="Delete Label" >
+          <span *ngIf="item.id==Idd" matToolTip="Delete Label">
 
             <mat-icon>delete</mat-icon>
           </span>

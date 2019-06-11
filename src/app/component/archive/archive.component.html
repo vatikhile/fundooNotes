@@ -1,37 +1,3 @@
-<!-- 
-<div class="mainCard" fxLayout="row wrap" fxLayoutAlign="space-evenly center" >
-    <div *ngFor="let items of addNote" fxLayoutGap="2px">
-     <div *ngIf="items.isArchived===true ">
-      <mat-card class="smallcard" [ngStyle]="{ 'background-color': items.color }" >
-        <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="10px">
-        <div (click)="openDialog(items)">{{items.title}}</div> -->
-<!-- <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="10px"> -->
-<!-- <div (click)="openDialog(items)">{{items.description}}</div> -->
-<!-- </div> -->
-<!-- <div  *ngIf="items.reminder.length > 0">
-            <mat-chip-list >
-                <mat-chip>{{items.reminder | date:'MMM d, y, h:mm a'}}</mat-chip>
-            </mat-chip-list>
-        </div> -->
-<!-- <div  *ngIf="items.label.length > 0"> 
-          <mat-chip-list >
-              <mat-chip>{{items.label}}</mat-chip>
-          </mat-chip-list>
-      </div>
-        </div>
-        <div>
-        <app-icon class="icon_hover" 
-        (archiveNote)="archiveNote(items,$event)"></app-icon>
-      </div>
-  
-      </mat-card>
-      </div>
-    </div>
-  </div> -->
-<!-- <div>(countChange)="updateColor(items,$event)"  
-    (remindChange)="updateReminder(items,$event)"
-    (deletNote)="deleteNote(items,$event)"
-    (labelNote)="addLabelToNote(items,$event)"</div> -->
 
 <!-- for displaying notes i.e title and description on the matcard -->
 <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100" class="card_div">

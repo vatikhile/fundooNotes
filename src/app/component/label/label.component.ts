@@ -23,10 +23,7 @@ export class LabelComponent implements OnInit {
   ngOnInit() {
     this.showLabel();
   }
-  // onNoClick(): void {
-  //   // //this.dialogRef.close();
-  //   // this.
-  // }
+
   done() {
     this.dialogRef.close();
     console.log("done")

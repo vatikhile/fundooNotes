@@ -1,5 +1,4 @@
-import { Component, OnInit, Inject, Output, EventEmitter, Input } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HttpServiceService } from '../../core/service/http/http-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material';
@@ -12,18 +11,14 @@ import {CollaboratorComponent} from '../../component/collaborator/collaborator.c
   styleUrls: ['./icon.component.scss']
 })
 export class IconComponent implements OnInit {
-  // colorCode: string[][]= 
-  // [['white','lightGreen','purple','red'],
-  // ['orange','teal','pink','darkBlue'],['blue','brown','yellow','gray']];
+
   color: string;
   addNote: any;
   addNoteLabels: any[];
   message: any;
   constructor(private http: HttpServiceService, private update: UpdateServiceService,private dialog:MatDialog, private snackbar: MatSnackBar, private noteService: NoteServiceService) {
-    // @Inject(MAT_DIALOG_DATA) private data:{ notes: any}) {
-    // this.http.getRequest('/label/getlabel').subscribe(data => this.userLabel = data );
+
   }
-  //   notes=this.data.notes;
   ngOnInit() {
     this.getLabels();
     this.update.currentMessage.subscribe(
@@ -35,17 +30,7 @@ export class IconComponent implements OnInit {
         
       }
     )
-    // console.log("color");
-    // this.getLabels();
-    // this.update.currentMessage.subscribe(
 
-    //   (response:any)=>{
-    //     console.log(response);
-    //     this.message=response;
-    //     this.getLabels();
-
-    //   }
-    // )
   }
   @Input() noteId: any;
   @Input() notesData:any;
@@ -53,8 +38,7 @@ export class IconComponent implements OnInit {
   @Output() archiveNote = new EventEmitter();
   @Output() remindChange = new EventEmitter();
   changeColor(color) {
-    // this.color=color;
-    // this.notes.color= color;
+
     console.log("color", color);
     this.countChange.emit(color);
 

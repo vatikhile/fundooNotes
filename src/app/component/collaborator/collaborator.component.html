@@ -26,7 +26,8 @@ Collaborators
           <button mat-mini-fab class="color" mat-icon-button  aria-label="Example icon-button with a menu">
           <mat-icon>account_circle</mat-icon></button>
      
-            <input type="text" class="input" (keyup)="searchList()" placeholder="Person or email to share with" [value]="option" matInput [formControl]="searchvalue" [matAutocomplete]="auto">
+            <input type="text" class="input" (keyup)="searchList()" placeholder="Person or email to share with" 
+            [value]="option" matInput [formControl]="searchvalue" [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">
             <div class="new">
               <mat-option *ngFor="let option of search" [value]="option.email">

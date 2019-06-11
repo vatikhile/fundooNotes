@@ -1,8 +1,5 @@
 <!-- for displaying notes i.e title and description on the matcard -->
-
-
 <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100" class="card_div">
-
   <div fxLayout="{{direction}} {{direction1}}" fxLayoutAlign="start {{allign}}" fxFlex="65" class="main">
     <!-- <div fxLayout="column" *ngIf="toggle==false" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main"> -->
     <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText" class="111">
@@ -24,26 +21,19 @@
                 </mat-chip-list>
               </div>
               <div>
-                <app-display-labels  [noteId]="items.id" [noteData]="items.noteLabels"></app-display-labels>
-          </div>
+                <app-display-labels [noteId]="items.id" [noteData]="items.noteLabels"></app-display-labels>
+              </div>
             </div>
             <div>
               <!-- <div class="gg" fxLayout="row" fxLayoutAlign="center end"> -->
               <app-icon fxLayout="row" fxLayoutAlign="center end" class="icon_hover"
-                (countChange)="changeColor(items,$event)" (archiveNote)="archiveNote(items,$event)" (remindChange)="updateReminder(items,$event)" [notesData]="items" [noteId]="items.id" >
-                <!-- [noteData]="items"
-                [noteId]="items.id"> -->
-                <!-- [notesData]="items" -->
+                (countChange)="changeColor(items,$event)" (archiveNote)="archiveNote(items,$event)"
+                (remindChange)="updateReminder(items,$event)" [notesData]="items" [noteId]="items.id">
               </app-icon>
             </div>
-            <!-- </div> -->
-            <!-- </mat-card-content> -->
           </mat-card>
         </div>
-
       </div>
-
-      <!-- </div>  -->
     </div>
   </div>
 </div>

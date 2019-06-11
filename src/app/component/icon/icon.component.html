@@ -52,7 +52,7 @@
   </div>
   
   <mat-menu #morelist="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="label"> Add Label</button>
+    <button mat-menu-item [matMenuTriggerFor]="label" class="addlabel"> Add Label</button>
     <button mat-button  (click)="deleteNote(noteId)"> Delete Note</button>
   </mat-menu>
 
@@ -60,21 +60,12 @@
     Label Note
     <div  *ngFor="let items of addNoteLabels">
 
-    <button  mat-menu-item (click)="addLabelToNote(noteId,items.id)"> 
+    <button  mat-menu-item (click)="addLabelToNote(noteId,items.id)" class="addlabel"> 
             <mat-checkbox></mat-checkbox>
-        <span>{{items.label}}</span></button>
+        <span>{{items.label}}</span>
+      </button>
     </div>
 </mat-menu>
-
-<!-- <mat-menu #label="matMenu">
-  Label Note
-  <div  *ngFor="let items of addNoteLabels">
-
-  <button  mat-menu-item (click)="addLabelToNote(noteId,items.id)"> 
-          <mat-checkbox></mat-checkbox>
-      <span>{{items.label}}</span></button>
-  </div>
-</mat-menu> -->
 <mat-menu #reminder="matMenu" [overlapTrigger]="false">
   <ng-template matMenuContent>
       <div fxLayout="column" fxLayoutAlign="space-between">

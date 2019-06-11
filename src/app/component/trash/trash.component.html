@@ -1,82 +1,3 @@
-<!-- <div class="mainCard" fxLayout="row wrap" fxLayoutAlign="space-evenly center" >
-  <div *ngFor="let items of addNote" fxLayoutGap="2px">
-     <div *ngIf="items.isDeleted===true">
-    <mat-card class="smallcard" [ngStyle]="{ 'background-color': items.color }" >
-      <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="10px">
-      <div (click)="openDialog(items)">{{items.title}}</div>
-      <div fxLayout="column" fxLayoutAlign="space-around start" fxLayoutGap="10px">
-        <div (click)="openDialog(items)">{{items.description}}</div>
-      </div>
-    
-
-      </div>
-      <div >
-        <button mat-icon-button [matMenuTriggerFor]="morelist">
-        <mat-icon class="appicon">more_vert</mat-icon>
-      </button>
-
-      <mat-menu #morelist="matMenu">
-          <button mat-menu-item (click)="deleteNote(items.id)">Delete Note Forever</button>
-          <button mat-menu-item>Restore</button>
-        </mat-menu>
-      </div>
-    </mat-card>
-    </div>
-    
-  </div>
-</div> -->
-
-
-
-
-
-
-
-
-<!-- <div fxLayout="row" class="Card" fxLayoutAlign="center"   class="card_div"> -->
-                  
-  <!-- <div fxLayout="{{direction}} {{direction1}}"  fxLayoutAlign="start {{allign}}" fxFlex="65"  class="main"> -->
-     <!-- <div fxLayout="column" *ngIf="toggle==false" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main"> -->
-<!-- <div *ngFor="let items of addNote | orderOf | noteSearchPipe:searchText"   class="111">
- <div  *ngIf="items.isArchived===false" class="matShade"  class="ssf6">
-  <div class="122" [ngClass]=" direction =='column' ? 'matpad3':'matpad'">
-    <mat-card     [ngStyle]="{ 'background-color': items.color }" >  -->
-       <!-- <mat-card-content>  -->
-     <!-- <div  (click)="openDialog(items)">
-         
-       <div class="bold" fxLayout="column" >{{items.title}}</div>
-       <div fxLayout="column" class="bold" > <p>{{items.description}}</p></div>
-      </div> -->
-      <!-- <div> -->
-       <!-- <div class="gg" fxLayout="row" fxLayoutAlign="center end"> -->
-         <!-- <app-icon fxLayout="row" fxLayoutAlign="center end" class="icon_hover" 
-         (countChange)="changeColor(items,$event)"
-         (archiveNote)="archiveNote(items,$event)"></app-icon>
-       </div> -->
-       <!-- </div> -->
-     <!-- </mat-card-content> -->
-
-     <!-- <div >
-      <button mat-icon-button [matMenuTriggerFor]="morelist">
-      <mat-icon class="appicon">more_vert</mat-icon>
-    </button>
-
-    <mat-menu #morelist="matMenu">
-        <button mat-menu-item (click)="deleteNote(items.id)">Delete Note Forever</button>
-        <button mat-menu-item>Restore</button>
-      </mat-menu>
-    </div>
-   </mat-card>
-   </div>
-   
- </div>
-    -->
-<!-- </div>  -->
-<!-- </div>
-</div>
-</div> -->
-
-
 
 <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100" class="card_div">
 
@@ -104,11 +25,6 @@
       <button mat-menu-item class="button">Restore</button>
     </mat-menu>
   </div>
-          <!-- <div fxLayout="column" fxLayoutAlign="end">
-            <app-icon class="icon_hover" (countChange)="changeColor(items,$event)"
-              (archiveNote)="archiveNote(items,$event)"></app-icon>
-          </div> -->
-          <!-- </mat-card-content> -->
         </mat-card>
       </div>
     </div>

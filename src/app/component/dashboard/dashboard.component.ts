@@ -1,14 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { MatDialog } from '@angular/material';
 import { LabelComponent } from '../label/label.component';
 import { MatDialog } from '@angular/material';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { NoteServiceService } from 'src/app/core/service/note/note-service.service';
 import { UpdateServiceService } from '../../core/service/update/update-service.service'
 import { ViewService } from '../../core/service/viewService/view.service';
 import { environment } from 'src/environments/environment';
 import { ProfilePicComponent } from '../profile-pic/profile-pic.component';
-// import {NoteSearchPipePipe} from '../../pipe/note-search-pipe.pipe'
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -17,11 +16,11 @@ import { ProfilePicComponent } from '../profile-pic/profile-pic.component';
 
 export class DashboardComponent implements OnInit {
   private flag: boolean = false;
-    toggle: boolean = true;
+  toggle: boolean = true;
   // list: boolean = true;
   // grid: boolean=false;
   addLabels: any = [];
-  
+
   message: any;
   header: string;
 
@@ -29,9 +28,9 @@ export class DashboardComponent implements OnInit {
   email = localStorage.getItem('email');
   lastName = localStorage.getItem('lastName');
   profilImaage = localStorage.getItem('profilPic');
-  // @ViewChild(LabelComponent) child;
-  constructor(private dialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService,private route:Router) {
-    
+
+  constructor(private dialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private route: Router) {
+
   }
   img = environment.url + this.profilImaage;
 
@@ -40,24 +39,24 @@ export class DashboardComponent implements OnInit {
     this.showLabel();
     this.sidenavUpdateLabel();
     this.header = 'fundooNotes';
-   // console.log("piccc",this.img);
-    
-    
-    
+    // console.log("piccc",this.img);
+
+
+
   }
 
 
 
   profileImage(event): void {
     const dialogRef = this.dialog.open(ProfilePicComponent, {
-    width: '400px',
-    data: event
+      width: '400px',
+      data: event
     });
     dialogRef.afterClosed()
-    .subscribe(result => {
-    this.img = environment.url + localStorage.getItem("profilePic")
-    });
-    }
+      .subscribe(result => {
+        this.img = environment.url + localStorage.getItem("profilePic")
+      });
+  }
 
   /*****
   @purpose:on the sidenav display all the labels which are already added
@@ -106,63 +105,40 @@ export class DashboardComponent implements OnInit {
     )
   }
   changeView() {
-    // toggle the butto
-    // if (this.grid) {
-    //   this.grid = false;
-    //   this.list = true;
-      
-    // }
-    // else {
-    //   this.list = false;
-    //   this.grid = true;
-    //   this.view.gridview();
-    
-      // list= !this.grid;
-      this.toggle=false;
-      this.view.gridview(this.toggle);
-    // this.sideNavView.currentListStatus(this.gridView);
-// console.log('lll',this.toggle1);
-// console.log("ggggg",this.grid);
 
+    this.toggle = false;
+    this.view.gridview(this.toggle);
 
-    //     this.getNote.ngOnInit();
-    
-    }
-    changeView1() {
-      this.toggle=true;
-      this.view.gridview(this.toggle);
-    }
-
-  
-  // note() {
-  //   this.header = 'Notes';
-
-  // }
-  search()
-  {
-this.route.navigateByUrl('/search');
+  }
+  changeView1() {
+    this.toggle = true;
+    this.view.gridview(this.toggle);
   }
 
 
-  archive(){
-    this.route.navigate(['','archive']);
-    // this.route.navigateByUrl('/archive');
+  search() {
+    this.route.navigate(['', 'search']);
   }
-  noteButton(){
+
+
+  archive() {
+    this.route.navigate(['', 'archive']);
+
+  }
+  noteButton() {
     this.header = 'Notes';
     this.route.navigateByUrl('/addNotes');
   }
-  trash()
-{
-  this.route.navigateByUrl('/trash');
-  console.log("gdsgfhg");
-  
-}
-reminder(){
+  trash() {
+    this.route.navigate(['', 'trash']);
+    console.log("gdsgfhg");
 
-  this.header='Reminder';
-  this.route.navigateByUrl('/reminder');
-}
+  }
+  reminder() {
+
+    this.header = 'Reminder';
+    this.route.navigate(['', 'reminder']);
+  }
 }
 
 

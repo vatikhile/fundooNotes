@@ -23,21 +23,10 @@
  }
 .sidenav{
     display: flex;
-    // width: 22vw;
     position: absolute;
-  
-    // width: 23vw;
     border-right:none;  
-    
-    
-  }
-//   .abc{
-//     width: 22vw;
-
-//   }
-
-  .mat-raised-button{
-
+}
+.mat-raised-button{
     display: flex;
     outline: none;
     border-color: transparent;
@@ -63,10 +52,9 @@
 
     background-color: white;
     // overflow-y: scroll;
-        overflow-x: hidden;
+    overflow-x: hidden;
       
 }
-
 .title{
     color: #5f6268;
     font-weight:inherit;
@@ -80,9 +68,9 @@
 .mat-toolbar{
     display:flex;
     background-color: white;
-  
 }
-.mat-divider{
+.mat-divider
+{
     color:lightgray;
 }
 .icon{
@@ -112,15 +100,15 @@
     background-color: white;
 }
 .fname{
-size:8px;
-font-family:  Arial, sans-serif;
-color:black;
+    size:8px;
+    font-family:  Arial, sans-serif;
+    color:black;
 
 }
 .email{
-color:gray;
-size:8px;
-font-family:  Arial, sans-serif;
+    color:gray;
+    size:8px;
+    font-family:  Arial, sans-serif;
 }
 .sbutton{
     size:0.5px;
@@ -142,131 +130,30 @@ font-family:  Arial, sans-serif;
     margin-left: 1.5px;
     
 }
-    
-
 .sign{
-background-color: #f5f5f5;
-outline-color: lightgray;
-outline: none;
-
-    
+    background-color: #f5f5f5;
+    outline-color: lightgray;
+    outline: none;
 }
 .signbutton{
     outline-color: lightgray;
     background-color: white;
     
 }
-// .mat-drawer-content {
-//     width: 100vw;
-//     // overflow: hidden;
-//     height: 100vh;
-// }
-
-
 .color{
     background-color: lightgray;
     outline: none;
 }
-
-
 .img
 {
     margin-top: 4%;
     width: 40px;
     margin-left: 7%; 
 }
-// .divider
-// {
-//     height: 100vh;
-//     width: 100%;
-// }
-// .search
-// {
-//     background-color: rgba(230, 227, 227, 0.856); 
-//      padding: 3px;   width: 77%; 
-//      border-radius: 8px; 
-// }
-// .input
-// {
-//          width: 88%; 
-//          font-size: 16px;
-//          border: none !important;
-//          background-color: rgba(230, 227, 227, 0.856); 
-// }
-
-// input.input:focus
-// {
-//     outline-width: 0;
-    
-// }
-// .toolbar{
-    
-//      display: flex;
-//     box-sizing: border-box;
-//     padding: 0 16px;
-//     width: 101%;
-//     margin-top: -8px;
-//     flex-direction: row;
-//     align-items: center;
-//     white-space: nowrap;
-// }
-// .img1{
-//     background-color: gray;
-// }
-
-// // .accountCard{
-// //     width:80px;
-// //     height:80px;
-// // }
-// /deep/.mat-drawer-backdrop.mat-drawer-shown {
-//     visibility: hidden !important;
-// }   
-// .labels1{
-//     margin-left: 17px;
-//     } 
-
-
-// .list{
-//     color:gray
-// }
-
-
-// .input1{
-//     visibility: hidden;
-//     margin-bottom: none !important;
-// }
-// .cont_div{
-//     width:98vw;
-    
-// }
-
-
-// .account{
-//     margin-top: 102px;
-//     margin-right: 8px;
-//     margin-left: 75%;
-//     padding: 5px;
-//     width: 350px;
-//     height: 200px;
-//     float:right;
-//     z-index: 100;
-//     position: fixed;
-//     }
-
-    .img2{
-        background-color: gray;
-        border-radius: 50%
+.img2{
+    background-color: gray;
+    border-radius: 50%
     }
-
-// .menu{
-//     min-width: 112px;
-//     max-width: 350px;
-//     overflow: auto;
-//     -webkit-overflow-scrolling: touch;
-//     max-height: calc(100vh - 48px);
-//     border-radius: 4px;
-//     outline: 0;
-// }
 
 .fileSelect{
     display: none;
@@ -274,14 +161,6 @@ outline: none;
 .text_color{
   color:black;
 }
-// .name{
-//     // min-width: 113px;
-//     position:relative;
-// }
-// .allnotes{
-//     width: 100vw;
-//     height: 100vh;
-// }
 
 
 
