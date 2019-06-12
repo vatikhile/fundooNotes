@@ -1,9 +1,9 @@
 import { Component, OnInit,Inject,Input} from '@angular/core';
 import { MatSnackBar, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import {UpdateServiceService} from '../../core/service/update/update-service.service';
-
 import {HttpServiceService} from '../../core/service/http/http-service.service';
 import { FormControl } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-collaborator',
@@ -17,16 +17,18 @@ search: any[];
  firstName=new FormControl('')
  addNote:any[];
   message: string;
-  constructor(private snackbar:MatSnackBar,private dialog:MatDialog,private update:UpdateServiceService,
-    private form: FormControl,private http:HttpServiceService,@Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(private snackbar:MatSnackBar,private dialog:MatDialog,private update:UpdateServiceService,private http:HttpServiceService,@Inject(MAT_DIALOG_DATA) public data: any) { }
 
      first=localStorage.getItem('firstName');
    last=localStorage.getItem('lastName');
    email1=localStorage.getItem('email');
-      id=this.data.id
+   profilImaage = localStorage.getItem('profilPic');
+  id=this.data.id
    collaborators=this.data.collaborators
+   img = environment.url + this.profilImaage;
 
   ngOnInit() {
+    localStorage.getItem('profilePic');
     this.update.currentMessage.subscribe(
             response=>{
                       this.message=response;

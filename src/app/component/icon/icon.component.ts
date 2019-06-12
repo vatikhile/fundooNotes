@@ -20,16 +20,16 @@ export class IconComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.getLabels();
-    this.update.currentMessage.subscribe(
+    // this.getLabels();
+    // this.update.currentMessage.subscribe(
 
-      (response:any)=>{
-        console.log(response);
-        this.message=response;
-        this.getLabels();
+    //   (response:any)=>{
+    //     console.log(response);
+    //     this.message=response;
+    //     this.getLabels();
         
-      }
-    )
+    //   }
+    // )
 
   }
   @Input() noteId: any;

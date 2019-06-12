@@ -25,6 +25,8 @@ export class AddNoteComponent implements OnInit {
     console.log("wewqeg", this.addNote);
     this.show();
     console.log(this.addNote.title);
+    
+    
     if(this.setColor==undefined){
       this.addNote.color=""
     }

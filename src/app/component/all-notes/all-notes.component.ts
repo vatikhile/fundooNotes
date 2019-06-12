@@ -86,6 +86,7 @@ export class AllNotesComponent implements OnInit {
           for (var j = 0; j < 3; j++) {
             this.addNotes = this.Notes;
             console.log(this.Notes[j]);
+            console.log('nodeId',this.noteId)
             // console.log(this.addNotes[j]);
 
 
