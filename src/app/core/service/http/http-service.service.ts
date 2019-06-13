@@ -203,6 +203,26 @@ postNewData(url, data) {
 
     return this.http.post(this.baseUrl + url, data,httpOptions);
   }
+  
+  delete1(url){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
 
+  }
+  return this.http.delete(this.baseUrl+url,httpOptions);
+}
+delete2(url,data){
+  let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    })
+
+}
+return this.http.post(this.baseUrl+url,data,httpOptions);
+}
  
 }

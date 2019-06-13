@@ -19,14 +19,14 @@ views:any;
 
   constructor(private http:HttpServiceService,private update:UpdateServiceService,private view:ViewService,private dialog:MatDialog) { }
 
-  ngOnInit() {
+  ngOnInit(){
     this.getTrashNote();
     this.update.currentMessage.subscribe(
 
       (response:any)=>{
         console.log(response);
         this.message=response;
-        this.getTrashNote();
+        // this.getTrashNote();
       }
     )
 
@@ -84,7 +84,8 @@ deleteNote(id){
   this.http.postData('notes/deleteForeverNotes',data).subscribe(
     (response:any)=>{
         console.log(response);
-        this.addNote=response.data;
+        // this.addNote=response.data;
+        this.getTrashNote();
            console.log("data1==>",this.addNote);  
            this.update.changeMessage('rewq');
            
@@ -98,24 +99,24 @@ deleteNote(id){
   
 }
   /**Open Dialog Box */
-  openDialog(items:any) {
-    const dialogRef = this.dialog.open(EditNotesComponent,{
-      data:{
-             title:items.title,
-             description:items.description,
-              id:items.id,
-              color:items.color,
-              reminder:items.reminder
-      }
-    });
+//   openDialog(items:any) {
+//     const dialogRef = this.dialog.open(EditNotesComponent,{
+//       data:{
+//              title:items.title,
+//              description:items.description,
+//               id:items.id,
+//               color:items.color,
+//               reminder:items.reminder
+//       }
+//     });
 
 
 
 
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+//     dialogRef.afterClosed().subscribe(result => {
+//       console.log(`Dialog result: ${result}`);
+//     });
+//   }
 }
 

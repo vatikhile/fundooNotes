@@ -10,6 +10,9 @@ import { MatSnackBar } from '@angular/material';
 })
 export class DisplayLabelsComponent implements OnInit {
   addNote: any;
+  selectable = true;
+  removable = true;
+  
 
   constructor(private http:HttpServiceService,private update:UpdateServiceService,private snackbar:MatSnackBar) { }
 
@@ -23,6 +26,8 @@ export class DisplayLabelsComponent implements OnInit {
 
 /** Remove Label from Note*/
 addLabelToNote(noteId,lableId){
+  console.log(noteId);
+  
   this.http.postLabel('notes/'+noteId+'/addLabelToNotes/'+lableId+'/remove',{}).subscribe(
     (response:any)=>{
       console.log(response);
@@ -42,3 +47,43 @@ addLabelToNote(noteId,lableId){
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+//   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+//   fruits: Fruit[] = [
+//     {name: 'Lemon'},
+//     {name: 'Lime'},
+//     {name: 'Apple'},
+//   ];
+
+//   add(event: MatChipInputEvent): void {
+//     const input = event.input;
+//     const value = event.value;
+
+//     // Add our fruit
+//     if ((value || '').trim()) {
+//       this.fruits.push({name: value.trim()});
+//     }
+
+//     // Reset the input value
+//     if (input) {
+//       input.value = '';
+//     }
+//   }
+
+//   remove(fruit: Fruit): void {
+//     const index = this.fruits.indexOf(fruit);
+
+//     if (index >= 0) {
+//       this.fruits.splice(index, 1);
+//     }
+//   }
+// }

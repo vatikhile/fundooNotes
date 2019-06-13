@@ -50,5 +50,9 @@ return this.http.postData('notes/changesColorNotes',data)
   {
     return this.http.postData('notes/addUpdateReminderNotes',data)
   }
+  deleteReminder(data)
+  {
+    return this.http.delete2('notes/removeReminderNotes',data)
+  }
 }
 

@@ -46,28 +46,28 @@ export class IconComponent implements OnInit {
     // console.log("color",color);
 
   }
-  colorCodes =
-    [
+
+
+    colorCodes = [
       [
-        { name: "white", hexcode: "#ffffff" },
-        { name: "lightGreen", hexcode: "#f28b82" },
-        { name: "purple", hexcode: "#f7bc04" },
-        { name: "red", hexcode: "#faf474" },
+        { name: "white",hexcode: "#ffffff" },
+        { name: "lightGreen",hexcode: "#90ee90" },
+        { name: "purple", hexcode: "#800080" },
+        { name: "red", hexcode: "#ff0000" },
       ],
       [
-        { name: "Teal", hexcode: "#cbff90" },
-        { name: "pink", hexcode: "#a7ffeb" },
-        { name: "orange", hexcode: "#cbf0f8" },
-        { name: "blue", hexcode: "#adcbfa" },
+        { name: "Teal", hexcode: "#008080" },
+        { name: "pink", hexcode: "#ffc0cb" },
+        { name: "orange", hexcode: "#ffa500" },
+        { name: "blue", hexcode: "#0000ff" },
       ],
       [
-        { name: "brown", hexcode: "#d7aefb" },
-        { name: "yellow", hexcode: "#fdcfe8" },
-        { name: "darkBlue", hexcode: "#cbb294" },
-        { name: "gray", hexcode: "#e8eaed" }
+        { name: "brown", hexcode: "#a52a2a" },
+        { name: "yellow", hexcode: "#ffff00" },
+        { name: "darkBlue", hexcode: "#00008b" },
+        { name: "gray", hexcode: "#808080" }
       ]
     ]
-
   archieveNote(archive) {
 
     this.archiveNote.emit(archive);
@@ -112,6 +112,11 @@ export class IconComponent implements OnInit {
     )
 
   }
+
+  morevert(){
+    this.getLabels();
+    }
+
   getLabels() {
     this.noteService.showNoteLabel().subscribe(
       (response: any) => {
@@ -156,14 +161,18 @@ export class IconComponent implements OnInit {
   }
 
 openDialog(notesData:any) {
+  console.log(this.notesData.id);
+  
   const dialogRef = this.dialog.open(CollaboratorComponent,{
     data:{      
             id:notesData.id,
-            collaborators:notesData.collaborators
+            collaborators:notesData.collaborators,
+         
     }
+
   });
 
-  dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
     console.log(`Dialog result: ${result}`);
   });
 }

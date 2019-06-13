@@ -130,8 +130,9 @@ export class DashboardComponent implements OnInit {
     this.route.navigateByUrl('/addNotes');
   }
   trash() {
+    this.header ='trash'
     this.route.navigate(['', 'trash']);
-    console.log("gdsgfhg");
+  
 
   }
   reminder() {

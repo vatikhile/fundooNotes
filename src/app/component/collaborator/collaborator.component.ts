@@ -13,10 +13,11 @@ import { environment } from '../../../environments/environment';
 export class CollaboratorComponent implements OnInit {
 
 search: any[];
- searchvalue =new FormControl('searchvalue');
+ searchvalue =new FormControl('');
  firstName=new FormControl('')
  addNote:any[];
   message: string;
+  collabId: any;
   constructor(private snackbar:MatSnackBar,private dialog:MatDialog,private update:UpdateServiceService,private http:HttpServiceService,@Inject(MAT_DIALOG_DATA) public data: any) { }
 
      first=localStorage.getItem('firstName');
@@ -29,6 +30,8 @@ search: any[];
 
   ngOnInit() {
     localStorage.getItem('profilePic');
+    console.log("collab",this.collaborators);
+    
     this.update.currentMessage.subscribe(
             response=>{
                       this.message=response;
@@ -95,7 +98,20 @@ console.log("iddddd",id);
       }
       )
   }
-
+  deleteCollab(id:any){
+    this.collabId=this.collaborators.id;
+    this.http.delete1('notes/'+id+'/removeCollaboratorsNotes/'+this.collabId).subscribe(
+      (response:any)=>{
+        console.log("response collab ",response);
+        
+        this.update.changeMessage('');
+        this.snackbar.open("collaborator deleted sucessfully","",{duration:2000})
+      },
+      (error)=>{
+this.snackbar.open("Not deleted ","",{duration:2000})
+      }
+    )
+  }
 
   closeDialog(){
     this.dialog.closeAll();

@@ -17,6 +17,8 @@ export class AllNotesComponent implements OnInit {
   Notes: any[];
   message: any;
   views: any;
+  // selectable = true;
+  removable = true;
 
   setColor: any;
   archive: any;
@@ -31,8 +33,11 @@ export class AllNotesComponent implements OnInit {
   direction: string = "row";
   setReminder: any;
   noteId: any;
+  // userId: string;
   // addNote: any;
   // toggle: Boolean=true;
+  userId=localStorage.getItem(this.userId)
+  user: string;
 
   constructor(private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private dialog: MatDialog, private snackbar: MatSnackBar) { }
 
@@ -69,6 +74,7 @@ export class AllNotesComponent implements OnInit {
 
   }
 
+
   /*****
  @purpose:for getting the note data i.e title and description from the database for displaying the created note
  ******/
@@ -79,20 +85,20 @@ export class AllNotesComponent implements OnInit {
 
       (response: any) => {
         console.log('data notes -->', response);
-        this.Notes = response.data.data;
+        this.addNotes = response.data.data;
 
         this.noteId = response.data.data[0].id
-        for (var i = 0; i < this.Notes.length / 3; i++) {
-          for (var j = 0; j < 3; j++) {
-            this.addNotes = this.Notes;
-            console.log(this.Notes[j]);
-            console.log('nodeId',this.noteId)
+        // for (var i = 0; i < this.Notes.length / 3; i++) {
+        //   for (var j = 0; j < 3; j++) {
+        //     this.addNotes = this.Notes;
+        //     console.log(this.Notes[j]);
+        //     console.log('nodeId',this.noteId)
             // console.log(this.addNotes[j]);
 
 
-          }
-          console.log("\n");
-        }
+          // }
+          // console.log("\n");
+        // }
 
       })
 
@@ -184,7 +190,19 @@ export class AllNotesComponent implements OnInit {
       }
     )
   }
-
+  removeReminder(id:any){
+    console.log("remindeer");
+    
+   this.user=this.userId
+    this.noteService.deleteReminder(id).subscribe(
+      (response)=>{
+        this.snackbar.open('sucessfully deleted reminder',"",{duration:2000})
+      },
+      (error)=>{
+        this.snackbar.open("reminder not deleted","",{duration:2000})
+      }
+    )
+  }
 
 
 }

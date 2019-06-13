@@ -27,7 +27,7 @@
     </button>
   </div>
   <div>
-    <button mat-icon-button matTooltip="More"  [matMenuTriggerFor]="morelist" >
+    <button mat-icon-button matTooltip="More" (click)="morevert()" [matMenuTriggerFor]="morelist" >
         
         <img src="../../../assets/more1.png">
     </button>
@@ -53,7 +53,7 @@
   
   <mat-menu #morelist="matMenu">
     <button mat-menu-item [matMenuTriggerFor]="label" class="addlabel"> Add Label</button>
-    <button mat-button  (click)="deleteNote(noteId)"> Delete Note</button>
+    <button mat-button  (click)="deleteNote(noteId)" class="addlabel"> Delete Note</button>
   </mat-menu>
 
   <mat-menu #label="matMenu">

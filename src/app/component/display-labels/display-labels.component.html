@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutGap="10px" >
+<!-- <div fxLayout="row" fxLayoutGap="10px" >
   <div *ngFor="let items of noteData">
     <mat-chip-list>
       <mat-chip  [removable]="removable" (removed)="addLabelToNote(noteId,items.id)">
@@ -7,4 +7,17 @@
       </mat-chip>
     </mat-chip-list>
   </div>
+</div> -->
+
+<div fxLayout="row" fxLayoutGap="10px" >
+<!-- <mat-form-field class="example-chip-list"> -->
+    <mat-chip-list>
+      <mat-chip *ngFor="let items of noteData" [selectable]="selectable"
+               [removable]="removable" (removed)="addLabelToNote(noteId,items.id)">
+        {{items.label}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+    
+    </mat-chip-list>
+  <!-- </mat-form-field> -->
 </div>

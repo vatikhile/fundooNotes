@@ -14,7 +14,8 @@ export class ReminderComponent implements OnInit {
 
   constructor(private http:HttpServiceService,private update:UpdateServiceService,private snackbar:MatSnackBar) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.getAllReminderNote();
   }
 /** Update Note Reminder*/
 updateReminder(items,$event){
