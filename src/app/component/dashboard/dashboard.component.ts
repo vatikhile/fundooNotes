@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,EventEmitter,Output } from '@angular/core';
 import { LabelComponent } from '../label/label.component';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   // list: boolean = true;
   // grid: boolean=false;
   addLabels: any = [];
-
+  
   message: any;
   header: string;
 
@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
   email = localStorage.getItem('email');
   lastName = localStorage.getItem('lastName');
   profilImaage = localStorage.getItem('profilPic');
+
 
   constructor(private dialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private route: Router) {
 
@@ -40,10 +41,9 @@ export class DashboardComponent implements OnInit {
     this.sidenavUpdateLabel();
     this.header = 'fundooNotes';
     // console.log("piccc",this.img);
-
-
-
+ 
   }
+  @Output() count = new EventEmitter();
 
 
 
@@ -116,8 +116,10 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  search() {
+  search(searchText) {
+    this.count.emit(searchText)
     this.route.navigate(['', 'search']);
+
   }
 
 
@@ -139,6 +141,11 @@ export class DashboardComponent implements OnInit {
 
     this.header = 'Reminder';
     this.route.navigate(['', 'reminder']);
+  }
+  onSearchChange(event) {
+    typeof(event);
+    console.log(event);
+  // this.searchHelper.searchNotes(event);
   }
 }
 

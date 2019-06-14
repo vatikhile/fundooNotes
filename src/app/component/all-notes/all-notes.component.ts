@@ -19,6 +19,7 @@ export class AllNotesComponent implements OnInit {
   views: any;
   // selectable = true;
   removable = true;
+  toggle:boolean=true;
 
   setColor: any;
   archive: any;
@@ -38,6 +39,7 @@ export class AllNotesComponent implements OnInit {
   // toggle: Boolean=true;
   userId=localStorage.getItem(this.userId)
   user: string;
+  Id: any;
 
   constructor(private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private dialog: MatDialog, private snackbar: MatSnackBar) { }
 
@@ -203,7 +205,16 @@ export class AllNotesComponent implements OnInit {
       }
     )
   }
-
+pin(id:any){
+  this.Id=id;
+  // {
+  //   "isPined":true,
+  //   "noteIdList": ["5cdff2fa50a0b60040aa5155"]
+  // }
+}
+unPin(items){
+this.Id=''
+}
 
 }
 

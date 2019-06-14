@@ -43,4 +43,23 @@
 .img{
     width: 12px;
 }
+.pin{
+    margin-left: 75%;
+    margin-top: -13%;
+position: absolute;
+   
 
+}
+.mat-icon-button{
+    outline: none;
+    background-color:transparent;
+}
+.mat-card:hover{
+    .pin{
+        visibility: visible;
+    }
+    }
+    .pin
+    {
+        visibility: hidden;
+    }

@@ -8,12 +8,20 @@
         <div class="122" [ngClass]=" direction =='column' ? 'matpad3':'matpad'">
           <mat-card [ngStyle]="{ 'background-color': items.color }">
             <!-- <mat-card-content>  -->
-            <div (click)="openDialog(items)">
-
-              <div class="bold" fxLayout="column">{{items.title}}</div>
-              <div fxLayout="column" class="bold">
+            <!-- <div (click)="openDialog(items)" *ngIf="toggle!=true"> -->
+                 <!-- <div fxLayout="row"> -->
+                   <!-- <div  fxLayout="column"> -->
+                     <!-- <div> -->
+                     <div class="bold" fxLayout="column" (click)="openDialog(items)">{{items.title}}</div>
+              <div class="pin" ><button  mat-icon-button (click)="pin(items.id)"><mat-icon><img src='../../../assets//pin.svg'></mat-icon></button></div>
+              <div class="pin" *ngIf="items.id==Id"><button  mat-icon-button (click)="unPin(items)"><mat-icon><img src='../../../assets/unpin.svg'></mat-icon></button></div>
+            <!-- </div> -->
+                   <!-- </div> -->
+                   <div (click)="openDialog(items)">
+                   <div fxLayout="column" class="bold">
                 <p>{{items.description}}</p>
               </div>
+          
 
               <div *ngIf="items.reminder.length > 0">
                 <mat-chip-list>

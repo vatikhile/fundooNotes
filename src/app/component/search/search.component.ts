@@ -3,6 +3,7 @@ import {UpdateServiceService} from '../../core/service/update/update-service.ser
 import {Notes} from '../../core/model/Notes/notes'
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators'
+import {NoteSearchPipePipe} from '../../pipe/note-search-pipe.pipe';
 
 @Component({
   selector: 'app-search',
@@ -10,31 +11,38 @@ import {takeUntil} from 'rxjs/operators'
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  destroy$:Subject<boolean>=new Subject<boolean>();
+  // destroy$:Subject<boolean>=new Subject<boolean>();
 
-  constructor(private updateService:UpdateServiceService) { }
-notes:Notes[] =[];
-message:string;
-notesArray=[];
+  constructor() { }
+// notes:Notes[] =[];
+// message:string;
+// notesArray=[];
   ngOnInit() {
-    this.getNotes();
-    this.updateService.Notes
-    .pipe(takeUntil(this.destroy$))
-    .subscribe(message=>{
-      this.message=message;
-    })
-  }
-  getNotes(){
-    this.updateService.Notes.pipe(takeUntil(this.destroy$))
-    .subscribe((response:any)=>{
-      this.notes=response["data"].data
-      this.notesArray=[];
-    },
-    (error)=>{
-      console.log("error occur while  searching");
-      
-    })
+    console.log("search",this.searchText);
     
+//     this.getNotes();
+//     this.updateService.Notes
+//     .pipe(takeUntil(this.destroy$))
+//     .subscribe(message=>{
+//       this.message=message;
+//     })
   }
+  @Input() searchText:any
+//   getNotes(){
+//     this.updateService.Notes.pipe(takeUntil(this.destroy$))
+//     .subscribe((response:any)=>{
+//       this.notes=response["data"].data
+//       this.notesArray=[];
+//     },
+//     (error)=>{
+//       console.log("error occur while  searching");
+      
+//     })
+    
+//   }
+search(){
+  console.log("search",this.searchText);
+
+}
 
 }
