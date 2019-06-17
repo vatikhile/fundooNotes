@@ -48,6 +48,8 @@ import { ReminderComponent } from './component/reminder/reminder.component';
 import { DisplayLabelsComponent } from './component/display-labels/display-labels.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { QuestionAnswerComponent } from './component/question-answer/question-answer.component';
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 
@@ -79,6 +81,7 @@ import {MatSelectModule} from '@angular/material/select';
     ProfilePicComponent,
     ReminderComponent,
     DisplayLabelsComponent,
+    QuestionAnswerComponent,
    
     
 
@@ -118,6 +121,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatChipsModule,
     MatDialogModule,
     MatAutocompleteModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
 
   providers: [],

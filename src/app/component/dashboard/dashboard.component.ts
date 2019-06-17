@@ -28,6 +28,7 @@ export class DashboardComponent implements OnInit {
   email = localStorage.getItem('email');
   lastName = localStorage.getItem('lastName');
   profilImaage = localStorage.getItem('profilPic');
+  values: string;
 
 
   constructor(private dialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private route: Router) {
@@ -118,6 +119,8 @@ export class DashboardComponent implements OnInit {
 
   search(searchText) {
     this.count.emit(searchText)
+    console.log("avhv",searchText);
+    
     this.route.navigate(['', 'search']);
 
   }
@@ -142,10 +145,17 @@ export class DashboardComponent implements OnInit {
     this.header = 'Reminder';
     this.route.navigate(['', 'reminder']);
   }
-  onSearchChange(event) {
-    typeof(event);
-    console.log(event);
-  // this.searchHelper.searchNotes(event);
+  // onSearchChange(event) {
+  //   typeof(event);
+  //   console.log(event);
+  // // this.searchHelper.searchNotes(event);
+  // }
+  onKey(event: any) { // without type info
+    // this.values = event.target.value;
+    this.values=event.key;
+    this.view.search(this.values)
+    console.log("abbs",this.values);
+    
   }
 }
 

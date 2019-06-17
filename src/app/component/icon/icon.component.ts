@@ -2,9 +2,11 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { HttpServiceService } from '../../core/service/http/http-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material';
-import { UpdateServiceService } from '../../core/service/update/update-service.service'
+import { UpdateServiceService } from '../../core/service/update/update-service.service';
 import { NoteServiceService } from '../../core/service/note/note-service.service';
 import {CollaboratorComponent} from '../../component/collaborator/collaborator.component';
+import {ViewService} from '../../core/service/viewService/view.service';
+import {QuetionAnsService} from '../../core/service/questionAns/quetion-ans.service'
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
@@ -16,7 +18,7 @@ export class IconComponent implements OnInit {
   addNote: any;
   addNoteLabels: any[];
   message: any;
-  constructor(private http: HttpServiceService, private update: UpdateServiceService,private dialog:MatDialog, private snackbar: MatSnackBar, private noteService: NoteServiceService) {
+  constructor(private http: HttpServiceService,private view:ViewService,private quest:QuetionAnsService,private update: UpdateServiceService,private dialog:MatDialog, private snackbar: MatSnackBar, private noteService: NoteServiceService) {
 
   }
   ngOnInit() {
@@ -37,6 +39,7 @@ export class IconComponent implements OnInit {
   @Output() countChange = new EventEmitter();
   @Output() archiveNote = new EventEmitter();
   @Output() remindChange = new EventEmitter();
+  
   changeColor(color) {
 
     console.log("color", color);
@@ -175,6 +178,12 @@ openDialog(notesData:any) {
     dialogRef.afterClosed().subscribe(result => {
     console.log(`Dialog result: ${result}`);
   });
+}
+question(notesData:any){
+  this.quest.noteId(notesData);
+  console.log("aaa",notesData);
+  
+
 }
 }
 

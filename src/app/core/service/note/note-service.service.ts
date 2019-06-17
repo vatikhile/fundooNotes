@@ -54,5 +54,7 @@ return this.http.postData('notes/changesColorNotes',data)
   {
     return this.http.delete2('notes/removeReminderNotes',data)
   }
+  pin(data){
+  return this.http.pinUnpin('notes/pinUnpinNotes',data)
+  }
 }
-

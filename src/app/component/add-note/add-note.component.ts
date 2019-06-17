@@ -12,7 +12,7 @@ import {ViewService} from '../../core/service/viewService/view.service'
 })
 export class AddNoteComponent implements OnInit {
   private flag: Boolean = false;
-
+toggle:boolean=true;
   addNote: Notes = new Notes();
   setColor: any;
   constructor(private noteservice: NoteServiceService,private view:ViewService, private dataService: UpdateServiceService, private snackbar: MatSnackBar) { }
@@ -25,12 +25,13 @@ export class AddNoteComponent implements OnInit {
     console.log("wewqeg", this.addNote);
     this.show();
     console.log(this.addNote.title);
+    console.log("pinn",this.addNote.isPined);
     
     
     if(this.setColor==undefined){
       this.addNote.color=""
     }
-        else{
+    else{
           this.addNote.color=this.setColor
         }
 
@@ -62,12 +63,14 @@ export class AddNoteComponent implements OnInit {
   receiveColorEvent($event){
     this.setColor= $event;    
   }
+  team(){
+    this.toggle=false;
+    this.addNote.isPined=true;
+
+  }
+  changeTeam(){
+    this.toggle=true;
+    this.addNote.isPined=false;
+  }
+
 }
-
-
-
-
-
-
-
-

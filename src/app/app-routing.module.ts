@@ -13,6 +13,7 @@ import {SearchComponent} from '../app/component/search/search.component'
 import {ArchiveComponent} from '../../src/app/component/archive/archive.component'
 import {TrashComponent} from '../../src/app/component/trash/trash.component'
 import {ReminderComponent} from '../../src/app/component/reminder/reminder.component'
+import  {QuestionAnswerComponent} from '../../src/app/component/question-answer/question-answer.component'
 const routes: Routes = [
   {
     path: '',
@@ -72,6 +73,10 @@ const routes: Routes = [
         path: 'trash',
         component: TrashComponent
       },
+      {
+        path:'questionAnswer',
+        component:QuestionAnswerComponent
+      }
     ]
 
   }

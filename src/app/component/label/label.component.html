@@ -4,14 +4,14 @@
     <span>
       Edit Labels</span>
     <div fxFlexLayout="space-between center" fxAlign="row">
-      <button mat-button (click)='close()'>
+      <button mat-icon-button (click)='close()'>
         <mat-icon>close</mat-icon>
       </button>
       <mat-form-field [floatLabel]="'never'" class="outline1">
         <input matInput type="text" placeholder="Create new label" [(ngModel)]="labelNote.label" class="outline"
           cdkFocusInitial>
       </mat-form-field>
-      <button mat-button (click)="addLabel()">
+      <button mat-icon-button (click)="addLabel()">
 
         <mat-icon>check</mat-icon>
       </button>
@@ -21,7 +21,7 @@
   <div *ngFor="let item of addLabels | orderOf" fxAlign="row" fxLayoutAlign="space-between center">
     <div fxLayoutGap="5px">
       <div (mouseover)="hover(item.id)" (mouseout)="hover()">
-        <button mat-button (click)="deleteLabel(item.id)" class="labels" >
+        <button mat-icon-button (click)="deleteLabel(item.id)" class="labels" >
           <span *ngIf="item.id!=Idd">
             <mat-icon >label</mat-icon>
           </span>

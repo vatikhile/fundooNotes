@@ -19,7 +19,7 @@ export class AllNotesComponent implements OnInit {
   views: any;
   // selectable = true;
   removable = true;
-  toggle:boolean=true;
+  toggle:boolean;
 
   setColor: any;
   archive: any;
@@ -40,17 +40,23 @@ export class AllNotesComponent implements OnInit {
   userId=localStorage.getItem(this.userId)
   user: string;
   Id: any;
+  itemId: any[];
+  pinedCards: any[];
+  // check: boolean ;
 
   constructor(private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private dialog: MatDialog, private snackbar: MatSnackBar) { }
 
   ngOnInit() {
     this.getAllNotes();
+   
     this.dataService.currentMessage.subscribe(
 
       (response: any) => {
         console.log(response);
         this.message = response;
         this.getAllNotes();
+        // this.view.getNotes();
+        
       }
     )
 
@@ -73,8 +79,14 @@ export class AllNotesComponent implements OnInit {
         console.log(this.direction);
       });
 
+      // this.pinedCards = this.addNotes.filter(function (el) {
+      //   return (el.isPined === true);
+      //   });
+      //   console.log("pinnnnn",this.pinedCards);
+        
 
   }
+
 
 
   /*****
@@ -86,10 +98,44 @@ export class AllNotesComponent implements OnInit {
     this.noteService.getNotes().subscribe(
 
       (response: any) => {
+      //  if( response.length=null)
+      //  {
+      //    this.check=false;
+      //    console.log("null");
+         
+      //  }
+      //  else{
+      //    this.check=true;
+      //    console.log("true");
+         
+      //  }
+      // for( var i=0; i<=response.length;i++)
+      // {
+      //   if(response[i].isPined= false)
+      //   {
+      //     this.check= true;
+      //   }
+      //   else
+      //   {
+      //     this.check= false;
+
+      //   }
+
+      // }
         console.log('data notes -->', response);
         this.addNotes = response.data.data;
-
+// this.pin();
         this.noteId = response.data.data[0].id
+        // if(this.addNotes.length=null)
+        
+        // {
+        //   this.check=true;
+        // }
+        // else{
+        //   this.check=false;
+        //   return this.addNotes;
+        // }
+        // this.dataService.changeMessage('');
         // for (var i = 0; i < this.Notes.length / 3; i++) {
         //   for (var j = 0; j < 3; j++) {
         //     this.addNotes = this.Notes;
@@ -111,7 +157,8 @@ export class AllNotesComponent implements OnInit {
         title: items.title,
         description: items.description,
         id: items.id,
-        color: items
+        color: items,
+        isPined:items.isPined
       }
     });
     console.log("hhh", items.title);
@@ -209,12 +256,66 @@ pin(id:any){
   this.Id=id;
   // {
   //   "isPined":true,
-  //   "noteIdList": ["5cdff2fa50a0b60040aa5155"]
-  // }
-}
-unPin(items){
-this.Id=''
-}
+  //   "noteIdList": [""]
+  // }data
+var data={
+  "noteIdList":[id],
+  "isPined": true
+ 
 
 }
+console.log("pin true",data);
+
+  this.noteService.pin(data).subscribe(
+    (response:any)=>{
+      // this.view.getNotes();
+this.getAllNotes();
+      this.snackbar.open("Note is pinned sucessfully","",{duration:2000});
+      this.dataService.changeMessage('');
+      // this.getAllNotes();
+      
+    },
+    (error)=>{
+      this.snackbar.open("Note is not pinned","",{duration:2000});
+      console.log("aaabc",error);
+    }
+  )
+}
+unPin(id:any){
+this.Id=''
+var data={
+  "noteIdList":[id],
+  "isPined": false
+ 
+
+}
+console.log("unpin false",data);
+
+  this.noteService.pin(data).subscribe(
+    (response:any)=>{
+      // this.view.getNotes();
+      this.getAllNotes();
+      this.snackbar.open("Note is unpinned sucessfully","",{duration:2000});
+      this.dataService.changeMessage('');
+      // this.getAllNotes();
+      
+    },
+    (error)=>{
+      this.snackbar.open("Note is not pinned","",{duration:2000});
+      console.log("aaabc",error);
+    }
+  )
+}
+// this.view.search().subscribe(
+//   (res) => {
+  
+  
+//   })
+}
+
+// this.pinedCards = this.cards.filter(function (el) {
+//   return (el.note.isPined === true);
+//   });
+
+
 

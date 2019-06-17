@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject ,Observable} from 'rxjs';
 import {HttpServiceService} from '../../service/http/http-service.service'
 import{AllNotesComponent} from 'src/app/component/all-notes/all-notes.component'
 import {UpdateServiceService} from '../../service/update/update-service.service'
@@ -9,6 +9,7 @@ import {UpdateServiceService} from '../../service/update/update-service.service'
 export class ViewService {
   // result: boolean;
   toggle:boolean=true;
+  
   constructor(private http:HttpServiceService, private get:UpdateServiceService) { }
   // result:boolean = true;
   subject = new Subject();
@@ -45,4 +46,22 @@ export class ViewService {
     this.get.changeMessage('');
     
   }
+
+  search(data:any){
+    this.subject.next(data);
+    console.log("data",data);
+    
+    return this.subject.asObservable();
+
+
+  }
+
+// getMessage(): Observable<any> {
+//   this.subject.next({ data });
+//   console.log("333",noteId1);
+  
+//   return this.subject.asObservable();
+//   // return this.subject.asObservable();
+// }
+  
 }

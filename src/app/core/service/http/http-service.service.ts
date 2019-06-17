@@ -224,5 +224,13 @@ delete2(url,data){
 }
 return this.http.post(this.baseUrl+url,data,httpOptions);
 }
- 
+pinUnpin(url,data){
+  let httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    })
+  }
+ return this.http.post(this.baseUrl+url,data,httpOptions)
+}
 }

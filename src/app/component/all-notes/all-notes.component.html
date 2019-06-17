@@ -1,10 +1,13 @@
 <!-- for displaying notes i.e title and description on the matcard -->
-<div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100">
+<div fxLayout="column">
+  <div>
+<div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100"><div>PINNED</div>
   <div fxLayout="{{direction}} {{direction1}}" fxLayoutAlign="start {{allign}}" fxFlex="65" class="main">
     <!-- <div fxLayout="column" *ngIf="toggle==false" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main"> -->
+    <!-- <p>{{others}}</p> -->
     <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText" 
       class="111">
-      <div *ngIf="items.isArchived===false && items.isDeleted===false" class="matShade" fxFlex="88" class="ssf6">
+      <div *ngIf="items.isArchived===false && items.isDeleted===false && items.isPined==true" class="matShade" fxFlex="88" class="ssf6">
         <div class="122" [ngClass]=" direction =='column' ? 'matpad3':'matpad'">
           <mat-card [ngStyle]="{ 'background-color': items.color }">
             <!-- <mat-card-content>  -->
@@ -13,7 +16,7 @@
                    <!-- <div  fxLayout="column"> -->
                      <!-- <div> -->
                      <div class="bold" fxLayout="column" (click)="openDialog(items)">{{items.title}}</div>
-              <div class="pin" ><button  mat-icon-button (click)="pin(items.id)"><mat-icon><img src='../../../assets//pin.svg'></mat-icon></button></div>
+              <div class="pin" ><button  mat-icon-button (click)="unPin(items.id)"><mat-icon><img src='../../../assets/unpin.svg'></mat-icon></button></div>
               <div class="pin" *ngIf="items.id==Id"><button  mat-icon-button (click)="unPin(items)"><mat-icon><img src='../../../assets/unpin.svg'></mat-icon></button></div>
             <!-- </div> -->
                    <!-- </div> -->
@@ -48,3 +51,62 @@
     </div>
   </div>
 </div>
+</div>
+&nbsp;
+<div>
+<div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100">OTHERS
+    <div fxLayout="{{direction}} {{direction1}}" fxLayoutAlign="start {{allign}}" fxFlex="65" class="main">
+      <!-- <div fxLayout="column" *ngIf="toggle==false" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main"> -->
+      <!-- <p>{{others}}</p> -->
+      <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText" 
+        class="111">
+        <div *ngIf="items.isArchived===false && items.isDeleted===false && items.isPined==false" class="matShade" fxFlex="88" class="ssf6">
+          <div class="122" [ngClass]=" direction =='column' ? 'matpad3':'matpad'">
+            <mat-card [ngStyle]="{ 'background-color': items.color }">
+              <!-- <mat-card-content>  -->
+              <!-- <div (click)="openDialog(items)" *ngIf="toggle!=true"> -->
+                   <!-- <div fxLayout="row"> -->
+                     <!-- <div  fxLayout="column"> -->
+                       <!-- <div> -->
+                       <div class="bold" fxLayout="column" (click)="openDialog(items)">{{items.title}}</div>
+                <div class="pin" ><button  mat-icon-button (click)="pin(items.id)"><mat-icon><img src='../../../assets//pin.svg'></mat-icon></button></div>
+                <div class="pin" *ngIf="items.id==Id"><button  mat-icon-button (click)="unPin(items.id)"><mat-icon><img src='../../../assets/unpin.svg'></mat-icon></button></div>
+              <!-- </div> -->
+                     <!-- </div> -->
+                     <div (click)="openDialog(items)">
+                     <div fxLayout="column" class="bold">
+                  <p>{{items.description}}</p>
+                </div>
+            
+  
+                <div *ngIf="items.reminder.length > 0">
+                  <mat-chip-list>
+                    <mat-chip><span> <img src="../../../assets/c.svg" class="img"> {{items.reminder | date:'MMM d, y, h:mm a'}}
+                      <mat-icon matChipRemove >cancel</mat-icon>
+                    </span>
+                    </mat-chip>
+                  </mat-chip-list>&nbsp;
+                </div>
+                <div>
+                  <app-display-labels [noteId]="items.id" [noteData]="items.noteLabels"></app-display-labels>
+                </div>
+              </div>
+              <div>
+                <!-- <div class="gg" fxLayout="row" fxLayoutAlign="center end"> -->
+                <app-icon fxLayout="row" fxLayoutAlign="center end" class="icon_hover"
+                  (countChange)="changeColor(items,$event)" (archiveNote)="archiveNote(items,$event)"
+                  (remindChange)="updateReminder(items,$event)" [notesData]="items" [noteId]="items.id">
+                </app-icon>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+

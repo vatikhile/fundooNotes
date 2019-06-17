@@ -37,10 +37,14 @@
                 <textarea matTextareaAutosize [style.backgroundColor]="setColor" fxLayout="column" class="textAreaa"
                   placeholder="Title" [(ngModel)]="addNote.title"></textarea>
               </div>
-              <div fxFlexLayout="end">
-                <button mat-icon-button matTooltip="Pin note">
+              <div fxFlexLayout="end" *ngIf="toggle==true">
+                <button mat-icon-button (click)="team()" matTooltip="Pin note">
                   <img src="../../../assets/pin.svg"></button>
               </div>
+              <div fxFlexLayout="end" *ngIf="toggle==false">
+                  <button mat-icon-button (click)="changeTeam()" matTooltip="Pin note">
+                    <img src="../../../assets/unpin.svg"></button>
+                </div>
             </div>
           </div>
           <div>
