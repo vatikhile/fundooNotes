@@ -7,6 +7,7 @@
     <!-- <p>{{others}}</p> -->
     <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText" 
       class="111">
+     
       <div *ngIf="items.isArchived===false && items.isDeleted===false && items.isPined==true" class="matShade" fxFlex="88" class="ssf6">
         <div class="122" [ngClass]=" direction =='column' ? 'matpad3':'matpad'">
           <mat-card [ngStyle]="{ 'background-color': items.color }">
@@ -47,11 +48,18 @@
             </div>
           </mat-card>
         </div>
+       
       </div>
+     
     </div>
+    <div *ngIf="addNotes==undefined" fxLayout="row" fxLayoutAlign="end start"><mat-spinner></mat-spinner></div>
   </div>
+
 </div>
+
 </div>
+
+
 &nbsp;
 <div>
 <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100">OTHERS

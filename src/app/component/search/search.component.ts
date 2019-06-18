@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ViewService } from 'src/app/core/service/viewService/view.service';
+import { Component, OnInit,Input } from '@angular/core';
+import {SearchService} from '../../core/service/searchService/search.service'
 import {UpdateServiceService} from '../../core/service/update/update-service.service';
 import {Notes} from '../../core/model/Notes/notes'
 import {Subject} from 'rxjs';
@@ -12,16 +12,27 @@ import {NoteSearchPipePipe} from '../../pipe/note-search-pipe.pipe';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  text: any;
+  searchData:any;
   // destroy$:Subject<boolean>=new Subject<boolean>();
 
-  constructor(private view:ViewService) { }
+  constructor(private search:SearchService) { }
 // notes:Notes[] =[];
 // message:string;
 // notesArray=[];
   ngOnInit() {
-    console.log("search",this.searchText);
+    // console.log("search",this.searchText);
   
-    this.view.getNotes();
+    // this.view.getNotes();
+    // this.view.getsearch().subscribe(
+    //   (res) => {
+    //     this.searchText=res;
+    //     console.log("search",this.searchText);
+    //     console.log("response",res);
+        this.submit();
+        
+      
+      // })  
     
 //     this.getNotes();
 //     this.updateService.Notes
@@ -30,7 +41,9 @@ export class SearchComponent implements OnInit {
 //       this.message=message;
 //     })
   }
-  @Input() searchText:any
+  // @Input() searchText1:any;
+  // @Output() countChange1= new EventEmitter();
+  // @Input() searchText:any
 //   getNotes(){
 //     this.updateService.Notes.pipe(takeUntil(this.destroy$))
 //     .subscribe((response:any)=>{
@@ -48,4 +61,16 @@ export class SearchComponent implements OnInit {
 
 // }
 
+submit(){
+  this.search.getsearch().subscribe(
+    (res) => {
+      this.searchData=res;
+      console.log("search",this.searchData);
+      console.log("response",res);
+      // this.view.getNotes();
+      
+      // this.countChange1.emit(this.searchData);
+    
+    })
+}
 }

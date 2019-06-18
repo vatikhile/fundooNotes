@@ -50,6 +50,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { QuestionAnswerComponent } from './component/question-answer/question-answer.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 
@@ -70,6 +71,7 @@ import { QuestionAnswerComponent } from './component/question-answer/question-an
     LabelComponent,
     TrashComponent,
     CollaboratorComponent,
+    
     
     
     // DialogBoxComponent,
@@ -106,6 +108,7 @@ import { QuestionAnswerComponent } from './component/question-answer/question-an
     MatRadioModule,
     FormsModule,
     MatCheckboxModule,
+    MatProgressSpinnerModule,
     MatSnackBarModule,
     ReactiveFormsModule,
     MatButtonToggleModule,

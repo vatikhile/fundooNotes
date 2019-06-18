@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { EditNotesComponent } from '../edit-notes/edit-notes.component';
 import { MatSnackBar } from '@angular/material';
 
+
 @Component({
   selector: 'app-all-notes',
   templateUrl: './all-notes.component.html',
@@ -25,7 +26,9 @@ export class AllNotesComponent implements OnInit {
   archive: any;
   @Input() note;
   @Input() notesData;
-  @Input() searchText;
+  // @Input() searchText1:any;
+  @Input('master') searchText: any;
+  // @Input() searchText;
   // @Input()notesData: any;
   // noteId: any;
   countId: any;
@@ -34,15 +37,15 @@ export class AllNotesComponent implements OnInit {
   direction: string = "row";
   setReminder: any;
   noteId: any;
-  // userId: string;
-  // addNote: any;
-  // toggle: Boolean=true;
   userId=localStorage.getItem(this.userId)
   user: string;
   Id: any;
   itemId: any[];
   pinedCards: any[];
+  
+
   // check: boolean ;
+
 
   constructor(private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private dialog: MatDialog, private snackbar: MatSnackBar) { }
 
@@ -56,11 +59,14 @@ export class AllNotesComponent implements OnInit {
         this.message = response;
         this.getAllNotes();
         // this.view.getNotes();
+        // console.log("searccccc",this.searchText);
+        
         
       }
     )
 
     this.view.getView().subscribe(
+     
       (res) => {
         this.views = res;
         this.direction = this.views.data;
@@ -68,26 +74,21 @@ export class AllNotesComponent implements OnInit {
           this.direction1 = 'wrap';
           this.allign = ''
           console.log("wrap", this.direction1);
+          // this.searchText=this.masterName
 
         }
         else {
           this.direction1 = ''
           this.allign = 'center'
           console.log("no wrap", this.direction1);
+          // this.searchText=this.masterName
         }
         // this.toggle=this.views.data1;
         console.log(this.direction);
       });
 
-      // this.pinedCards = this.addNotes.filter(function (el) {
-      //   return (el.isPined === true);
-      //   });
-      //   console.log("pinnnnn",this.pinedCards);
-        
-
+  
   }
-
-
 
   /*****
  @purpose:for getting the note data i.e title and description from the database for displaying the created note
@@ -98,55 +99,11 @@ export class AllNotesComponent implements OnInit {
     this.noteService.getNotes().subscribe(
 
       (response: any) => {
-      //  if( response.length=null)
-      //  {
-      //    this.check=false;
-      //    console.log("null");
-         
-      //  }
-      //  else{
-      //    this.check=true;
-      //    console.log("true");
-         
-      //  }
-      // for( var i=0; i<=response.length;i++)
-      // {
-      //   if(response[i].isPined= false)
-      //   {
-      //     this.check= true;
-      //   }
-      //   else
-      //   {
-      //     this.check= false;
-
-      //   }
-
-      // }
+   
         console.log('data notes -->', response);
         this.addNotes = response.data.data;
 // this.pin();
         this.noteId = response.data.data[0].id
-        // if(this.addNotes.length=null)
-        
-        // {
-        //   this.check=true;
-        // }
-        // else{
-        //   this.check=false;
-        //   return this.addNotes;
-        // }
-        // this.dataService.changeMessage('');
-        // for (var i = 0; i < this.Notes.length / 3; i++) {
-        //   for (var j = 0; j < 3; j++) {
-        //     this.addNotes = this.Notes;
-        //     console.log(this.Notes[j]);
-        //     console.log('nodeId',this.noteId)
-            // console.log(this.addNotes[j]);
-
-
-          // }
-          // console.log("\n");
-        // }
 
       })
 
@@ -162,6 +119,7 @@ export class AllNotesComponent implements OnInit {
       }
     });
     console.log("hhh", items.title);
+    // console.log("masterName",this.notesData);
 
   }
   changeColor(items, $event) {
@@ -254,10 +212,6 @@ export class AllNotesComponent implements OnInit {
   }
 pin(id:any){
   this.Id=id;
-  // {
-  //   "isPined":true,
-  //   "noteIdList": [""]
-  // }data
 var data={
   "noteIdList":[id],
   "isPined": true
@@ -306,16 +260,11 @@ console.log("unpin false",data);
     }
   )
 }
-// this.view.search().subscribe(
-//   (res) => {
-  
-  
-//   })
-}
+
 
 // this.pinedCards = this.cards.filter(function (el) {
 //   return (el.note.isPined === true);
 //   });
 
-
+}
 

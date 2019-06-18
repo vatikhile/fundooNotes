@@ -7,7 +7,7 @@ export class UpdateServiceService {
   private messageSource1 = new BehaviorSubject('default message');
   Notes = this.messageSource1.asObservable();
 
-  private messageSource = new BehaviorSubject('default message');
+  private messageSource = new BehaviorSubject('');
   currentMessage = this.messageSource.asObservable();
 
   constructor() { }

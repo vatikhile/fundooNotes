@@ -23,7 +23,7 @@
                 <button mat-icon-button class="searchButton">
                   <mat-icon>search</mat-icon>
                 </button>
-                <input mat-input class="searchInput"  (keyup)="onKey($event)" placeholder="Search">
+                <input mat-input class="searchInput" routerLink='/search' [(ngModel)]="searchContent" (keyup)="onKey()" placeholder="Search">
                   <!-- ng-model="searchText" -->
                 <!-- <app-all-notes [childMessage]="searchText"></app-all-notes> -->
               </mat-card>

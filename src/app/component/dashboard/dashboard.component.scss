@@ -96,7 +96,7 @@
 .main
 {
     display: flex;
-  
+    min-height: -webkit-fill-available;
     background-color: white;
 }
 .fname{

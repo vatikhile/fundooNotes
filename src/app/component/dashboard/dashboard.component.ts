@@ -7,6 +7,7 @@ import { UpdateServiceService } from '../../core/service/update/update-service.s
 import { ViewService } from '../../core/service/viewService/view.service';
 import { environment } from 'src/environments/environment';
 import { ProfilePicComponent } from '../profile-pic/profile-pic.component';
+import {SearchService}  from '../../core/service/searchService/search.service'
 
 @Component({
   selector: 'app-dashboard',
@@ -23,7 +24,7 @@ export class DashboardComponent implements OnInit {
   
   message: any;
   header: string;
-
+  searchContent:any;
   firstName = localStorage.getItem('firstName');
   email = localStorage.getItem('email');
   lastName = localStorage.getItem('lastName');
@@ -31,7 +32,7 @@ export class DashboardComponent implements OnInit {
   values: string;
 
 
-  constructor(private dialog: MatDialog, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private route: Router) {
+  constructor(private dialog: MatDialog,private search:SearchService, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private route: Router) {
 
   }
   img = environment.url + this.profilImaage;
@@ -117,13 +118,13 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  search(searchText) {
-    this.count.emit(searchText)
-    console.log("avhv",searchText);
+  // search(searchText) {
+  //   this.count.emit(searchText)
+  //   console.log("avhv",searchText);
     
-    this.route.navigate(['', 'search']);
+  //   this.route.navigate(['', 'search']);
 
-  }
+  // }
 
 
   archive() {
@@ -131,7 +132,7 @@ export class DashboardComponent implements OnInit {
 
   }
   noteButton() {
-    this.header = 'Notes';
+    this.header = 'fundooNotes';
     this.route.navigateByUrl('/addNotes');
   }
   trash() {
@@ -150,11 +151,14 @@ export class DashboardComponent implements OnInit {
   //   console.log(event);
   // // this.searchHelper.searchNotes(event);
   // }
-  onKey(event: any) { // without type info
+  onKey() {
+     // without type info
     // this.values = event.target.value;
-    this.values=event.key;
-    this.view.search(this.values)
-    console.log("abbs",this.values);
+    // this.values=event.key;
+    this.search.search(this.searchContent)
+    // this.dataService.currentMessage.subscribe(message=>this.searchContent=message)
+    console.log("msga",this.message);
+    console.log("search",this.searchContent);
     
   }
 }

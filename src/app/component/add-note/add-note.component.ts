@@ -34,13 +34,14 @@ toggle:boolean=true;
     else{
           this.addNote.color=this.setColor
         }
-
+if(this.addNote.title !=null)
+{
     this.noteservice.addNote(this.addNote).subscribe(
       (response: any) => {
         this.view.getNotes();
         console.log(response);
         // this.dataService.currentMessage;
-        this.dataService.changeMessage('444')
+        this.dataService.changeMessage('')
         this.snackbar.open(
           "Note is created Successfully", "",
           { duration: 2500 }
@@ -49,6 +50,12 @@ toggle:boolean=true;
       }
 
     )
+}
+else{
+  this.snackbar.open(
+    "empty title & decription note is not created", "",
+    { duration: 2500 });
+}
 
     this.addNote.title = null;
     this.addNote.description = null;
