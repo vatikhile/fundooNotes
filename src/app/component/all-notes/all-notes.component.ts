@@ -18,55 +18,44 @@ export class AllNotesComponent implements OnInit {
   Notes: any[];
   message: any;
   views: any;
-  // selectable = true;
   removable = true;
-  toggle:boolean;
-
+  toggle: boolean;
   setColor: any;
   archive: any;
   @Input() note;
   @Input() notesData;
-  // @Input() searchText1:any;
   @Input('master') searchText: any;
-  // @Input() searchText;
-  // @Input()notesData: any;
-  // noteId: any;
   countId: any;
   direction1: string = 'wrap';
   allign: string = '';
   direction: string = "row";
   setReminder: any;
   noteId: any;
-  userId=localStorage.getItem(this.userId)
+  userId = localStorage.getItem(this.userId)
   user: string;
   Id: any;
   itemId: any[];
   pinedCards: any[];
-  
-
-  // check: boolean ;
-
 
   constructor(private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private dialog: MatDialog, private snackbar: MatSnackBar) { }
 
   ngOnInit() {
+    /*****
+   @purpose:Display all notes without refreshing  the page
+   ******/
     this.getAllNotes();
-   
     this.dataService.currentMessage.subscribe(
-
       (response: any) => {
         console.log(response);
         this.message = response;
         this.getAllNotes();
-        // this.view.getNotes();
-        // console.log("searccccc",this.searchText);
-        
-        
       }
     )
-
+    /*****
+   @purpose:If click on list view on the toolbar the service viewservice return the row text & again click on grid button it return column
+   ******/
     this.view.getView().subscribe(
-     
+
       (res) => {
         this.views = res;
         this.direction = this.views.data;
@@ -87,7 +76,7 @@ export class AllNotesComponent implements OnInit {
         console.log(this.direction);
       });
 
-  
+
   }
 
   /*****
@@ -99,15 +88,21 @@ export class AllNotesComponent implements OnInit {
     this.noteService.getNotes().subscribe(
 
       (response: any) => {
-   
+
         console.log('data notes -->', response);
         this.addNotes = response.data.data;
-// this.pin();
+        // return this.addNotes.filter(data =>
+        //   data.isPined=false)
+        // || data.description.toLowerCase().indexOf(searchTerm) !== -1)
         this.noteId = response.data.data[0].id
 
       })
 
+
   }
+  /*****
+ @purpose:Click on any note which are displayed on home page open the dialog box which have editable 
+ ******/
   openDialog(items: any) {
     this.dialog.open(EditNotesComponent, {
       data: {
@@ -115,13 +110,16 @@ export class AllNotesComponent implements OnInit {
         description: items.description,
         id: items.id,
         color: items,
-        isPined:items.isPined
+        isPined: items.isPined
       }
     });
     console.log("hhh", items.title);
     // console.log("masterName",this.notesData);
 
   }
+  /*****
+ @purpose:Click on color palete it return the event i.e color from icon component and change the color of note
+ ******/
   changeColor(items, $event) {
     this.setColor = $event
     console.log("get color", this.setColor);
@@ -146,7 +144,9 @@ export class AllNotesComponent implements OnInit {
         this.snackbar.open('note color not updated', 'End now', { duration: 1000 });
       })
   }
-
+  /*****
+ @purpose:Click on archieve mat-icon-button the note become invisible from the home page 
+ ******/
   archiveNote(items, $event) {
 
     this.archive = $event
@@ -171,10 +171,11 @@ export class AllNotesComponent implements OnInit {
     )
 
   }
+  /*****
+   @purpose:Click on reminder mat-icon-button it hit the API and set the reminder for that note
+   ******/
   updateReminder(items, $event) {
-
     this.setReminder = $event
-
     console.log("get reminder", this.setReminder);
     var noteData = {
       "reminder": this.setReminder,
@@ -197,74 +198,75 @@ export class AllNotesComponent implements OnInit {
       }
     )
   }
-  removeReminder(id:any){
+  /*****
+   @purpose:Click on delete reminder mat-icon-button it hit the API and remove the reminder 
+   ******/
+  removeReminder(id: any) {
     console.log("remindeer");
-    
-   this.user=this.userId
+
+    this.user = this.userId
     this.noteService.deleteReminder(id).subscribe(
-      (response)=>{
-        this.snackbar.open('sucessfully deleted reminder',"",{duration:2000})
+      (response) => {
+        this.snackbar.open('sucessfully deleted reminder', "", { duration: 2000 })
       },
-      (error)=>{
-        this.snackbar.open("reminder not deleted","",{duration:2000})
+      (error) => {
+        this.snackbar.open("reminder not deleted", "", { duration: 2000 })
       }
     )
   }
-pin(id:any){
-  this.Id=id;
-var data={
-  "noteIdList":[id],
-  "isPined": true
- 
-
-}
-console.log("pin true",data);
-
-  this.noteService.pin(data).subscribe(
-    (response:any)=>{
-      // this.view.getNotes();
-this.getAllNotes();
-      this.snackbar.open("Note is pinned sucessfully","",{duration:2000});
-      this.dataService.changeMessage('');
-      // this.getAllNotes();
-      
-    },
-    (error)=>{
-      this.snackbar.open("Note is not pinned","",{duration:2000});
-      console.log("aaabc",error);
+  /*****
+ @purpose:Note on the home page after click on unpin it become pin and display under the pinned tag
+ ******/
+  pin(id: any) {
+    this.Id = id;
+    var data = {
+      "noteIdList": [id],
+      "isPined": true
     }
-  )
-}
-unPin(id:any){
-this.Id=''
-var data={
-  "noteIdList":[id],
-  "isPined": false
- 
+    console.log("pin true", data);
 
-}
-console.log("unpin false",data);
+    this.noteService.pin(data).subscribe(
+      (response: any) => {
+        // this.view.getNotes();
+        this.getAllNotes();
+        this.snackbar.open("Note is pinned sucessfully", "", { duration: 2000 });
+        this.dataService.changeMessage('');
+        // this.getAllNotes();
 
-  this.noteService.pin(data).subscribe(
-    (response:any)=>{
-      // this.view.getNotes();
-      this.getAllNotes();
-      this.snackbar.open("Note is unpinned sucessfully","",{duration:2000});
-      this.dataService.changeMessage('');
-      // this.getAllNotes();
-      
-    },
-    (error)=>{
-      this.snackbar.open("Note is not pinned","",{duration:2000});
-      console.log("aaabc",error);
+      },
+      (error) => {
+        this.snackbar.open("Note is not pinned", "", { duration: 2000 });
+        console.log("aaabc", error);
+      }
+    )
+  }
+  /*****
+ @purpose:Note on the home page after click on pin it become unpin and display under the others tag
+ ******/
+  unPin(id: any) {
+    this.Id = ''
+    var data = {
+      "noteIdList": [id],
+      "isPined": false
+
+
     }
-  )
-}
+    console.log("unpin false", data);
 
+    this.noteService.pin(data).subscribe(
+      (response: any) => {
+        // this.view.getNotes();
+        this.getAllNotes();
+        this.snackbar.open("Note is unpinned sucessfully", "", { duration: 2000 });
+        this.dataService.changeMessage('');
+        // this.getAllNotes();
 
-// this.pinedCards = this.cards.filter(function (el) {
-//   return (el.note.isPined === true);
-//   });
-
+      },
+      (error) => {
+        this.snackbar.open("Note is not pinned", "", { duration: 2000 });
+        console.log("aaabc", error);
+      }
+    )
+  }
 }
 

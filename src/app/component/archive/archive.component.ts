@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
 import { MatSnackBar } from '@angular/material';
-import { Notes } from '../../core/model/Notes/notes';
 import {Label} from '../../core/model/label/label';
 import {NoteServiceService} from '../../core/service/note/note-service.service'
 import { ViewService } from 'src/app/core/service/viewService/view.service';
@@ -18,21 +17,22 @@ export class ArchiveComponent implements OnInit {
   color: string;
   views:any;
   direction:string;
-    labels = new Label();
+  labels = new Label();
   messageSource: string;
   archive: any;
   addNote: any;
   message: any;
   setColor: any;
   constructor( private update:UpdateServiceService,private snackbar:MatSnackBar,private dialog :MatDialog,private view: ViewService,private noteService:NoteServiceService) {
-    update.currentMessage.subscribe(
-      status => { this.messageSource = status }
-    )
+  update.currentMessage.subscribe(
+  status => { this.messageSource = status })
     this.update.currentMessage.subscribe(data => { this.userNote = data })
   }
    
-
-  ngOnInit() {
+    ngOnInit() {
+/*****
+ @purpose:Click on the archieve button on the sidenavbar all the archieve note will display without refreshing 
+ ******/
     this.getArchiveNotes();
     console.log("34r5343564wew3");
     this.update.currentMessage.subscribe(
@@ -43,10 +43,10 @@ export class ArchiveComponent implements OnInit {
         this.getArchiveNotes();
       }
     )
-
-
-
   }
+  /*****
+ @purpose:Click on the archieve mat-icon-button it is invisible from archive note list and it will become visible in home
+ ******/
   archiveNote(items,$event){
 
     this.archive=$event
@@ -74,6 +74,9 @@ export class ArchiveComponent implements OnInit {
     )
     
   }
+  /*****
+ @purpose:It get all note which status is archive true after hit the API
+ ******/
   getArchiveNotes(){
     console.log("ewr4w3e543564654657");
     
@@ -91,7 +94,9 @@ export class ArchiveComponent implements OnInit {
            }
            )
   }
-
+  /*****
+ @purpose:Click on any note which are displayed on archieve page open the dialog box which have editable 
+ ******/
   openDialog(items:any){
     this.dialog.open(EditNotesComponent,{
       data:{
@@ -104,6 +109,9 @@ export class ArchiveComponent implements OnInit {
     console.log("hhh",items.title,);
     
   }
+    /*****
+ @purpose:Click on color palete it return the event i.e color from icon component and change the color of note
+ ******/
   changeColor(items,$event)
     {
       this.setColor=$event

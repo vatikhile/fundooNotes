@@ -58,7 +58,8 @@
   <div>
     <button mat-button (click)="deleteNote(noteId)" class="addlabel"> Delete Note</button></div>
   <div>
-    <button mat-button (click)="question()" class="addlabel" routerLink='/questionAnswer'> Ask Question</button>
+    <button mat-button class="addlabel" routerLink='/questionAnswer/{{noteId}}'> Ask
+      Question</button>
   </div>
 </mat-menu>
 

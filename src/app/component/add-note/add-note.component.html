@@ -1,5 +1,5 @@
 <!-- for displaying the small matcard -->
-<div fxLayout="column" fxFlex="100" >
+<div fxLayout="column" fxFlex="100">
   <div class="card-center" *ngIf="flag===false" fxLayout="row" fxLayoutAlign="center">
     <!-- <div fxLayout="row" fxLayoutAlign="center end"> -->
     <div fxLayout="column" fxLayoutAlign="center center" class="22" fxFlex="63">
@@ -42,9 +42,9 @@
                   <img src="../../../assets/pin.svg"></button>
               </div>
               <div fxFlexLayout="end" *ngIf="toggle==false">
-                  <button mat-icon-button (click)="changeTeam()" matTooltip="Pin note">
-                    <img src="../../../assets/unpin.svg"></button>
-                </div>
+                <button mat-icon-button (click)="changeTeam()" matTooltip="Pin note">
+                  <img src="../../../assets/unpin.svg"></button>
+              </div>
             </div>
           </div>
           <div>

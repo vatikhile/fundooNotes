@@ -7,13 +7,13 @@ import { ForgotComponent } from './component/forgot/forgot.component'
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { AllNotesComponent } from './component/all-notes/all-notes.component';
-import {LabelComponent} from './component/label/label.component'
+import { LabelComponent } from './component/label/label.component'
 import { AuthGuardService } from './core/service/auth/auth-guard.service'
-import {SearchComponent} from '../app/component/search/search.component'
-import {ArchiveComponent} from '../../src/app/component/archive/archive.component'
-import {TrashComponent} from '../../src/app/component/trash/trash.component'
-import {ReminderComponent} from '../../src/app/component/reminder/reminder.component'
-import  {QuestionAnswerComponent} from '../../src/app/component/question-answer/question-answer.component'
+import { SearchComponent } from '../app/component/search/search.component'
+import { ArchiveComponent } from '../../src/app/component/archive/archive.component'
+import { TrashComponent } from '../../src/app/component/trash/trash.component'
+import { ReminderComponent } from '../../src/app/component/reminder/reminder.component'
+import { QuestionAnswerComponent } from '../../src/app/component/question-answer/question-answer.component'
 const routes: Routes = [
   {
     path: '',
@@ -28,7 +28,7 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
- 
+
   {
     path: 'forgot',
     component: ForgotComponent
@@ -41,13 +41,12 @@ const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuardService],
-    component:DashboardComponent,
-    // component: DashboardComponent, canActivate: [AuthGuardService],
+    component: DashboardComponent,
     children: [
-      
+
       {
-        path:'addNotes',
-        component:AddNoteComponent
+        path: 'addNotes',
+        component: AddNoteComponent
       },
       {
         path: 'reminder',
@@ -74,60 +73,18 @@ const routes: Routes = [
         component: TrashComponent
       },
       {
-        path:'questionAnswer',
-        component:QuestionAnswerComponent
+        path: 'questionAnswer/:id',
+        component: QuestionAnswerComponent
       }
     ]
 
   }
 
-
-
-  // {
-  //   path:'dashboard',
-  //   canActivate: [AuthGuardService],
-  //   component:DashboardComponent,
-  //   children:[{
-  //   path:'',
-  //   component:AddnotesComponent
-  //   },
-  //   {
-  //   path:'note',
-  //   component:AddnotesComponent
-  //   },
-  //   {
-  //   path:'archive',
-  //   component:ArchiveComponent
-  //   },{
-  //   path:'reminder',
-  //   component:ReminderComponent
-  //   },{
-  //   path:'trash',
-  //   component:TrashComponent
-  //   }
-  //   ]
-  //   }
-  
-  // {
-  //   path: 'allNotes',
-  //   component: AllNotesComponent
-  // },
-  // {
-  //   path: 'dashboard',
-  //   component: DashboardComponent,
-  //   children:[
-  //     {
-  //       path:'',
-  //       component:AddNoteComponent
-  //     },
-  //   ]
-  // }
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),
-   RouterModule.forChild(routes)],
+  RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

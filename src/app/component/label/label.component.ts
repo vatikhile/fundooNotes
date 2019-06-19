@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import {  MatDialogRef } from '@angular/material';
 import { NoteServiceService } from '../../core/service/note/note-service.service'
 import { Label } from 'src/app/core/model/label/label';
 import { MatSnackBar } from '@angular/material';

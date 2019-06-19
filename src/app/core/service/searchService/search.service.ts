@@ -5,22 +5,18 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchService {
-  text:any;
-  data1=this.text;
+  text: any;
+  data1 = this.text;
 
   constructor() { }
 
   subject = new Subject();
 
-  search(text:any){
+  search(text: any) {
     this.subject.next(text);
-    console.log("data",text);
-    
-    
-
-
+    console.log("data", text);
   }
-  getsearch(){
+  getsearch() {
     this.search(this.data1);
     return this.subject.asObservable();
 

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule} from '@angular/material';
+import { MatButtonModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
@@ -31,7 +31,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { IconComponent } from './component/icon/icon.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { AllNotesComponent } from './component/all-notes/all-notes.component';
-import {LabelComponent} from './component/label/label.component';
+import { LabelComponent } from './component/label/label.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { CollaboratorComponent } from './component/collaborator/collaborator.component';
 // import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
@@ -43,19 +43,15 @@ import { OrderOfPipe } from './pipe/order-of.pipe';
 import { SearchComponent } from './component/search/search.component';
 import { ProfilePicComponent } from './component/profile-pic/profile-pic.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { DisplayLabelsComponent } from './component/display-labels/display-labels.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatSelectModule} from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { QuestionAnswerComponent } from './component/question-answer/question-answer.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -71,9 +67,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     LabelComponent,
     TrashComponent,
     CollaboratorComponent,
-    
-    
-    
+
+
+
     // DialogBoxComponent,
     ArchiveComponent,
     EditNotesComponent,
@@ -84,12 +80,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ReminderComponent,
     DisplayLabelsComponent,
     QuestionAnswerComponent,
-   
-    
-
-  
-
-
   ],
   imports: [
     BrowserModule,
@@ -124,12 +114,12 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatChipsModule,
     MatDialogModule,
     MatAutocompleteModule,
-    FroalaEditorModule.forRoot(), 
+    FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()
   ],
 
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[LabelComponent,EditNotesComponent,ProfilePicComponent,CollaboratorComponent]
+  entryComponents: [LabelComponent, EditNotesComponent, ProfilePicComponent, CollaboratorComponent]
 })
 export class AppModule { }

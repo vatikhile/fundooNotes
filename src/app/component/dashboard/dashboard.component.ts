@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild,EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { LabelComponent } from '../label/label.component';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
@@ -7,7 +7,7 @@ import { UpdateServiceService } from '../../core/service/update/update-service.s
 import { ViewService } from '../../core/service/viewService/view.service';
 import { environment } from 'src/environments/environment';
 import { ProfilePicComponent } from '../profile-pic/profile-pic.component';
-import {SearchService}  from '../../core/service/searchService/search.service'
+import { SearchService } from '../../core/service/searchService/search.service'
 
 @Component({
   selector: 'app-dashboard',
@@ -21,34 +21,35 @@ export class DashboardComponent implements OnInit {
   // list: boolean = true;
   // grid: boolean=false;
   addLabels: any = [];
-  
+
   message: any;
   header: string;
-  searchContent:any;
+  searchContent: any;
   firstName = localStorage.getItem('firstName');
   email = localStorage.getItem('email');
   lastName = localStorage.getItem('lastName');
   profilImaage = localStorage.getItem('profilPic');
   values: string;
 
-
-  constructor(private dialog: MatDialog,private search:SearchService, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private route: Router) {
-
-  }
+  constructor(private dialog: MatDialog, private search: SearchService, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private route: Router) { }
   img = environment.url + this.profilImaage;
 
   ngOnInit() {
+    /*****
+   @purpose:After Open the dashboard it display the set profile image of owner on the toolbar button without refresh the page
+   ******/
     localStorage.getItem('profilePic');
+    /*****
+   @purpose:After Open the dashboard it display all labels on the sidenavbar under the label without refresh 
+   ******/
     this.showLabel();
     this.sidenavUpdateLabel();
     this.header = 'fundooNotes';
-    // console.log("piccc",this.img);
- 
   }
   @Output() count = new EventEmitter();
-
-
-
+  /*****
+ @purpose:After click on the profile pic button it open the mat menu and on that click on the button open the dialog box as file event and can set the different image 
+ ******/
   profileImage(event): void {
     const dialogRef = this.dialog.open(ProfilePicComponent, {
       width: '400px',
@@ -106,60 +107,57 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
+  /*****
+  @purpose:After click on the list view button it change to grid view button and send false to the gridview() method of view service   
+     ******/
   changeView() {
 
     this.toggle = false;
     this.view.gridview(this.toggle);
 
   }
+  /*****
+  @purpose:After click on the grid view button it change to list view button and send true to the gridview() method of view service   
+     ******/
   changeView1() {
     this.toggle = true;
     this.view.gridview(this.toggle);
   }
-
-
-  // search(searchText) {
-  //   this.count.emit(searchText)
-  //   console.log("avhv",searchText);
-    
-  //   this.route.navigate(['', 'search']);
-
-  // }
-
-
+  /*****
+  @purpose:After click on the archieve button on the sidenavbar it change the routes as archieve,open the archieve component   
+     ******/
   archive() {
     this.route.navigate(['', 'archive']);
 
   }
+  /*****
+ @purpose:After click on the Notes button on the sidenavbar it change the routes as addNotes  
+    ******/
   noteButton() {
     this.header = 'fundooNotes';
     this.route.navigateByUrl('/addNotes');
   }
+  /*****
+    @purpose:After click on the trash button on the sidenavbar it change the routes as trash  
+       ******/
   trash() {
-    this.header ='trash'
+    this.header = 'trash'
     this.route.navigate(['', 'trash']);
-  
-
   }
+  /*****
+  @purpose:After click on the reminder button on the sidenavbar it change the routes as reminder  
+     ******/
   reminder() {
 
     this.header = 'Reminder';
     this.route.navigate(['', 'reminder']);
   }
-  // onSearchChange(event) {
-  //   typeof(event);
-  //   console.log(event);
-  // // this.searchHelper.searchNotes(event);
-  // }
+  /*****
+    @purpose:After click on the search input on the toolbar for entering each key it send it to searchService
+       ******/
   onKey() {
-     // without type info
-    // this.values = event.target.value;
-    // this.values=event.key;
     this.search.search(this.searchContent)
-    // this.dataService.currentMessage.subscribe(message=>this.searchContent=message)
-    console.log("msga",this.message);
-    console.log("search",this.searchContent);
-    
+
   }
 }
 

@@ -9,7 +9,7 @@ export class NoteServiceService {
   constructor(private http: HttpServiceService) { }
   addNote(data) {
     return this.http.addNotes("notes/addNotes", data)
-    console.log("in note service");
+
   }
 
   getNotes() {
@@ -29,32 +29,26 @@ export class NoteServiceService {
   updateLabel(id, data) {
     return this.http.postEd('noteLabels/' + id + '/updateNoteLabel', data);
   }
-  updateNote(data)
-  {
-   return this.http.postUpdate('notes/updateNotes',data) 
+  updateNote(data) {
+    return this.http.postUpdate('notes/updateNotes', data)
   }
-  postColor(data)
-  {
-    console.log('A');
-return this.http.postData('notes/changesColorNotes',data)
+  postColor(data) {
+
+    return this.http.postData('notes/changesColorNotes', data)
   }
-  postArchive(data)
-  {
-    return  this.http.postData('notes/archiveNotes',data)
+  postArchive(data) {
+    return this.http.postData('notes/archiveNotes', data)
   }
-  getNoteArchive()
-  {
+  getNoteArchive() {
     return this.http.getNoteArchive1('notes/getArchiveNotesList')
   }
-  postData(data)
-  {
-    return this.http.postData('notes/addUpdateReminderNotes',data)
+  postData(data) {
+    return this.http.postData('notes/addUpdateReminderNotes', data)
   }
-  deleteReminder(data)
-  {
-    return this.http.delete2('notes/removeReminderNotes',data)
+  deleteReminder(data) {
+    return this.http.delete2('notes/removeReminderNotes', data)
   }
-  pin(data){
-  return this.http.pinUnpin('notes/pinUnpinNotes',data)
+  pin(data) {
+    return this.http.pinUnpin('notes/pinUnpinNotes', data)
   }
 }

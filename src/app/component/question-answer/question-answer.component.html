@@ -1,13 +1,27 @@
-<div>
-    
-    <div fxLayout=column *ngFor="let items of notesData" >
-        {{items.title}}
-                        
+<div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
+    <div fxLayout="column" fxFlex="90" fxLayoutGap="20px">
+        <div fxLayout="row" fxLayoutGap="70%">
+            <div fxLayout=column fxLayoutAlign="space-evenly" *ngFor="let items of notes">
+                <div class="title"> {{items.title}}</div>
+                <div class="description">{{items.description}}</div>
+            </div>
+            <div fxLayoutAlign="space-evenly">
+                <button mat-button class="button" (click)="submit()">close</button>
+            </div>
+        </div>
+        <div>
+            <mat-divider></mat-divider>
+        </div>
+        <div class="titl">Ask a Question</div>
+
+        <div fxLayout="row" class="abc" fxLayoutAlign="center start" fxLayoutGap="50px">
+            <div [froalaEditor] fxFlex="62" [(froalaModel)]="editorContent"></div>
+            <div><button mat-button class="submit" (click)="submit()">submit</button></div>
+
+        </div>
+
     </div>
-
-<div fxLayout="row" class="abc" fxLayoutAlign="center center">
-<div [froalaEditor] fxFlex="62" [(froalaModel)]="editorContent"></div> 
-<div><button mat-button (click)="submit()">submit</button></div>
+    <div>
+        <mat-divider></mat-divider>
+    </div>
 </div>
-</div>
-

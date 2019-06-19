@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Notes} from '../core/model/Notes/notes'
+import { Notes } from '../core/model/Notes/notes'
 
 @Pipe({
   name: 'noteSearchPipe'
 })
 export class NoteSearchPipePipe implements PipeTransform {
- 
+
   transform(allNote: Notes[], searchTerm: string): any {
     if (!allNote || !searchTerm) {
       return allNote;
@@ -15,7 +15,7 @@ export class NoteSearchPipePipe implements PipeTransform {
       || data.description.toLowerCase().indexOf(searchTerm) !== -1)
   }
 }
- 
+
 
 
 

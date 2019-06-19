@@ -48,7 +48,7 @@ export class HttpServiceService {
 
   }
   //It hit the API for getting the note which is added in the database
-    getData(url) {
+  getData(url) {
     let httpOptions = {
       headers: new HttpHeaders({
         'Authorization': localStorage.getItem('token')
@@ -80,68 +80,68 @@ export class HttpServiceService {
 
 
   }
-  delete(url){
+  delete(url) {
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('Id')
       })
 
+    }
+    return this.http.delete(this.baseUrl + url, httpOptions);
   }
-  return this.http.delete(this.baseUrl+url,httpOptions);
-}
-postEd(url, data) {
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': localStorage.getItem('token')
-    })
+  postEd(url, data) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.post(this.baseUrl + url, data, httpOptions);
   }
-  return this.http.post(this.baseUrl + url , data, httpOptions);
-}
-postUpdate(url,data){
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': localStorage.getItem('token')
-    })
-  }
-  
-  return this.http.post(this.baseUrl + url , data, httpOptions);
-}
-postData(url,data){
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': localStorage.getItem('token')
-    })
-  }
-  console.log('B');
-  return this.http.post(this.baseUrl + url , data, httpOptions);
-}
+  postUpdate(url, data) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
 
-getNoteArchive1(url) {
-  const httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': localStorage.getItem('token')
-    })
-  };
-  console.log('token in s',localStorage.getItem('id')
-  );
-  return this.http.get(this.baseUrl + url, httpOptions);
-}
-postNewData(url, data) {
-  const httpOptions = {
-    headers: new HttpHeaders({
-      //'Content-Type': 'application/json',
-      'Authorization': localStorage.getItem('token')
-    })
-  };
-  console.log('token in s',localStorage.getItem('token')
-  );
-  return this.http.post(this.baseUrl + url,data, httpOptions);
-}
+    return this.http.post(this.baseUrl + url, data, httpOptions);
+  }
+  postData(url, data) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    console.log('B');
+    return this.http.post(this.baseUrl + url, data, httpOptions);
+  }
+
+  getNoteArchive1(url) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    console.log('token in s', localStorage.getItem('id')
+    );
+    return this.http.get(this.baseUrl + url, httpOptions);
+  }
+  postNewData(url, data) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        //'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    console.log('token in s', localStorage.getItem('token')
+    );
+    return this.http.post(this.baseUrl + url, data, httpOptions);
+  }
 
   getNote(url) {
     const httpOptions = {
@@ -150,24 +150,24 @@ postNewData(url, data) {
         'Authorization': localStorage.getItem('token')
       })
     };
-    console.log('token in s',localStorage.getItem('token')
+    console.log('token in s', localStorage.getItem('token')
     );
     return this.http.get(this.baseUrl + url, httpOptions);
   }
-  postDelete(url,data){
-    console.log("service data",data);
+  postDelete(url, data) {
+    console.log("service data", data);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
       })
     };
-    console.log('token in s',localStorage.getItem('token'));
+    console.log('token in s', localStorage.getItem('token'));
 
-    return this.http.post(this.baseUrl + url, data,httpOptions);
+    return this.http.post(this.baseUrl + url, data, httpOptions);
   }
 
-  postLabel(url,data) {
+  postLabel(url, data) {
     //console.log("service data",data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -175,62 +175,71 @@ postNewData(url, data) {
         'Authorization': localStorage.getItem('token')
       })
     };
-    console.log('token in delete label',localStorage.getItem('id'));
+    console.log('token in delete label', localStorage.getItem('id'));
 
-    return this.http.post(this.baseUrl + url,data,httpOptions);
+    return this.http.post(this.baseUrl + url, data, httpOptions);
   }
   getLabel(url) {
-    
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
       })
     };
-    console.log('token in s',localStorage.getItem('token'));
+    console.log('token in s', localStorage.getItem('token'));
 
-    return this.http.get(this.baseUrl + url,httpOptions);
+    return this.http.get(this.baseUrl + url, httpOptions);
   }
-  postSearch(url,data){
-    console.log("service data",data);
+  postSearch(url, data) {
+    console.log("service data", data);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
       })
     };
-    console.log('token in s',localStorage.getItem('token'));
+    console.log('token in s', localStorage.getItem('token'));
 
-    return this.http.post(this.baseUrl + url, data,httpOptions);
+    return this.http.post(this.baseUrl + url, data, httpOptions);
   }
-  
-  delete1(url){
+
+  delete1(url) {
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
       })
 
+    }
+    return this.http.delete(this.baseUrl + url, httpOptions);
   }
-  return this.http.delete(this.baseUrl+url,httpOptions);
-}
-delete2(url,data){
-  let httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': localStorage.getItem('token')
-    })
+  delete2(url, data) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
 
-}
-return this.http.post(this.baseUrl+url,data,httpOptions);
-}
-pinUnpin(url,data){
-  let httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': localStorage.getItem('token')
-    })
+    }
+    return this.http.post(this.baseUrl + url, data, httpOptions);
   }
- return this.http.post(this.baseUrl+url,data,httpOptions)
-}
+  pinUnpin(url, data) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.post(this.baseUrl + url, data, httpOptions)
+  }
+  noteData(url) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.get(this.baseUrl + url, httpOptions)
+  }
 }

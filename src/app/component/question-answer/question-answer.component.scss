@@ -2,3 +2,48 @@
     width: 100vw;
     height: 100vh;
 }
+.title{
+    // margin-left: 16%;
+    /* height: 33px; */
+    font-size: 30px;
+    // margin-top: 3%;
+    // margin-left: 20px;\
+       margin-left: 127px;
+}
+.titl{
+    margin-left: 127px;
+    font-size: 20px;
+
+}
+.titl.thick {
+    font-weight: bold;
+  }
+  
+.title.thick {
+    font-weight: bold;
+  }
+.description{
+    // margin-left: 16%;
+    font-size: 20px;
+    // margin-left: 10%;
+    margin-left: 127px;
+}
+.mat-divider
+{
+    color:lightgray;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.button{
+    // position: relative;
+    width: 60p;
+    height: 60px;
+    // background-color:rgb(124, 116, 116);
+    border-color: transparent;
+    outline:none;
+}
+.submit{
+    margin-top: 200px;
+    outline: none;
+    border-color: transparent;
+}
