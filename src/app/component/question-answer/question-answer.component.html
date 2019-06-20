@@ -6,17 +6,21 @@
                 <div class="description">{{items.description}}</div>
             </div>
             <div fxLayoutAlign="space-evenly">
-                <button mat-button class="button" (click)="submit()">close</button>
+                <button mat-button class="button" routerLink="/addNotes">close</button>
             </div>
         </div>
         <div>
             <mat-divider></mat-divider>
+            
         </div>
         <div class="titl">Ask a Question</div>
+        <div *ngFor="let items of notes">
+        <div fxLayoutAlign="space-around start">{{items.questionAndAnswerNotes[0].message }}</div>
+    </div>
 
         <div fxLayout="row" class="abc" fxLayoutAlign="center start" fxLayoutGap="50px">
             <div [froalaEditor] fxFlex="62" [(froalaModel)]="editorContent"></div>
-            <div><button mat-button class="submit" (click)="submit()">submit</button></div>
+            <button mat-button class="submit1" (click)="question()">submit</button>
 
         </div>
 

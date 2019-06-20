@@ -242,4 +242,13 @@ export class HttpServiceService {
     }
     return this.http.get(this.baseUrl + url, httpOptions)
   }
+  addQuestion(url, data) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.post(this.baseUrl + url, data, httpOptions)
+  }
 }

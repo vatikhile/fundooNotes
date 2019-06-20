@@ -52,6 +52,12 @@
                     (remindChange)="updateReminder(items,$event)" [notesData]="items" [noteId]="items.id">
                   </app-icon>
                 </div>
+                <div *ngIf="items.questionAndAnswerNotes.length > 0" routerLink='/questionAnswer/{{items.id}}'
+                  class="point">
+                  <mat-divider></mat-divider>
+                  <div>Question asked:</div>
+                  <div class="bold">{{ items.questionAndAnswerNotes[0].message }}</div>
+                </div>
               </mat-card>
             </div>
 
@@ -118,6 +124,13 @@
                     (countChange)="changeColor(items,$event)" (archiveNote)="archiveNote(items,$event)"
                     (remindChange)="updateReminder(items,$event)" [notesData]="items" [noteId]="items.id">
                   </app-icon>
+                </div>
+                <div *ngIf="items.questionAndAnswerNotes.length > 0" routerLink='/questionAnswer/{{items.id}}'
+                  class="point">
+                  <mat-divider></mat-divider>
+                  <div>Question asked:</div>
+                  &nbsp;
+                  <div class="bold">{{ items.questionAndAnswerNotes[0].message }}</div>
                 </div>
               </mat-card>
             </div>

@@ -88,9 +88,11 @@ export class AllNotesComponent implements OnInit {
     this.noteService.getNotes().subscribe(
 
       (response: any) => {
-
+// response.data.data.
         console.log('data notes -->', response);
         this.addNotes = response.data.data;
+        console.log("=====",this.addNotes);
+        
         // return this.addNotes.filter(data =>
         //   data.isPined=false)
         // || data.description.toLowerCase().indexOf(searchTerm) !== -1)
