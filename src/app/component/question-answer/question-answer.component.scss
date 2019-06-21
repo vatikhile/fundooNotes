@@ -41,9 +41,18 @@
     // background-color:rgb(124, 116, 116);
     border-color: transparent;
     outline:none;
+    background-color: lightgray;
 }
 .submit1{
     margin-top: 200px;
+    outline: none;
+    border-color: transparent;
+    background-color: lightgray;
+}
+.text{
+    font-size: 15px;
+}
+.mat-icon-button{
     outline: none;
     border-color: transparent;
 }

@@ -1,5 +1,5 @@
-<div fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="100">
-    <div fxLayout="column" fxFlex="90" fxLayoutGap="20px">
+<div fxLayout="column" fxLayoutAlign="start" fxFlex="100" class="abc">
+    <div fxLayout="column"  fxLayoutGap="20px" class="2">
         <div fxLayout="row" fxLayoutGap="70%">
             <div fxLayout=column fxLayoutAlign="space-evenly" *ngFor="let items of notes">
                 <div class="title"> {{items.title}}</div>
@@ -11,20 +11,66 @@
         </div>
         <div>
             <mat-divider></mat-divider>
-            
+
         </div>
-        <div class="titl">Ask a Question</div>
+        <div *ngIf="value==undefined" class="titl">Ask a Question</div>
+        <div *ngIf="value!=undefined" class="titl">Question Asked</div>
         <div *ngFor="let items of notes">
-        <div fxLayoutAlign="space-around start">{{items.questionAndAnswerNotes[0].message }}</div>
-    </div>
-
-        <div fxLayout="row" class="abc" fxLayoutAlign="center start" fxLayoutGap="50px">
-            <div [froalaEditor] fxFlex="62" [(froalaModel)]="editorContent"></div>
-            <button mat-button class="submit1" (click)="question()">submit</button>
-
+            
+            <div  *ngIf="value!=undefined" fxLayout="row"  fxFlex="70" fxLayoutAlign="center">
+                <div>
+                    <button style="outline: none;" mat-icon-button>
+                        <div mat-card-avatar
+                            [ngStyle]="{'background-image': 'url('+img+')','background-size':'cover', 'height':'40px','width':'40px'}"
+                            class="img1"></div>
+                    </button>
+                </div>
+                <div>
+                    <div class="text">
+                        {{items.questionAndAnswerNotes[0].user.firstName}}&nbsp;{{items.questionAndAnswerNotes[0].user.lastName}}&nbsp;({{items.questionAndAnswerNotes[0].createdDate | date:'MMM d, y, h:mm a'}})
+                    </div>
+                    <div> {{items.questionAndAnswerNotes[0].message }}?</div>
+                    <!-- <div>
+                            <mat-divider></mat-divider>
+                
+                        </div> -->
+                </div>
+                <!-- <mat-divider></mat-divider> -->
+                <!-- <div> -->
+                <div><button mat-icon-button (click)="openEditor()"><img src="../../../assets/reply.svg"></button></div>
+                <div><button mat-icon-button><img src="../../../assets/baseline-thumb_up_alt-24px.svg"></button> likes</div>
+                <div><button mat-icon-button><img src="../../../assets/baseline-star-24px.svg"></button></div>
+                <div><button mat-icon-button><img src="../../../assets/baseline-star-24px.svg"></button></div>
+                <div><button mat-icon-button><img src="../../../assets/baseline-star-24px.svg"></button></div>
+                <div><button mat-icon-button><img src="../../../assets/baseline-star-24px.svg"></button></div>
+                <div><button mat-icon-button><img src="../../../assets/baseline-star-24px.svg"></button></div>
+            <!-- </div> -->
+            <!-- <mat-divider></mat-divider> -->
+            </div>
+            <!-- <mat-divider></mat-divider> -->
         </div>
+        <mat-divider></mat-divider>
+        <div *ngFor="let items of notes;let i = index" >
+            {{items.questionAndAnswerNotes[1].message}}</div>
+        <div fxLayout="row"  fxLayoutAlign="center start" fxLayoutGap="50px">
+            <!-- <div *ngIf="value==undefined"> -->
+            <div *ngIf="value==undefined" [froalaEditor] fxFlex="62" [(froalaModel)]="editorContent"></div>
+            <button *ngIf="value==undefined" mat-button class="submit1" (click)="question()">submit</button>
+            <div *ngIf="value1==false" [froalaEditor] fxFlex="62" [(froalaModel)]="editorContent1"></div>
+            <button *ngIf="value1==false" mat-button class="submit1" (click)="reply()">Reply</button>
+    
+            <!-- </div> -->
+            <!-- <div *ngIf="value!=undefined"> -->
+            <!-- <div [froalaEditor] fxFlex="62" [(froalaModel)]="editorContent"></div> -->
+            <!-- <button mat-button class="submit1" (click)="question()">submit</button> -->
+            <!-- </div> -->
 
-    </div>
+
+        <!-- </div>
+        <div *ngIf="value1==false" [froalaEditor] fxFlex="62" [(froalaModel)]="editorContent1"></div>
+        <button *ngIf="value1==false" mat-button class="submit1" (click)="reply()">Reply</button>
+
+    </div> -->
     <div>
         <mat-divider></mat-divider>
     </div>
