@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   lastName = localStorage.getItem('lastName');
   profilImaage = localStorage.getItem('profilPic');
   values: string;
+  profil: string;
 
   constructor(private dialog: MatDialog, private search: SearchService, private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private route: Router) { }
   img = environment.url + this.profilImaage;
@@ -38,7 +39,9 @@ export class DashboardComponent implements OnInit {
     /*****
    @purpose:After Open the dashboard it display the set profile image of owner on the toolbar button without refresh the page
    ******/
-    localStorage.getItem('profilePic');
+    this.profil=localStorage.getItem('profilePic');
+    
+    
     /*****
    @purpose:After Open the dashboard it display all labels on the sidenavbar under the label without refresh 
    ******/
@@ -57,7 +60,7 @@ export class DashboardComponent implements OnInit {
     });
     dialogRef.afterClosed()
       .subscribe(result => {
-        this.img = environment.url + localStorage.getItem("profilePic")
+        this.img = environment.url + this.profil
       });
   }
 
