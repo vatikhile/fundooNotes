@@ -43,13 +43,13 @@
 .img{
     width: 12px;
 }
-.pin{
-    margin-left: 75%;
-    margin-top: -13%;
-position: absolute;
+// .pin{
+//     margin-left: 75%;
+//     margin-top: -13%;
+// position: absolute;
    
 
-}
+// }
 .mat-icon-button{
     outline: none;
     background-color:transparent;
@@ -63,15 +63,35 @@ position: absolute;
     {
         visibility: hidden;
     }
-.pin{
-    color: #5f6268;
-    // font-weight:inherit;
-    // font-size: 20px;
-    font-family: Arial, sans-serif;
-}
+// .pin{
+//     color: #5f6268;
+//     // font-weight:inherit;
+//     // font-size: 20px;
+//     font-family: Arial, sans-serif;
+// }
 .point{
   outline: none;
   border-color: transparent;
   background-color: transparent;
   
 }
+
+.titl{
+    word-wrap:break-word;
+    font-size: 20px;
+
+}
+.titl.thick {
+    font-weight: bold;
+  }
+  .pinn{
+    font-size: 13px;
+    color: lightblack;
+}
+.que{
+    font-size: 14px;
+}
+// .pind{
+//     margin: 90%;
+//     margin-left: 178%;
+// }

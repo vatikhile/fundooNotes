@@ -2,8 +2,8 @@
 <div fxLayout="column">
   <div>
     <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100">
-      <div>PINNED</div>
-      <div fxLayout="{{direction}} {{direction1}}" fxLayoutAlign="start {{allign}}" fxFlex="65" class="main">
+      <div class="pinn">PINNED</div>
+      <div fxLayout="{{direction}} {{direction1}}" fxLayoutAlign="start {{allign}}" fxFlex="66" class="main">
         <!-- <div fxLayout="column" *ngIf="toggle==false" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main"> -->
         <!-- <p>{{others}}</p> -->
         <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText" class="111">
@@ -17,13 +17,18 @@
                 <!-- <div fxLayout="row"> -->
                 <!-- <div  fxLayout="column"> -->
                 <!-- <div> -->
-                <div class="bold" fxLayout="column" (click)="openDialog(items)">{{items.title}}</div>
-                <div class="pin"><button mat-icon-button (click)="unPin(items.id)">
+                <div  fxLayout="row" fxLayoutAlign="space-between"  >
+                  <div class="titl" fxFlex="90" fxLayout="column" (click)="openDialog(items)">{{items.title}}</div>
+                  <div fxFlex="10">               
+                     <div class="pin" *ngIf="items.id!=Id"><button mat-icon-button matTooltip="unpin note" (click)="unPin(items.id)">
                     <mat-icon><img src='../../../assets/unpin.svg'></mat-icon>
                   </button></div>
-                <div class="pin" *ngIf="items.id==Id"><button mat-icon-button (click)="unPin(items)">
+                <div class="pin" *ngIf="items.id==Id"><button mat-icon-button matTooltip="unpin note" (click)="unPin(items.id)">
                     <mat-icon><img src='../../../assets/unpin.svg'></mat-icon>
                   </button></div>
+                </div>
+
+                </div>
                 <!-- </div> -->
                 <!-- </div> -->
                 <div (click)="openDialog(items)">
@@ -55,8 +60,8 @@
                 <div *ngIf="items.questionAndAnswerNotes.length > 0" routerLink='/questionAnswer/{{items.id}}'
                   class="point">
                   <mat-divider></mat-divider>
-                  <div>Question asked:</div>
-                  <div class="bold">{{ items.questionAndAnswerNotes[0].message }}</div>
+                  <div class="que">Question asked:</div>
+                  <div class="bold" [innerHTML]="items.questionAndAnswerNotes[0].message" >{{ items.questionAndAnswerNotes[0].message }}</div>
                 </div>
               </mat-card>
             </div>
@@ -76,8 +81,9 @@
 
   &nbsp;
   <div>
-    <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100">OTHERS
-      <div fxLayout="{{direction}} {{direction1}}" fxLayoutAlign="start {{allign}}" fxFlex="65" class="main">
+    <div fxLayout="row" class="Card" fxLayoutAlign="center" fxFlex="100">
+      <div class="pinn">OTHERS</div>
+      <div fxLayout="{{direction}} {{direction1}}" fxLayoutAlign="start {{allign}}" fxFlex="67" class="main">
         <!-- <div fxLayout="column" *ngIf="toggle==false" fxLayoutAlign="start" fxFlex="64" fxLayoutGap="0%" class="main"> -->
         <!-- <p>{{others}}</p> -->
         <div *ngFor="let items of addNotes | orderOf | noteSearchPipe:searchText" class="111">
@@ -85,18 +91,18 @@
             fxFlex="88" class="ssf6">
             <div class="122" [ngClass]=" direction =='column' ? 'matpad3':'matpad'">
               <mat-card [ngStyle]="{ 'background-color': items.color }">
-                <!-- <mat-card-content>  -->
-                <!-- <div (click)="openDialog(items)" *ngIf="toggle!=true"> -->
-                <!-- <div fxLayout="row"> -->
-                <!-- <div  fxLayout="column"> -->
-                <!-- <div> -->
-                <div class="bold" fxLayout="column" (click)="openDialog(items)">{{items.title}}</div>
-                <div class="pin"><button mat-icon-button (click)="pin(items.id)">
-                    <mat-icon><img src='../../../assets//pin.svg'></mat-icon>
-                  </button></div>
-                <div class="pin" *ngIf="items.id==Id"><button mat-icon-button (click)="unPin(items.id)">
-                    <mat-icon><img src='../../../assets/unpin.svg'></mat-icon>
-                  </button></div>
+          
+                    <div  fxLayout="row" fxLayoutAlign="space-between">
+                        <div class="titl" fxFlex="90" fxLayout="column" (click)="openDialog(items)">{{items.title}}</div>
+                        <div fxFlex="10" >
+                      <div *ngIf="items.id!=Id" class="pin"><button mat-icon-button matTooltip="pin note" (click)="pin(items.id)">
+                          <mat-icon><img src='../../../assets//pin.svg'></mat-icon>
+                        </button></div>
+                      <div *ngIf="items.id==Id" class="pin"><button mat-icon-button matTooltip="pin note" (click)="unPin(items.id)">
+                          <mat-icon><img src='../../../assets//pin.svg'></mat-icon>
+                        </button></div>
+                      </div>
+                      </div>
                 <!-- </div> -->
                 <!-- </div> -->
                 <div (click)="openDialog(items)">
@@ -128,9 +134,8 @@
                 <div *ngIf="items.questionAndAnswerNotes.length > 0" routerLink='/questionAnswer/{{items.id}}'
                   class="point">
                   <mat-divider></mat-divider>
-                  <div>Question asked:</div>
-                  &nbsp;
-                  <div class="bold">{{ items.questionAndAnswerNotes[0].message }}</div>
+                  <div class="que">Question asked:</div>
+                  <div class="bold"  [innerHTML]="items.questionAndAnswerNotes[0].message">{{ items.questionAndAnswerNotes[0].message }}</div>
                 </div>
               </mat-card>
             </div>

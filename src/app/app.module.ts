@@ -51,6 +51,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { QuestionAnswerComponent } from './component/question-answer/question-answer.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { LikeComponent } from './component/like/like.component';
+import { RateComponent } from './component/rate/rate.component';
+
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 @NgModule({
@@ -80,6 +84,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ReminderComponent,
     DisplayLabelsComponent,
     QuestionAnswerComponent,
+    LikeComponent,
+    RateComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -114,6 +121,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatChipsModule,
     MatDialogModule,
     MatAutocompleteModule,
+    Ng4LoadingSpinnerModule,
+
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()
   ],

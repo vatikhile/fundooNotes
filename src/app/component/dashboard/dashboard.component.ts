@@ -162,6 +162,13 @@ export class DashboardComponent implements OnInit {
     this.search.search(this.searchContent)
 
   }
+   /*****
+    @purpose:After click on the close button in the search input field if the input field not contain any text then the close button will be disable,if enter some text then the close button will enable
+       ******/
+  searchc()
+  {
+    this.searchContent=undefined;
+  }
 }
 
 
