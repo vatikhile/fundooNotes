@@ -5,8 +5,9 @@
   version - 1.0
   since   - 27/04/2019
   **************************************************************************************************/ -->
-<div fxFlex="" fxLayoutAlign="center center" fxLayout.xs="column" style="height:100vh" >
-  <mat-card fxFlex="100" fxFlex.lg="58" fxFlex.md="70" fxFlex.sm="90" class="center1">
+<div  fxLayoutAlign="center center"   fxLayout.xs="column" class="outer">
+  <mat-card fxLayout="column" fxLayoutAlign="center center" fxFlex="70" class="center1">
+      <!-- .lg="60" fxFlex.md="50" fxFlex.sm="50" -->
     <div>
       <mat-card-header class="header">
         <mat-card-title>FundooNotes</mat-card-title>
@@ -46,35 +47,42 @@
         <div fxLayout="column" fxLayoutGap="8px">
           <div fxLayout="column" fxLayoutGap="10px">
             <div fxLayout="row" fxLayoutAlign="space-between center">
-              <div><button mat-button color="primary" routerLink='/forgot' class="color">Use my current email address
-                  instead</button>
+              
+              
+                <div fxLayout="row" fxLayoutGap="10px">
+
+                  <div>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <mat-error *ngIf="password.invalid">{{passwordError()}}</mat-error>
+                        <input matInput [(ngModel)]="register.password" [formControl]="password"
+                          [type]="hide ? 'password' : 'text'">
+                        <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Conform</mat-label>
+                        <mat-error *ngIf="password.invalid">{{confirmPasswordError()}}</mat-error>
+                        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="register.confirmPassword"
+                          [formControl]="confirmPassword">
+                      </mat-form-field>
+                    </div>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    <div class="image_footer">One account. All of Google working for you.</div>
               </div>
+            
+              <!-- <div><button mat-button color="primary" routerLink='/forgot' class="color">Use my current email address
+                  instead</button>
+              </div> -->
               <div fxLayout="row" fxFlex fxLayoutAlign=" end center" class="img">
                 <img mat-card-lg-image src="/assets/account.svg">
               </div>
             </div>
           </div>
-          <div fxLayout="row" fxLayoutGap="10px">
-            <div>
-              <mat-form-field appearance="outline">
-                <mat-label>Password</mat-label>
-                <mat-error *ngIf="password.invalid">{{passwordError()}}</mat-error>
-                <input matInput [(ngModel)]="register.password" [formControl]="password"
-                  [type]="hide ? 'password' : 'text'">
-                <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field appearance="outline">
-                <mat-label>Conform</mat-label>
-                <mat-error *ngIf="password.invalid">{{confirmPasswordError()}}</mat-error>
-                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="register.confirmPassword"
-                  [formControl]="confirmPassword">
-              </mat-form-field>
-            </div>
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            <div class="image_footer">One account. All of Google working for you.</div>
-          </div>
+          <!-- <div >
+          
+          </div> -->
           <mat-radio-group [(ngModel)]="register.service" [formControl]="service" aria-label="Select an option">
             <mat-label>service</mat-label>
             <mat-error *ngIf="service.invalid">{{serviceError()}}</mat-error>

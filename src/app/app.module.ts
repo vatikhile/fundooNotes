@@ -34,7 +34,7 @@ import { AllNotesComponent } from './component/all-notes/all-notes.component';
 import { LabelComponent } from './component/label/label.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { CollaboratorComponent } from './component/collaborator/collaborator.component';
-// import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
+import {MatTabsModule} from '@angular/material/tabs';
 import { ArchiveComponent } from './component/archive/archive.component'
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditNotesComponent } from './component/edit-notes/edit-notes.component';
@@ -54,6 +54,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { LikeComponent } from './component/like/like.component';
 import { RateComponent } from './component/rate/rate.component';
+import { CartComponent } from './component/cart/cart.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ServiceComponent } from './component/service/service.component';
 
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
@@ -86,6 +89,8 @@ import { RateComponent } from './component/rate/rate.component';
     QuestionAnswerComponent,
     LikeComponent,
     RateComponent,
+    CartComponent,
+    ServiceComponent,
   
   ],
   imports: [
@@ -108,12 +113,14 @@ import { RateComponent } from './component/rate/rate.component';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     ReactiveFormsModule,
+    MatTabsModule,
     MatButtonToggleModule,
     MatSidenavModule,
     MatSlideToggleModule,
     FilterPipeModule,
     MatToolbarModule,
     MatFormFieldModule,
+    NgxSpinnerModule,
     MatMenuModule,
     MatListModule,
     MatDividerModule,
@@ -129,6 +136,6 @@ import { RateComponent } from './component/rate/rate.component';
 
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LabelComponent, EditNotesComponent, ProfilePicComponent, CollaboratorComponent]
+  entryComponents: [LabelComponent, EditNotesComponent, ProfilePicComponent, CollaboratorComponent,ServiceComponent]
 })
 export class AppModule { }

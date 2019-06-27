@@ -14,13 +14,20 @@ import { ArchiveComponent } from '../../src/app/component/archive/archive.compon
 import { TrashComponent } from '../../src/app/component/trash/trash.component'
 import { ReminderComponent } from '../../src/app/component/reminder/reminder.component'
 import { QuestionAnswerComponent } from '../../src/app/component/question-answer/question-answer.component'
+import { CartComponent } from './component/cart/cart.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/cart',
     pathMatch: 'full'
   },
   {
+    path: 'cart',
+    component: CartComponent
+
+  },
+  {
+
     path: 'login',
     component: LoginComponent
   },

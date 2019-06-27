@@ -32,6 +32,8 @@ export class CollaboratorComponent implements OnInit {
     /*****
    @purpose:Click on collaborator button it display the profile image of owner in the mat-fab-button
    ******/
+
+  alert("dbqhwebhbhew");
     localStorage.getItem('profilePic');
     console.log("collab", this.collaborators);
     this.update.currentMessage.subscribe(

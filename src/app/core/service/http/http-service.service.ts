@@ -251,4 +251,15 @@ export class HttpServiceService {
     }
     return this.http.post(this.baseUrl + url, data, httpOptions)
   }
+  httpGetWithoutToken(url: any) {
+  
+    
+    return this.http.get(this.baseUrl+url);
+  }
+
+  postRequest1(url: any, data: any) {
+    console.log(data);
+
+    return this.http.post(this.baseUrl + url, data);
+  }
 }
