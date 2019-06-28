@@ -1,22 +1,19 @@
 
-    @media(min-width:400px)
-    {.user{
-    size:1px;
+    // @media(min-width:400px)
+    // {.user{
+    // size:1px;
 
-    }}
+    // }}
     .center1{
-      margin-top: 3%;
+      margin-top: 1%;
+      border: 1px double lightgray;
       // margin-bottom: 3%;
     }
-   .img{
-  
-    margin-left: 200px;
+   .img1{
+    height: 39vh;
+    width: 15vw;
    }
-    .username
-  {
-    margin-right: 10%;
 
-    }
     .imag{
       height: 244px;
       width: 24%;
@@ -24,7 +21,7 @@
     }
 
     .image_footer{
-      display:inline;
+
       text-align: center;
     }
     
@@ -64,3 +61,56 @@
   .outer{
     min-height:webkit-fill-available
   }
+  .tex{
+    font-size: 17px;
+    color:#323335;
+    font-weight: 500;
+  }
+  .hint{
+    font-size: 11px;
+  }
+
+    .insideMat{
+    margin-left: -36px;
+    margin-top: -36px;
+ min-height: 150px;
+
+}
+.service{
+  margin-left: 36px;
+  margin-top: 36px;
+}
+
+.selected{
+  background-color: #e6ac00;
+  width: fit-content;
+width: 180px;
+
+.insideMat{
+   margin-left: -36px;
+   margin-top: -36px;
+   max-height: 178px;
+}
+
+
+
+
+}
+.notSelected{
+  background-color: #b8b5ae;
+  width: fit-content;
+width: 180px;
+
+  .insideMat{
+      margin-left: -36px;
+      margin-top: -36px;
+   max-height: 178px;
+
+  }
+ 
+
+}
+:host::ng-deep.mat-form-field-appearance-outline .mat-form-field-infix {
+  // padding: 1em 0 1em 0;
+  height: 1vh;
+}

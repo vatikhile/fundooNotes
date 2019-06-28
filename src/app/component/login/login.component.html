@@ -6,7 +6,7 @@
   since   - 25/04/2019
   **************************************************************************************************/ -->
 
-<div fxFlex="100" fxLayoutAlign="center center" fxLayout.xs="column" fxLayoutGap="20px" style="height:100vh">
+<div fxFlex="100" fxLayoutAlign="center center" fxLayout.xs="column" style="height:100vh">
   <mat-card fxFlex.lg="35" fxFlex.md="40" fxFlex.sm="90" class="center1">
     <div fxLayoutAlign="center" class="header">
       <mat-card-header>
@@ -31,17 +31,17 @@
               <mat-label>Password</mat-label>
               <mat-error *ngIf="password.invalid">{{passwordError()}}</mat-error>
               <input matInput [(ngModel)]="login.password" [formControl]="password" [type]="hide ? 'text':'password'">
-              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
              </mat-form-field>
           </div>
         </div>
       </div>
       <div fxLayout="column" fxLayoutGap="40px">
-        <div><button mat-button color="primary" routerLink='/forgot' class="color">Forgot email?</button>
+        <div><button mat-button color="primary" routerLink='/forgot' >Forgot email?</button>
         </div>
         <div fxLayout="row" fxLayoutAlign="space-between start">
           <div>
-            <button mat-button color="primary" routerLink='/register' class="color">Create account</button>
+            <button mat-button color="primary" routerLink='/register' >Create account</button>
           </div>
           <div>
             <mat-card-actions class="butt">
@@ -52,4 +52,30 @@
       </div>
     </mat-card-content>
   </mat-card>
+  <div class="service" *ngIf="services.length > 0" fxLayoutGap='10%' fxFlex.lg="35" fxFlex.md="40" fxFlex.sm="90">
+
+    <div *ngFor="let index of services" class="both">
+      <mat-card [ngClass]="productId==index.id ? 'selected':'notSelected' ">
+
+        <mat-card class="insideMat">
+          <div>Price: ${{index.price}} per Month</div>
+          <div color="col">{{index.name | uppercase}}</div>
+          <div>
+            <ul>
+              <li>${{index.price}}/Month</li>
+              <li>{{index.description}}</li>
+
+            </ul>
+          </div>
+        </mat-card>
+
+        <div class="message" *ngIf="productId==index.id">Selected</div>
+        <div class="message" *ngIf="productId!=index.id">Add to Cart</div>
+      </mat-card>
+    </div>
+
+
+
+
+  </div>
 </div>

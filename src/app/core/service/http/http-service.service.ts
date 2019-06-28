@@ -262,4 +262,7 @@ export class HttpServiceService {
 
     return this.http.post(this.baseUrl + url, data);
   }
+  getCartDetailService(url: any){
+    return this.http.get(this.baseUrl + url);
+  }
 }
