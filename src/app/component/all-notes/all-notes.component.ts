@@ -5,7 +5,7 @@ import { ViewService } from 'src/app/core/service/viewService/view.service';
 import { MatDialog } from '@angular/material';
 import { EditNotesComponent } from '../edit-notes/edit-notes.component';
 import { MatSnackBar } from '@angular/material';
-
+import {LabelsService} from '../../core/service/labelService/labels.service'
 
 @Component({
   selector: 'app-all-notes',
@@ -25,6 +25,7 @@ export class AllNotesComponent implements OnInit {
   @Input() note;
   @Input() notesData;
   @Input('master') searchText: any;
+  
   countId: any;
   direction1: string = 'wrap';
   allign: string = '';
@@ -36,21 +37,24 @@ export class AllNotesComponent implements OnInit {
   Id: any;
   itemId: any[];
   pinedCards: any[];
-
-  constructor(private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private dialog: MatDialog, private snackbar: MatSnackBar) { }
+label:boolean=true
+  constructor(private noteService: NoteServiceService, private dataService: UpdateServiceService, private view: ViewService, private dialog: MatDialog, private snackbar: MatSnackBar,private label1:LabelsService) { }
 
   ngOnInit() {
     /*****
    @purpose:Display all notes without refreshing  the page
    ******/
+
+  console.log("addNotes",this.label1.getnotes());
+ 
     this.getAllNotes();
     this.dataService.currentMessage.subscribe(
       (response: any) => {
         console.log(response);
         this.message = response;
         this.getAllNotes();
-      }
-    )
+      })
+
     /*****
    @purpose:If click on list view on the toolbar the service viewservice return the row text & again click on grid button it return column
    ******/

@@ -169,6 +169,16 @@ export class DashboardComponent implements OnInit {
   {
     this.searchContent=undefined;
   }
+  labelOpen(item){
+    try {
+      let label =item.label;
+      this.route.navigateByUrl('ShowLabelNotes/'+label);
+    } catch (error) {
+      console.log('error in   in toolbar');
+
+    }
+  }
+
 }
 
 

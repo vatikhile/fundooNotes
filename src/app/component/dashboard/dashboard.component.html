@@ -35,7 +35,7 @@
           </div>
         </div>
         <div>
-          <div fxLayout="row" fxLayoutAlign="start center" fxFlex="20" fxLayoutGap="15px" class="15">
+          <div fxLayout="row" fxLayoutAlign="start center" fxFlex="20" fxLayoutGap="7px" class="15">
             <div>
               <button mat-icon-button routerLink="/addNotes">
                 <mat-icon>refresh</mat-icon>
@@ -49,6 +49,9 @@
                 </button>
               </div>
             </div>
+            <div>
+              <button mat-icon-button><mat-icon>shopping_cart</mat-icon> </button>
+          </div>
           </div>
         </div>
         <div fxLayout="column" fxLayoutAlign="center end">
@@ -99,7 +102,7 @@
               <div fxLayout="column" fxLayoutAlign="start-between" fxFlex="100">
                 <div>
                   <div *ngFor="let item of addLabels | orderOf">
-                    <span><button mat-raised-button fxFlex="97">
+                    <span><button mat-raised-button fxFlex="97" (click)="labelOpen(item)">
                         <div fxLayout="row" fxLayoutGap="30px" fxFlex="100">
                           <div>
                             <mat-icon> <img src="../../../assets/outline-label-24px.svg"></mat-icon>

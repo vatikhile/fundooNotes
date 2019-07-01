@@ -57,6 +57,7 @@ import { RateComponent } from './component/rate/rate.component';
 import { CartComponent } from './component/cart/cart.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ServiceComponent } from './component/service/service.component';
+import { ShowLabelNotesComponent } from './component/show-label-notes/show-label-notes.component';
 
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
@@ -91,6 +92,7 @@ import { ServiceComponent } from './component/service/service.component';
     RateComponent,
     CartComponent,
     ServiceComponent,
+    ShowLabelNotesComponent,
   
   ],
   imports: [

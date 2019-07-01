@@ -1,4 +1,6 @@
-
+.outer{
+  min-height: -webkit-fill-available
+}
 .form1 {
   justify-content: center;
 }
@@ -61,6 +63,10 @@ color:#202124;
   height: -webkit-fill-available;
  
 }
+.outline{
+  outline: none;
+  border-color: transparent;
+}
 
 
 
@@ -110,6 +116,7 @@ color:#202124;
   box-sizing: border-box;
   place-content: center space-around;
   align-items: center;
+  height: 80vh;
 
 }
 .message{

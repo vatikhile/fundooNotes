@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import {AddToCart} from '../../core/model/addToCart/add-to-cart'
-import {HttpServiceService} from '../../core/service/http/http-service.service'
-import {ServiceComponent} from '../../component/service/service.component'
+import { AddToCart } from '../../core/model/addToCart/add-to-cart'
+import { HttpServiceService } from '../../core/service/http/http-service.service'
+import { ServiceComponent } from '../../component/service/service.component'
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +14,7 @@ import {ServiceComponent} from '../../component/service/service.component'
 })
 export class CartComponent implements OnInit {
   public addCartModel: AddToCart;
-  constructor(public dialog: MatDialog, private spinner: NgxSpinnerService, private router: Router,private http:HttpServiceService,private snackbar:MatSnackBar) { }
+  constructor(public dialog: MatDialog, private spinner: NgxSpinnerService, private router: Router, private http: HttpServiceService, private snackbar: MatSnackBar) { }
   serviceDetail = {
     service: 'BASIC',
     price: '$49',
@@ -54,32 +54,32 @@ export class CartComponent implements OnInit {
       } else {
         this.serviceDetail = this.serviceArray[1]
         this.addToCart(this.serviceArray[1].id)
-  
+
       }
 
 
-this.openDialog();
+      this.openDialog();
 
       // const dialogRef = this.dialog.open(ServiceComponent, {
       //   width: '600px',
       //   maxHeight: '250px',
       //   data: this.serviceDetail
       // });
-        
+
       // dialogRef.afterClosed().subscribe(result => {
       //   console.log('closed',result);
-     
+
       // });
     } catch (error) {
-      console.log('error in ecart ',error);
-      
+      console.log('error in ecart ', error);
+
     }
-}
+  }
   openDialog() {
     console.log("vvvv");
 
     const dialogRef = this.dialog.open(ServiceComponent, {
-      data:this.serviceDetail
+      data: this.serviceDetail
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -94,38 +94,38 @@ this.openDialog();
    */
   addToCart(id) {
     try {
-      console.log("id",id);
-      
+      console.log("id", id);
+
       this.addCartModel = new AddToCart();
       this.addCartModel.productId = id;
-      this.http.postRequest1('productcarts/addToCart',this.addCartModel).subscribe(data => {
-        this.snackbar.open("Product added to cart successfully",'',{duration:2000})
+      this.http.postRequest1('productcarts/addToCart', this.addCartModel).subscribe(data => {
+        this.snackbar.open("Product added to cart successfully", '', { duration: 2000 })
         console.log('data after add to cart', data);
         localStorage.setItem('cartId', data['data']['details'].id)
       }, err => {
         console.log('error after add to cart ', err);
-    
+
       })
     } catch (error) {
       console.log('error after add to cart ', error);
-      
+
     }
-    
-     
-      }
-      /**
-    * @description this method is for navigate the page to login page
-    * @returns nothing
-    */
+
+
+  }
+  /**
+* @description this method is for navigate the page to login page
+* @returns nothing
+*/
   signIn() {
     try {
       localStorage.removeItem('cartId');
-    this.router.navigate(['login']);
+      this.router.navigate(['login']);
     } catch (error) {
-      console.log('error in signIn',error);
-      
+      console.log('error in signIn', error);
+
     }
-    
+
   }
 
 

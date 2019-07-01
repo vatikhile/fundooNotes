@@ -15,6 +15,7 @@ import { TrashComponent } from '../../src/app/component/trash/trash.component'
 import { ReminderComponent } from '../../src/app/component/reminder/reminder.component'
 import { QuestionAnswerComponent } from '../../src/app/component/question-answer/question-answer.component'
 import { CartComponent } from './component/cart/cart.component';
+import { ShowLabelNotesComponent } from './component/show-label-notes/show-label-notes.component';
 const routes: Routes = [
   {
     path: '',
@@ -82,7 +83,12 @@ const routes: Routes = [
       {
         path: 'questionAnswer/:id',
         component: QuestionAnswerComponent
+      },
+      {
+        path:'ShowLabelNotes/:label',
+        component:ShowLabelNotesComponent
       }
+      
     ]
 
   }
