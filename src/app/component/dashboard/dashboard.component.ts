@@ -1,11 +1,13 @@
-import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { LabelComponent } from '../label/label.component';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-import { NoteServiceService } from 'src/app/core/service/note/note-service.service';
+import { NoteServiceService } from '../../core/service/note/note-service.service'
+// import { NoteServiceService } from 'src/app/core/service/note/note-service.service';
 import { UpdateServiceService } from '../../core/service/update/update-service.service'
 import { ViewService } from '../../core/service/viewService/view.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../src/environments/environment'
+// import { environment } from 'src/environments/environment';
 import { ProfilePicComponent } from '../profile-pic/profile-pic.component';
 import { SearchService } from '../../core/service/searchService/search.service'
 
@@ -177,6 +179,9 @@ export class DashboardComponent implements OnInit {
       console.log('error in   in toolbar');
 
     }
+  }
+  mainCartOpen(){
+    this.route.navigate(['', 'mainCart']);
   }
 
 }

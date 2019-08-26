@@ -35,7 +35,7 @@
     border-top-right-radius: 50px 50px;
    border-bottom-right-radius: 50px 50px;
   }
-  .mat-raised-button:hover
+.mat-raised-button:hover
 {
     background-image:none;
     background-color:#f1f3f3;
@@ -47,13 +47,16 @@
 .scroll{
     overflow-y: scroll;
     width: 100vw;
+      min-height: -webkit-fill-available;  
+    // min-width: -webkit-fill-available
 }
 .content {
 
     background-color: white;
-    // overflow-y: scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
-      
+    // min-height: -webkit-fill-available; 
+    min-width: -webkit-fill-available; 
 }
 .title{
     color: #5f6268;
@@ -68,7 +71,12 @@
 .mat-toolbar{
     display:flex;
     background-color: white;
-    flex: -1 0 128px;
+    position: sticky;
+    top: 0;
+    z-index: 15
+    // position: sticky; top: 0; z-index: 10
+    // flex: -1 0 128px;
+
 }
 .mat-divider
 {
@@ -97,7 +105,7 @@
 .main
 {
     display: flex;
-    min-height: -webkit-fill-available;
+    // min-height: -webkit-fill-available;
     background-color: white;
 }
 .fname{
@@ -169,6 +177,12 @@
 .search{
     margin-left: -40px
 }
-
+// :host::ng-deep.main:root {
+//     overflow-y: hidden;
+//     // height: 20000vh;
+//     // max-width: 100vw;
+//     overflow-x: hidden;
+//     // background-color: white;
+// }
 
 

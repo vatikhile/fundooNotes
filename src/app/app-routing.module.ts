@@ -16,6 +16,7 @@ import { ReminderComponent } from '../../src/app/component/reminder/reminder.com
 import { QuestionAnswerComponent } from '../../src/app/component/question-answer/question-answer.component'
 import { CartComponent } from './component/cart/cart.component';
 import { ShowLabelNotesComponent } from './component/show-label-notes/show-label-notes.component';
+import { MainCardComponent } from './component/main-card/main-card.component';
 const routes: Routes = [
   {
     path: '',
@@ -87,6 +88,10 @@ const routes: Routes = [
       {
         path:'ShowLabelNotes/:label',
         component:ShowLabelNotesComponent
+      },
+      {
+        path:'mainCart',
+        component:MainCardComponent
       }
       
     ]

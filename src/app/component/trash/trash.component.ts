@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../../core/service/http/http-service.service';
 import { UpdateServiceService } from '../../core/service/update/update-service.service';
-import { ViewService } from 'src/app/core/service/viewService/view.service';
+import { ViewService } from '../../../../src/app/core/service/viewService/view.service';
 @Component({
   selector: 'app-trash',
   templateUrl: './trash.component.html',

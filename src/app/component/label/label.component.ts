@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {  MatDialogRef } from '@angular/material';
 import { NoteServiceService } from '../../core/service/note/note-service.service'
-import { Label } from 'src/app/core/model/label/label';
+// import { Label } from 'src/app/core/model/label/label';
+import { Label} from '../../core/model/label/label'
 import { MatSnackBar } from '@angular/material';
 import { UpdateServiceService } from '../../core/service/update/update-service.service'
 import { DashboardComponent } from '../dashboard/dashboard.component';

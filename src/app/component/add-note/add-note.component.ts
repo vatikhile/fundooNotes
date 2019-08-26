@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Notes } from '../../core/model/Notes/notes';
 import { NoteServiceService } from '../../core/service/note/note-service.service'
-import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
+import {UpdateServiceService} from '../../core/service/update/update-service.service';
+// import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
 import { ViewService } from '../../core/service/viewService/view.service'
 
 @Component({
@@ -11,7 +12,7 @@ import { ViewService } from '../../core/service/viewService/view.service'
   styleUrls: ['./add-note.component.scss']
 })
 export class AddNoteComponent implements OnInit {
-  private flag: Boolean = false;
+  flag: Boolean = false;
   toggle: boolean = true;
   addNote: Notes = new Notes();
   setColor: any;

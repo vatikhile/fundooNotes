@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
+import { UpdateServiceService } from '../../../../src/app/core/service/update/update-service.service';
 import { MatSnackBar } from '@angular/material';
 import {Label} from '../../core/model/label/label';
 import {NoteServiceService} from '../../core/service/note/note-service.service'
-import { ViewService } from 'src/app/core/service/viewService/view.service';
+import { ViewService } from '../../../../src/app/core/service/viewService/view.service';
 import { MatDialog} from '@angular/material';
 import { EditNotesComponent } from '../edit-notes/edit-notes.component';
 

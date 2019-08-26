@@ -12,7 +12,7 @@
           <img mat-img src="https://ssl.gstatic.com/keep/keep.ico" />
         </div>
       </div>
-      <div fxLayout="row" fxLayoutAlign="start center" fxFlex="73" fxLayoutGap="10%">
+      <div fxLayout="row" fxLayoutAlign="start center" fxFlex="73" fxLayoutGap="9%">
         <div>
           <div fxLayout="row" fxLayoutAlign="start center" fxFlex="73" fxLayoutGap="5%" class="13">
             <div class="name">
@@ -50,7 +50,7 @@
               </div>
             </div>
             <div>
-              <button mat-icon-button><mat-icon>shopping_cart</mat-icon> </button>
+              <button mat-icon-button (click)="mainCartOpen()"><mat-icon>shopping_cart</mat-icon> </button>
           </div>
           </div>
         </div>
@@ -171,7 +171,7 @@
       <mat-divider></mat-divider>
       <div fxLayout="row" fxLayoutAlign="end">
         <input type="file" class="fileSelect" (change)=profileImage($event) #image>
-        <button mat-flat-button class="color" routerLink="/login" (click)="logout()">Sign out</button>
+        <button mat-flat-button class="color" routerLink="/login" (click)="onSignout()">Sign out</button>
       </div>
     </div>
   </mat-menu>

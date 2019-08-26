@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import {AddToCart} from '../../core/model/addToCart/add-to-cart'
 import {HttpServiceService} from '../../core/service/http/http-service.service'
 
-// import { FORMERR } from 'dns';
+
 
 
 @Component({
@@ -23,7 +23,9 @@ export class RegisterComponent implements OnInit {
   cartId = localStorage.getItem('cartId');
   getErrorMessageserver = '';
   services=[];
-  service=''
+  service='';
+  hide1:boolean;
+  hide:boolean=true;
   productId='';
   firstName = new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z ]*")]);
   lastName = new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z ]*")]);

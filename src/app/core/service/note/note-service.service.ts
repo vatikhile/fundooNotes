@@ -51,4 +51,7 @@ export class NoteServiceService {
   pin(data) {
     return this.http.pinUnpin('notes/pinUnpinNotes', data)
   }
+  getShopingCartDetailService() {
+    return this.http.getCarts('productcarts/myCart');
+  }
 }

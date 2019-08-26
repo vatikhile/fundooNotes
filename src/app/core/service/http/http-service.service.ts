@@ -116,7 +116,7 @@ export class HttpServiceService {
         'Authorization': localStorage.getItem('token')
       })
     }
-    console.log('B');
+ 
     return this.http.post(this.baseUrl + url, data, httpOptions);
   }
 
@@ -264,5 +264,15 @@ export class HttpServiceService {
   }
   getCartDetailService(url: any){
     return this.http.get(this.baseUrl + url);
+  }
+  getCarts(url: any) {
+ 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': localStorage.getItem('token')
+      })
+    }
+    return this.http.get(this.baseUrl + url,httpOptions);
   }
 }

@@ -10,7 +10,7 @@ import { HttpServiceService } from '../../core/service/http/http-service.service
 export class ProfilePicComponent implements OnInit {
 
   constructor(private httpService: HttpServiceService, private dialogRef: MatDialogRef<ProfilePicComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: any, private snackbar: MatSnackBar) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private snackbar: MatSnackBar) { }
   private apiImage;
   private croppedImage;
 

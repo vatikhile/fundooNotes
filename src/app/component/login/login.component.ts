@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   cartId=localStorage.getItem('cartId');
   services=[];
   productId="";
+  hide:boolean=true;
   email = new FormControl(null, [Validators.required, Validators.email]);
 
   // Validators.pattern(^[\w.+\-]+@gmail\.com$)

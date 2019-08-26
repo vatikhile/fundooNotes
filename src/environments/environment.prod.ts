@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl:'//fundoonotes.incubation.bridgelabz.com/api/',
+  url:'//fundoonotes.incubation.bridgelabz.com/'
 };

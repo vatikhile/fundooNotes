@@ -58,6 +58,8 @@ import { CartComponent } from './component/cart/cart.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ServiceComponent } from './component/service/service.component';
 import { ShowLabelNotesComponent } from './component/show-label-notes/show-label-notes.component';
+import { MainCardComponent } from './component/main-card/main-card.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 // import {MatDialog, MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
@@ -93,10 +95,11 @@ import { ShowLabelNotesComponent } from './component/show-label-notes/show-label
     CartComponent,
     ServiceComponent,
     ShowLabelNotesComponent,
+    MainCardComponent,
   
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -131,6 +134,7 @@ import { ShowLabelNotesComponent } from './component/show-label-notes/show-label
     MatDialogModule,
     MatAutocompleteModule,
     Ng4LoadingSpinnerModule,
+    MatProgressBarModule,
 
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot()

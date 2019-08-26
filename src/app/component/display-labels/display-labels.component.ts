@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpServiceService } from '../../core/service/http/http-service.service'
-import { UpdateServiceService } from 'src/app/core/service/update/update-service.service';
+import { UpdateServiceService } from '../../../../src/app/core/service/update/update-service.service';
 import { MatSnackBar } from '@angular/material';
 
 @Component({

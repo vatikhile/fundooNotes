@@ -1,6 +1,6 @@
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
-import {HttpServiceService} from '../../core/service/http/http-service.service';
+import { HttpServiceService } from '../../core/service/http/http-service.service';
 // import {LabelsService} from '../../core/service/labelService/labels.service';
 import { UpdateServiceService } from '../../core/service/update/update-service.service';
 
@@ -10,16 +10,16 @@ import { UpdateServiceService } from '../../core/service/update/update-service.s
   styleUrls: ['./show-label-notes.component.scss']
 })
 export class ShowLabelNotesComponent implements OnInit {
-labelMain=[];
+  labelMain = [];
   label: string;
   card = [];
-  constructor(private router: Router, private activeRouter: ActivatedRoute,private http:HttpServiceService) { }
-  @Output() countChange = new EventEmitter(); 
+  constructor(private router: Router, private activeRouter: ActivatedRoute, private http: HttpServiceService) { }
+  @Output() countChange = new EventEmitter();
   ngOnInit() {
     try {
       this.getAllLabel();
       this.activeRouter.params.subscribe(data => {
-        console.log("label",this.label);
+        console.log("label", this.label);
         this.label = data.label;
         this.getNoteListByName(data.label);
 
@@ -48,24 +48,12 @@ labelMain=[];
 
   }
   getNoteListByName(label) {
-  
-    try {
-      this.http.postLabel('notes/getNotesListByLabel/' +label,{}).subscribe(data => {
-        
-        console.log('data after get note of label',this.card);
-        this.card = data['data']['data'];
-        // this.countChange.emit(this.card); 
-        // this.label1.getnote(this.card)
-        // this.pin = [];
-        // this.unpin = [];
-        // for (let i = 0; i < this.card.length; i++) {
-        //   if (this.card[i].isPined) {
-        //     this.pin.push(this.card[i]);
-        //   } else {
-        //     this.unpin.push(this.card[i]);
 
-        //   }
-        // }
+    try {
+      this.http.postLabel('notes/getNotesListByLabel/' + label, {}).subscribe(data => {
+
+        console.log('data after get note of label', this.card);
+        this.card = data['data']['data'];
 
       }, err => {
         console.log('err after ', err);
@@ -87,7 +75,7 @@ labelMain=[];
 
     }
   }
-  update(value){
+  update(value) {
 
   }
 

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl:'http://34.213.106.173/api/',
-  url:'http://34.213.106.173/'
+  baseUrl:'//fundoonotes.incubation.bridgelabz.com/api/',
+  url:'//fundoonotes.incubation.bridgelabz.com/'
 };
 
 /*
